@@ -7,11 +7,12 @@ import java.awt.event.KeyEvent;
 
 
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
 
-public class MenuBar extends JMenu {
+public class MenuBar extends JMenuBar {
 	
 	
 	
