@@ -50,12 +50,6 @@ public class MenuBar extends JMenuBar {
 		mEdit.setMnemonic(KeyEvent.VK_E);
 		mHelp.setMnemonic(KeyEvent.VK_H);
 		
-		/* za postavljanje slike ikonice
-		 * miNew.setIcon(new ImageIcon("source Folder" + File.separator + "i onda png ili jpg"));
-			miClose.setIcon(new ImageIcon("source folder iz slika" + File.separator + "bas slika jpg"));
-		 
-		 */
-		
 		mFile.add(miNew);
 		mFile.addSeparator();
 		mFile.add(miSave);

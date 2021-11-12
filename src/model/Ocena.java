@@ -1,62 +1,54 @@
 package model;
 
+import java.util.Date;
+
 public class Ocena {
 	
 	private Student student;
-	private Predmet predmet;
-	private int brojcanaVrednostOcene; /// must be in interval 6-10
-	private String datumPolaganja;
+	private Predmet subject;
+	private int grade; /// must be in interval 6-10
+	private Date examDate;
 		
-	public Ocena () {
-		
+	public Ocena () {}
+
+	public Ocena(Student student, Predmet subject, int grade, Date examDate) {
+		super();
+		this.student = student;
+		this.subject = subject;
+		this.grade = grade;
+		this.examDate = examDate;
 	}
-	
+
 	public Student getStudent() {
 		return student;
 	}
-
 
 	public void setStudent(Student student) {
 		this.student = student;
 	}
 
-
-	public Predmet getPredmet() {
-		return predmet;
+	public Predmet getSubject() {
+		return subject;
 	}
 
-
-	public void setPredmet(Predmet predmet) {
-		this.predmet = predmet;
+	public void setSubject(Predmet subject) {
+		this.subject = subject;
 	}
 
-
-	public int getBrojcanaVrednostOcene() {
-		return brojcanaVrednostOcene;
+	public int getGrade() {
+		return grade;
 	}
 
-
-	public void setBrojcanaVrednostOcene(int brojcanaVrednostOcene) {
-		this.brojcanaVrednostOcene = brojcanaVrednostOcene;
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 
-
-	public String getDatumPolaganja() {
-		return datumPolaganja;
+	public Date getExamDate() {
+		return examDate;
 	}
 
-
-	public void setDatumPolaganja(String datumPolaganja) {
-		this.datumPolaganja = datumPolaganja;
-	}
-
-
-	public Ocena(Student student, Predmet predmet, int brojcanaVrednostOcene, String datumPolaganja) {
-		super();
-		this.student = student;
-		this.predmet = predmet;
-		this.brojcanaVrednostOcene = brojcanaVrednostOcene;
-		this.datumPolaganja = datumPolaganja;
+	public void setExamDate(Date examDate) {
+		this.examDate = examDate;
 	}
 	
 }

@@ -1,151 +1,126 @@
 package model;
 
+import java.util.Date;
 import java.util.List;
 
 
 public class Profesor {
 	
-public Profesor() {}
 
-private String prezime;
-private String ime;
-private String datumRodjenja;
-private Adresa adresaStanovanja;
-private String kontaktTelefon;
-private String email;
-private String adresaKancelarije;
-private int brLicneKarte;
-private String zvanje;
-private int godineStaza;
-private List <Predmet> predmetiNaKojimaJeProfesor;
+	private String surname;
+	private String name;
+	private Date birthDate;
+	private Adresa adress;
+	private String phoneNr;
+	private String email;
+	private String officeAdress;
+	private int idNumber;
+	private String title;
+	private int internshipYears;
+	private List <Predmet> professorSubjects;
+	
+	public Profesor(String surname, String name, Date birthDate, Adresa adress, String phoneNr, String email,
+			String officeAdress, int idNumber, String title, int internshipYears, List<Predmet> professorSubjects) {
+		super();
+		this.surname = surname;
+		this.name = name;
+		this.birthDate = birthDate;
+		this.adress = adress;
+		this.phoneNr = phoneNr;
+		this.email = email;
+		this.officeAdress = officeAdress;
+		this.idNumber = idNumber;
+		this.title = title;
+		this.internshipYears = internshipYears;
+		this.professorSubjects = professorSubjects;
+	}
 
+	public String getSurname() {
+		return surname;
+	}
 
-public Profesor(String prezime, String ime, String datumRodjenja, Adresa adresaStanovanja, String kontaktTelefon,
-		String email, String adresaKancelarije, int brLicneKarte, String zvanje, int godineStaza,
-		List<Predmet> predmetiNaKojimaJeProfesor) {
-	super();
-	this.prezime = prezime;
-	this.ime = ime;
-	this.datumRodjenja = datumRodjenja;
-	this.adresaStanovanja = adresaStanovanja;
-	this.kontaktTelefon = kontaktTelefon;
-	this.email = email;
-	this.adresaKancelarije = adresaKancelarije;
-	this.brLicneKarte = brLicneKarte;
-	this.zvanje = zvanje;
-	this.godineStaza = godineStaza;
-	this.predmetiNaKojimaJeProfesor = predmetiNaKojimaJeProfesor;
-}
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
 
+	public String getName() {
+		return name;
+	}
 
-public String getPrezime() {
-	return prezime;
-}
+	public void setName(String name) {
+		this.name = name;
+	}
 
+	public Date getBirthDate() {
+		return birthDate;
+	}
 
-public void setPrezime(String prezime) {
-	this.prezime = prezime;
-}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
 
+	public Adresa getAdress() {
+		return adress;
+	}
 
-public String getIme() {
-	return ime;
-}
+	public void setAdress(Adresa adress) {
+		this.adress = adress;
+	}
 
+	public String getPhoneNr() {
+		return phoneNr;
+	}
 
-public void setIme(String ime) {
-	this.ime = ime;
-}
+	public void setPhoneNr(String phoneNr) {
+		this.phoneNr = phoneNr;
+	}
 
+	public String getEmail() {
+		return email;
+	}
 
-public String getDatumRodjenja() {
-	return datumRodjenja;
-}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
+	public String getOfficeAdress() {
+		return officeAdress;
+	}
 
-public void setDatumRodjenja(String datumRodjenja) {
-	this.datumRodjenja = datumRodjenja;
-}
+	public void setOfficeAdress(String officeAdress) {
+		this.officeAdress = officeAdress;
+	}
 
+	public int getIdNumber() {
+		return idNumber;
+	}
 
-public Adresa getAdresaStanovanja() {
-	return adresaStanovanja;
-}
+	public void setIdNumber(int idNumber) {
+		this.idNumber = idNumber;
+	}
 
+	public String getTitle() {
+		return title;
+	}
 
-public void setAdresaStanovanja(Adresa adresaStanovanja) {
-	this.adresaStanovanja = adresaStanovanja;
-}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
+	public int getInternshipYears() {
+		return internshipYears;
+	}
 
-public String getKontaktTelefon() {
-	return kontaktTelefon;
-}
+	public void setInternshipYears(int internshipYears) {
+		this.internshipYears = internshipYears;
+	}
 
+	public List<Predmet> getProfessorSubjects() {
+		return professorSubjects;
+	}
 
-public void setKontaktTelefon(String kontaktTelefon) {
-	this.kontaktTelefon = kontaktTelefon;
-}
-
-
-public String getEmail() {
-	return email;
-}
-
-
-public void setEmail(String email) {
-	this.email = email;
-}
-
-
-public String getAdresaKancelarije() {
-	return adresaKancelarije;
-}
-
-
-public void setAdresaKancelarije(String adresaKancelarije) {
-	this.adresaKancelarije = adresaKancelarije;
-}
-
-
-public int getBrLicneKarte() {
-	return brLicneKarte;
-}
-
-
-public void setBrLicneKarte(int brLicneKarte) {
-	this.brLicneKarte = brLicneKarte;
-}
-
-
-public String getZvanje() {
-	return zvanje;
-}
-
-
-public void setZvanje(String zvanje) {
-	this.zvanje = zvanje;
-}
-
-
-public int getGodineStaza() {
-	return godineStaza;
-}
-
-
-public void setGodineStaza(int godineStaza) {
-	this.godineStaza = godineStaza;
-}
-
-
-public List<Predmet> getPredmetiNaKojimaJeProfesor() {
-	return predmetiNaKojimaJeProfesor;
-}
-
-
-public void setPredmetiNaKojimaJeProfesor(List<Predmet> predmetiNaKojimaJeProfesor) {
-	this.predmetiNaKojimaJeProfesor = predmetiNaKojimaJeProfesor;
-}
-
+	public void setProfessorSubjects(List<Predmet> professorSubjects) {
+		this.professorSubjects = professorSubjects;
+	}
 
 }

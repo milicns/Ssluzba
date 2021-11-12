@@ -8,68 +8,66 @@ enum Semestar {
 
 public class Predmet {
 	
-	private String sifraPredmeta;
-	private String nazivPredmeta;
-	private Semestar semestar;
-	private int godinaStudija;
-	private Profesor predmetniProfesor;
+	private String subjectCode;
+	private String subjectName;
+	private Semestar semester;
+	private int studyYear;
+	private Profesor subjectProfessor;
 	private int espb;
-	private List <Student> studentPolozio;
-	private List <Student> studentNijePolozio;
-
-	public Predmet() {}
-
-	public Predmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, int godinaStudija,
-			Profesor predmetniProfesor, int espb, List<Student> studentPolozio, List<Student> studentNijePolozio) {
+	private List <Student> passedStudents;
+	private List <Student> failedStudents;
+	
+	public Predmet(String subjectCode, String subjectName, Semestar semester, int studyYear, Profesor subjectProfessor,
+			int espb, List<Student> passedStudents, List<Student> failedStudents) {
 		super();
-		this.sifraPredmeta = sifraPredmeta;
-		this.nazivPredmeta = nazivPredmeta;
-		this.semestar = semestar;
-		this.godinaStudija = godinaStudija;
-		this.predmetniProfesor = predmetniProfesor;
+		this.subjectCode = subjectCode;
+		this.subjectName = subjectName;
+		this.semester = semester;
+		this.studyYear = studyYear;
+		this.subjectProfessor = subjectProfessor;
 		this.espb = espb;
-		this.studentPolozio = studentPolozio;
-		this.studentNijePolozio = studentNijePolozio;
+		this.passedStudents = passedStudents;
+		this.failedStudents = failedStudents;
 	}
 
-	public String getSifraPredmeta() {
-		return sifraPredmeta;
+	public String getSubjectCode() {
+		return subjectCode;
 	}
 
-	public void setSifraPredmeta(String sifraPredmeta) {
-		this.sifraPredmeta = sifraPredmeta;
+	public void setSubjectCode(String subjectCode) {
+		this.subjectCode = subjectCode;
 	}
 
-	public String getNazivPredmeta() {
-		return nazivPredmeta;
+	public String getSubjectName() {
+		return subjectName;
 	}
 
-	public void setNazivPredmeta(String nazivPredmeta) {
-		this.nazivPredmeta = nazivPredmeta;
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
 	}
 
-	public Semestar getSemestar() {
-		return semestar;
+	public Semestar getSemester() {
+		return semester;
 	}
 
-	public void setSemestar(Semestar semestar) {
-		this.semestar = semestar;
+	public void setSemester(Semestar semester) {
+		this.semester = semester;
 	}
 
-	public int getGodinaStudija() {
-		return godinaStudija;
+	public int getStudyYear() {
+		return studyYear;
 	}
 
-	public void setGodinaStudija(int godinaStudija) {
-		this.godinaStudija = godinaStudija;
+	public void setStudyYear(int studyYear) {
+		this.studyYear = studyYear;
 	}
 
-	public Profesor getPredmetniProfesor() {
-		return predmetniProfesor;
+	public Profesor getSubjectProfessor() {
+		return subjectProfessor;
 	}
 
-	public void setPredmetniProfesor(Profesor predmetniProfesor) {
-		this.predmetniProfesor = predmetniProfesor;
+	public void setSubjectProfessor(Profesor subjectProfessor) {
+		this.subjectProfessor = subjectProfessor;
 	}
 
 	public int getEspb() {
@@ -80,20 +78,20 @@ public class Predmet {
 		this.espb = espb;
 	}
 
-	public List<Student> getStudentPolozio() {
-		return studentPolozio;
+	public List<Student> getPassedStudents() {
+		return passedStudents;
 	}
 
-	public void setStudentPolozio(List<Student> studentPolozio) {
-		this.studentPolozio = studentPolozio;
+	public void setPassedStudents(List<Student> passedStudents) {
+		this.passedStudents = passedStudents;
 	}
 
-	public List<Student> getStudentNijePolozio() {
-		return studentNijePolozio;
+	public List<Student> getFailedStudents() {
+		return failedStudents;
 	}
 
-	public void setStudentNijePolozio(List<Student> studentNijePolozio) {
-		this.studentNijePolozio = studentNijePolozio;
+	public void setFailedStudents(List<Student> failedStudents) {
+		this.failedStudents = failedStudents;
 	}
 	
 }

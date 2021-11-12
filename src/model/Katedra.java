@@ -6,49 +6,49 @@ public class Katedra {
 	
 	public Katedra() {}
 	
-	private String sifraKatedre;
-	private String nazivKatedre;
-	private String sefKatedre;
-	private List<Profesor> profesoriNaKatedri;
+	private String deskCode;
+	private String deskName;
+	private String deskManager;
+	private List<Profesor> deskProfessors;
 	
-	public String getSifraKatedre() {
-		return sifraKatedre;
-	}
-
-	public void setSifraKatedre(String sifraKatedre) {
-		this.sifraKatedre = sifraKatedre;
-	}
-
-	public String getNazivKatedre() {
-		return nazivKatedre;
-	}
-
-	public void setNazivKatedre(String nazivKatedre) {
-		this.nazivKatedre = nazivKatedre;
-	}
-
-	public String getSefKatedre() {
-		return sefKatedre;
-	}
-
-	public void setSefKatedre(String sefKatedre) {
-		this.sefKatedre = sefKatedre;
-	}
-
-	public List<Profesor> getProfesoriNaKatedri() {
-		return profesoriNaKatedri;
-	}
-
-	public void setProfesoriNaKatedri(List<Profesor> profesoriNaKatedri) {
-		this.profesoriNaKatedri = profesoriNaKatedri;
-	}
-
-	public Katedra(String sifraKatedre, String nazivKatedre, String sefKatedre, List<Profesor> profesoriNaKatedri) {
+	public Katedra(String deskCode, String deskName, String deskManager, List<Profesor> deskProfessors) {
 		super();
-		this.sifraKatedre = sifraKatedre;
-		this.nazivKatedre = nazivKatedre;
-		this.sefKatedre = sefKatedre;
-		this.profesoriNaKatedri = profesoriNaKatedri;
+		this.deskCode = deskCode;
+		this.deskName = deskName;
+		this.deskManager = deskManager;
+		this.deskProfessors = deskProfessors;
+	}
+
+	public String getDeskCode() {
+		return deskCode;
+	}
+
+	public void setDeskCode(String deskCode) {
+		this.deskCode = deskCode;
+	}
+
+	public String getDeskName() {
+		return deskName;
+	}
+
+	public void setDeskName(String deskName) {
+		this.deskName = deskName;
+	}
+
+	public String getDeskManager() {
+		return deskManager;
+	}
+
+	public void setDeskManager(String deskManager) {
+		this.deskManager = deskManager;
+	}
+
+	public List<Profesor> getDeskProfessors() {
+		return deskProfessors;
+	}
+
+	public void setDeskProfessors(List<Profesor> deskProfessors) {
+		this.deskProfessors = deskProfessors;
 	}
 	
 }

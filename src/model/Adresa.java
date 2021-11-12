@@ -2,53 +2,51 @@ package model;
 
 public class Adresa {
 	
-	private String ulica;
-	private int broj;
-	private String grad;
-    private String drzava;
+	private String street;
+	private int nr;
+	private String city;
+    private String state;
     
     public Adresa() {}
-       
-	public Adresa(String ulica, int broj, String grad, String drzava) {
-		super();
-		this.ulica = ulica;
-		this.broj = broj;
-		this.grad = grad;
-		this.drzava = drzava;
-	}
-	
-	public String getUlica() {
-		return ulica;
-	}
-	
-	public void setUlica(String ulica) {
-		this.ulica = ulica;
-	}
-	
-	public int getBroj() {
-		return broj;
-	}
-	
-	public void setBroj(int broj) {
-		this.broj = broj;
-	}
-	
-	public String getGrad() {
-		return grad;
-	}
-	
-	public void setGrad(String grad) {
-		this.grad = grad;
-	}
-	
-	public String getDrzava() {
-		return drzava;
-	}
-	
-	public void setDrzava(String drzava) {
-		this.drzava = drzava;
-	}
-    
-	
 
+	public Adresa(String street, int nr, String city, String state) {
+		super();
+		this.street = street;
+		this.nr = nr;
+		this.city = city;
+		this.state = state;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public int getNr() {
+		return nr;
+	}
+
+	public void setNr(int nr) {
+		this.nr = nr;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+       
 }
