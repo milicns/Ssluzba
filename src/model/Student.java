@@ -2,22 +2,14 @@ package model;
 
 import java.util.List;
 
-
-
-
-
 enum Status {
 	B,S
 }
 
 public class Student {
 	
-	
-	public Student() {
-		
-	}
+	public Student() {}
 
-	
 	private String ime;
 	private String prezime;
 	private String datumRodjenja;
@@ -48,9 +40,7 @@ public class Student {
 		this.status = status;
 		this.prosecnaOcena = prosecnaOcena;
 		this.polozeniIspiti = polozeniIspiti;
-		this.nepolozeniIspiti = nepolozeniIspiti;
-		
-		
+		this.nepolozeniIspiti = nepolozeniIspiti;	
 	}
 
 	public String getIme() {
@@ -156,9 +146,5 @@ public class Student {
 	public void setNepolozeniIspiti(List<Predmet> nepolozeniIspiti) {
 		this.nepolozeniIspiti = nepolozeniIspiti;
 	}
-	
-	
-	
-	
 	
 }

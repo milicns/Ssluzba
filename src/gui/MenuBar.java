@@ -7,14 +7,12 @@ import java.awt.event.KeyEvent;
 
 
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
 
-public class MenuBar extends JMenu {
-	
-	
-	
+public class MenuBar extends JMenuBar {
 	
 	public MenuBar() {
 		
@@ -52,21 +50,11 @@ public class MenuBar extends JMenu {
 		mEdit.setMnemonic(KeyEvent.VK_E);
 		mHelp.setMnemonic(KeyEvent.VK_H);
 		
-		
-		
 		/* za postavljanje slike ikonice
 		 * miNew.setIcon(new ImageIcon("source Folder" + File.separator + "i onda png ili jpg"));
 			miClose.setIcon(new ImageIcon("source folder iz slika" + File.separator + "bas slika jpg"));
 		 
 		 */
-		  
-		  	
-		
-		
-		
-		
-		
-		
 		
 		mFile.add(miNew);
 		mFile.addSeparator();
@@ -75,7 +63,6 @@ public class MenuBar extends JMenu {
 		mFile.add(miOpen);
 		mFile.addSeparator();
 		mFile.add(miClose);
-		
 		
 		mEdit.add(miEdit);
 		mEdit.addSeparator();
@@ -92,17 +79,5 @@ public class MenuBar extends JMenu {
 		LineBorder lb = new LineBorder(Color.LIGHT_GRAY);
 		setBorder(lb);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
-	
-	
-
 }

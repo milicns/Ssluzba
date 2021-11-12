@@ -1,6 +1,6 @@
 package main;
 
-import glavniMeni.MainFrame;
+import gui.MainFrame;
 
 public class StudentskaSluzba {
 

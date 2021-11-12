@@ -2,8 +2,6 @@ package model;
 
 import java.util.List;
 
-
-
 enum Semestar {
 	L, Z
 }
@@ -19,9 +17,7 @@ public class Predmet {
 	private List <Student> studentPolozio;
 	private List <Student> studentNijePolozio;
 
-	public Predmet() {
-		
-	}
+	public Predmet() {}
 
 	public Predmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, int godinaStudija,
 			Profesor predmetniProfesor, int espb, List<Student> studentPolozio, List<Student> studentNijePolozio) {

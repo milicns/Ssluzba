@@ -5,9 +5,7 @@ import java.util.List;
 
 public class Profesor {
 	
-public Profesor() {
-	
-}
+public Profesor() {}
 
 private String prezime;
 private String ime;
@@ -148,10 +146,6 @@ public List<Predmet> getPredmetiNaKojimaJeProfesor() {
 public void setPredmetiNaKojimaJeProfesor(List<Predmet> predmetiNaKojimaJeProfesor) {
 	this.predmetiNaKojimaJeProfesor = predmetiNaKojimaJeProfesor;
 }
-
-
-
-
 
 
 }

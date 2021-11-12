@@ -1,15 +1,12 @@
 package model;
 
-
-
 public class Ocena {
 	
 	private Student student;
 	private Predmet predmet;
 	private int brojcanaVrednostOcene; /// must be in interval 6-10
 	private String datumPolaganja;
-	
-	
+		
 	public Ocena () {
 		
 	}
@@ -62,5 +59,4 @@ public class Ocena {
 		this.datumPolaganja = datumPolaganja;
 	}
 	
-
 }
