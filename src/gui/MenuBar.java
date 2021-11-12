@@ -1,4 +1,4 @@
-package glavniMeni;
+package gui;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -7,12 +7,11 @@ import java.awt.event.KeyEvent;
 
 
 import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
 
-public class MenuBar extends JMenuBar {
+public class MenuBar extends JMenu {
 	
 	
 	

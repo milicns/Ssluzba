@@ -1,4 +1,4 @@
-package glavniMeni;
+package gui;
 
 
 
@@ -31,28 +31,34 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		Toolkit kit = Toolkit.getDefaultToolkit();
 	    Dimension screenSize = kit.getScreenSize();
-	    int screenWidth = screenSize.width;
 	    int screenHeight = screenSize.height;
-	    setSize( (int)(0.75*screenWidth) , (int)(0.75*screenHeight)) ;
+	    int screenWidth = screenSize.width;
+	    setSize(3*screenHeight / 4, 3*screenWidth / 4);
 	    setTitle("Studentska služba");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setLocationRelativeTo(null); //na centar
 	    
 	    
 	    
-	    
+	    /*
 	    
 	   
-      
         
-      
+        JLabel lbl = new JLabel();
+        panel.add(lbl);
         
-        MenuBar meni = new MenuBar();
-		this.setJMenuBar(meni);
+        Toolbar tb=new Toolbar(this);
+        add(tb,BorderLayout.NORTH);
+        
+        MenuBar meni = new MenuBar(this);
+		setJMenu(meni);
 		
 		
 		
 		
+		Tabovi tab=Tabovi.getInstance();
+        add(tab,BorderLayout.CENTER);
+	    */
 	    
 	    
 	    
