@@ -4,8 +4,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-
-
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -20,21 +19,25 @@ public class MenuBar extends JMenuBar {
 		JMenu mEdit = new JMenu("Edit");
 		JMenu mHelp = new JMenu("Help");
 		
+		JMenu miOpen = new JMenu ("Open");
+		
 		JMenuItem miNew = new JMenuItem("New");
 		JMenuItem miSave = new JMenuItem ("Save");
-		JMenuItem miOpen = new JMenuItem ("Open");
 		JMenuItem miClose = new JMenuItem("Close");
 		JMenuItem miEdit = new JMenuItem("Edit");
 		JMenuItem miDelete = new JMenuItem("Delete");
 		JMenuItem miHelp = new JMenuItem("Help");
 		JMenuItem miAbout = new JMenuItem("About");
 		
+		JMenuItem student = new JMenuItem("Student");
+		JMenuItem professor = new JMenuItem("Profesor");
+		JMenuItem subject = new JMenuItem("Predmet");
+		JMenuItem desk = new JMenuItem("Katedra");
+		
 		miNew.setMnemonic(KeyEvent.VK_N);
 		miNew.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
 		miSave.setMnemonic(KeyEvent.VK_S);
 		miSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
-		miOpen.setMnemonic(KeyEvent.VK_O);
-		miOpen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
 		miClose.setMnemonic(KeyEvent.VK_C);
 		miClose.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
 		miEdit.setMnemonic(KeyEvent.VK_E);
@@ -49,11 +52,31 @@ public class MenuBar extends JMenuBar {
 		mFile.setMnemonic(KeyEvent.VK_F);
 		mEdit.setMnemonic(KeyEvent.VK_E);
 		mHelp.setMnemonic(KeyEvent.VK_H);
+		miOpen.setMnemonic(KeyEvent.VK_O);
+		
+		miNew.setIcon(new ImageIcon("images2/open.png"));
+		miSave.setIcon(new ImageIcon("images2/save.png"));
+		miOpen.setIcon(new ImageIcon("images2/open.png"));
+		miClose.setIcon(new ImageIcon("images2/close.png"));
+		miEdit.setIcon(new ImageIcon("images2/edit.png"));
+		miDelete.setIcon(new ImageIcon("images2/delete.png"));
+		miHelp.setIcon(new ImageIcon("images2/help.png"));
+		miAbout.setIcon(new ImageIcon("images2/info.png"));
+		
 		
 		mFile.add(miNew);
 		mFile.addSeparator();
 		mFile.add(miSave);
 		mFile.addSeparator();
+		
+		miOpen.add(student);
+		miOpen.addSeparator();
+		miOpen.add(professor);
+		miOpen.addSeparator();
+		miOpen.add(subject);
+		miOpen.addSeparator();
+		miOpen.add(desk);
+		
 		mFile.add(miOpen);
 		mFile.addSeparator();
 		mFile.add(miClose);
