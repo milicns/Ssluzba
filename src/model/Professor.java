@@ -4,23 +4,23 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Profesor {
+public class Professor {
 	
 
 	private String surname;
 	private String name;
 	private Date birthDate;
-	private Adresa adress;
+	private Adress adress;
 	private String phoneNr;
 	private String email;
 	private String officeAdress;
 	private int idNumber;
 	private String title;
 	private int internshipYears;
-	private List <Predmet> professorSubjects;
+	private List <Subject> professorSubjects;
 	
-	public Profesor(String surname, String name, Date birthDate, Adresa adress, String phoneNr, String email,
-			String officeAdress, int idNumber, String title, int internshipYears, List<Predmet> professorSubjects) {
+	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
+			String officeAdress, int idNumber, String title, int internshipYears, List<Subject> professorSubjects) {
 		super();
 		this.surname = surname;
 		this.name = name;
@@ -59,11 +59,11 @@ public class Profesor {
 		this.birthDate = birthDate;
 	}
 
-	public Adresa getAdress() {
+	public Adress getAdress() {
 		return adress;
 	}
 
-	public void setAdress(Adresa adress) {
+	public void setAdress(Adress adress) {
 		this.adress = adress;
 	}
 
@@ -115,11 +115,11 @@ public class Profesor {
 		this.internshipYears = internshipYears;
 	}
 
-	public List<Predmet> getProfessorSubjects() {
+	public List<Subject> getProfessorSubjects() {
 		return professorSubjects;
 	}
 
-	public void setProfessorSubjects(List<Predmet> professorSubjects) {
+	public void setProfessorSubjects(List<Subject> professorSubjects) {
 		this.professorSubjects = professorSubjects;
 	}
 

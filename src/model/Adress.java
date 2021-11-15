@@ -1,15 +1,15 @@
 package model;
 
-public class Adresa {
+public class Adress {
 	
 	private String street;
 	private int nr;
 	private String city;
     private String state;
     
-    public Adresa() {}
+    public Adress() {}
 
-	public Adresa(String street, int nr, String city, String state) {
+	public Adress(String street, int nr, String city, String state) {
 		super();
 		this.street = street;
 		this.nr = nr;

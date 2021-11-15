@@ -6,18 +6,18 @@ enum Semestar {
 	L, Z
 }
 
-public class Predmet {
+public class Subject {
 	
 	private String subjectCode;
 	private String subjectName;
 	private Semestar semester;
 	private int studyYear;
-	private Profesor subjectProfessor;
+	private Professor subjectProfessor;
 	private int espb;
 	private List <Student> passedStudents;
 	private List <Student> failedStudents;
 	
-	public Predmet(String subjectCode, String subjectName, Semestar semester, int studyYear, Profesor subjectProfessor,
+	public Subject(String subjectCode, String subjectName, Semestar semester, int studyYear, Professor subjectProfessor,
 			int espb, List<Student> passedStudents, List<Student> failedStudents) {
 		super();
 		this.subjectCode = subjectCode;
@@ -62,11 +62,11 @@ public class Predmet {
 		this.studyYear = studyYear;
 	}
 
-	public Profesor getSubjectProfessor() {
+	public Professor getSubjectProfessor() {
 		return subjectProfessor;
 	}
 
-	public void setSubjectProfessor(Profesor subjectProfessor) {
+	public void setSubjectProfessor(Professor subjectProfessor) {
 		this.subjectProfessor = subjectProfessor;
 	}
 

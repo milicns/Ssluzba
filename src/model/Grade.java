@@ -2,16 +2,16 @@ package model;
 
 import java.util.Date;
 
-public class Ocena {
+public class Grade {
 	
 	private Student student;
-	private Predmet subject;
+	private Subject subject;
 	private int grade; /// must be in interval 6-10
 	private Date examDate;
 		
-	public Ocena () {}
+	public Grade () {}
 
-	public Ocena(Student student, Predmet subject, int grade, Date examDate) {
+	public Grade(Student student, Subject subject, int grade, Date examDate) {
 		super();
 		this.student = student;
 		this.subject = subject;
@@ -27,11 +27,11 @@ public class Ocena {
 		this.student = student;
 	}
 
-	public Predmet getSubject() {
+	public Subject getSubject() {
 		return subject;
 	}
 
-	public void setSubject(Predmet subject) {
+	public void setSubject(Subject subject) {
 		this.subject = subject;
 	}
 

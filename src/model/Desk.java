@@ -2,16 +2,16 @@ package model;
 
 import java.util.List;
 
-public class Katedra {
+public class Desk {
 	
-	public Katedra() {}
+	public Desk() {}
 	
 	private String deskCode;
 	private String deskName;
-	private String deskManager;
-	private List<Profesor> deskProfessors;
+	private Professor deskManager;
+	private List<Professor> deskProfessors;
 	
-	public Katedra(String deskCode, String deskName, String deskManager, List<Profesor> deskProfessors) {
+	public Desk(String deskCode, String deskName, Professor deskManager, List<Professor> deskProfessors) {
 		super();
 		this.deskCode = deskCode;
 		this.deskName = deskName;
@@ -35,19 +35,19 @@ public class Katedra {
 		this.deskName = deskName;
 	}
 
-	public String getDeskManager() {
+	public Professor getDeskManager() {
 		return deskManager;
 	}
 
-	public void setDeskManager(String deskManager) {
+	public void setDeskManager(Professor deskManager) {
 		this.deskManager = deskManager;
 	}
 
-	public List<Profesor> getDeskProfessors() {
+	public List<Professor> getDeskProfessors() {
 		return deskProfessors;
 	}
 
-	public void setDeskProfessors(List<Profesor> deskProfessors) {
+	public void setDeskProfessors(List<Professor> deskProfessors) {
 		this.deskProfessors = deskProfessors;
 	}
 	

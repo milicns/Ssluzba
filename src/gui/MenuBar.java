@@ -54,7 +54,7 @@ public class MenuBar extends JMenuBar {
 		mHelp.setMnemonic(KeyEvent.VK_H);
 		miOpen.setMnemonic(KeyEvent.VK_O);
 		
-		miNew.setIcon(new ImageIcon("images2/open.png"));
+		miNew.setIcon(new ImageIcon("images2/new.png"));
 		miSave.setIcon(new ImageIcon("images2/save.png"));
 		miOpen.setIcon(new ImageIcon("images2/open.png"));
 		miClose.setIcon(new ImageIcon("images2/close.png"));

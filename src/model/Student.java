@@ -14,7 +14,7 @@ public class Student {
 	private String name;
 	private String surname;
 	private Date birthDate;
-	private Adresa adress;
+	private Adress adress;
 	private String phoneNr;
 	private String email;
 	private int index;
@@ -22,12 +22,12 @@ public class Student {
 	private int currentYear;
 	private Status status;
 	private long avgGrade;
-	private List<Predmet> passedSubjects;
-	private List<Predmet> failedSubjects;
+	private List<Subject> passedSubjects;
+	private List<Subject> failedSubjects;
 	
-	public Student(String name, String surname, Date birthDate, Adresa adress, String phoneNr, String email, int index,
-			int enrollYear, int currentYear, Status status, long avgGrade, List<Predmet> passedSubjects,
-			List<Predmet> failedSubjects) {
+	public Student(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, int index,
+			int enrollYear, int currentYear, Status status, long avgGrade, List<Subject> passedSubjects,
+			List<Subject> failedSubjects) {
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -68,11 +68,11 @@ public class Student {
 		this.birthDate = birthDate;
 	}
 
-	public Adresa getAdress() {
+	public Adress getAdress() {
 		return adress;
 	}
 
-	public void setAdress(Adresa adress) {
+	public void setAdress(Adress adress) {
 		this.adress = adress;
 	}
 
@@ -132,19 +132,19 @@ public class Student {
 		this.avgGrade = avgGrade;
 	}
 
-	public List<Predmet> getPassedSubjects() {
+	public List<Subject> getPassedSubjects() {
 		return passedSubjects;
 	}
 
-	public void setPassedSubjects(List<Predmet> passedSubjects) {
+	public void setPassedSubjects(List<Subject> passedSubjects) {
 		this.passedSubjects = passedSubjects;
 	}
 
-	public List<Predmet> getFailedSubjects() {
+	public List<Subject> getFailedSubjects() {
 		return failedSubjects;
 	}
 
-	public void setFailedSubjects(List<Predmet> failedSubjects) {
+	public void setFailedSubjects(List<Subject> failedSubjects) {
 		this.failedSubjects = failedSubjects;
 	}
 	
