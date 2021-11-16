@@ -17,16 +17,16 @@ public class Student {
 	private Adress adress;
 	private String phoneNr;
 	private String email;
-	private int index;
+	private String index;
 	private int enrollYear;
 	private int currentYear;
 	private Status status;
-	private long avgGrade;
+	private double avgGrade;
 	private List<Subject> passedSubjects;
 	private List<Subject> failedSubjects;
 	
-	public Student(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, int index,
-			int enrollYear, int currentYear, Status status, long avgGrade, List<Subject> passedSubjects,
+	public Student(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
+			int enrollYear, int currentYear, Status status, double avgGrade, List<Subject> passedSubjects,
 			List<Subject> failedSubjects) {
 		super();
 		this.name = name;
@@ -92,11 +92,11 @@ public class Student {
 		this.email = email;
 	}
 
-	public int getIndex() {
+	public String getIndex() {
 		return index;
 	}
 
-	public void setIndex(int index) {
+	public void setIndex(String index) {
 		this.index = index;
 	}
 
@@ -124,11 +124,11 @@ public class Student {
 		this.status = status;
 	}
 
-	public long getAvgGrade() {
+	public double getAvgGrade() {
 		return avgGrade;
 	}
 
-	public void setAvgGrade(long avgGrade) {
+	public void setAvgGrade(double avgGrade) {
 		this.avgGrade = avgGrade;
 	}
 

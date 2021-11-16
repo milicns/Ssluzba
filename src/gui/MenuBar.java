@@ -30,14 +30,15 @@ public class MenuBar extends JMenuBar {
 		JMenuItem miAbout = new JMenuItem("About");
 		
 		JMenuItem student = new JMenuItem("Student");
-		JMenuItem professor = new JMenuItem("Profesor");
-		JMenuItem subject = new JMenuItem("Predmet");
-		JMenuItem desk = new JMenuItem("Katedra");
+		JMenuItem professor = new JMenuItem("Professor");
+		JMenuItem subject = new JMenuItem("Subject");
+		JMenuItem department = new JMenuItem("Department");
 		
 		miNew.setMnemonic(KeyEvent.VK_N);
 		miNew.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
 		miSave.setMnemonic(KeyEvent.VK_S);
 		miSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+		miOpen.setMnemonic(KeyEvent.VK_O);
 		miClose.setMnemonic(KeyEvent.VK_C);
 		miClose.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
 		miEdit.setMnemonic(KeyEvent.VK_E);
@@ -49,10 +50,24 @@ public class MenuBar extends JMenuBar {
 		miAbout.setMnemonic(KeyEvent.VK_A);
 		miAbout.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
 		
+		student.setMnemonic(KeyEvent.VK_U);
+		student.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, ActionEvent.CTRL_MASK));
+		professor.setMnemonic(KeyEvent.VK_P);
+		professor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.CTRL_MASK));
+		subject.setMnemonic(KeyEvent.VK_I);
+		subject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, ActionEvent.CTRL_MASK));
+		department.setMnemonic(KeyEvent.VK_K);
+		department.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, ActionEvent.CTRL_MASK));
+		
+		
 		mFile.setMnemonic(KeyEvent.VK_F);
 		mEdit.setMnemonic(KeyEvent.VK_E);
 		mHelp.setMnemonic(KeyEvent.VK_H);
-		miOpen.setMnemonic(KeyEvent.VK_O);
+		
+		student.setIcon(new ImageIcon("images/student.png"));
+		professor.setIcon(new ImageIcon("images/professor.png"));
+		subject.setIcon(new ImageIcon("images/subject.png"));
+		department.setIcon(new ImageIcon("images/department.png"));
 		
 		miNew.setIcon(new ImageIcon("images2/new.png"));
 		miSave.setIcon(new ImageIcon("images2/save.png"));
@@ -75,7 +90,7 @@ public class MenuBar extends JMenuBar {
 		miOpen.addSeparator();
 		miOpen.add(subject);
 		miOpen.addSeparator();
-		miOpen.add(desk);
+		miOpen.add(department);
 		
 		mFile.add(miOpen);
 		mFile.addSeparator();
