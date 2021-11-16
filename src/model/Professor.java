@@ -13,14 +13,14 @@ public class Professor {
 	private Adress adress;
 	private String phoneNr;
 	private String email;
-	private String officeAdress;
+	private Adress officeAdress;
 	private int idNumber;
 	private String title;
 	private int internshipYears;
 	private List <Subject> professorSubjects;
 	
 	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
-			String officeAdress, int idNumber, String title, int internshipYears, List<Subject> professorSubjects) {
+			Adress officeAdress, int idNumber, String title, int internshipYears, List<Subject> professorSubjects) {
 		super();
 		this.surname = surname;
 		this.name = name;
@@ -83,11 +83,11 @@ public class Professor {
 		this.email = email;
 	}
 
-	public String getOfficeAdress() {
+	public Adress getOfficeAdress() {
 		return officeAdress;
 	}
 
-	public void setOfficeAdress(String officeAdress) {
+	public void setOfficeAdress(Adress officeAdress) {
 		this.officeAdress = officeAdress;
 	}
 

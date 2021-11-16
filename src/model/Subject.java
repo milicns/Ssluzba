@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-enum Semestar {
+enum Semester {
 	L, Z
 }
 
@@ -10,14 +10,14 @@ public class Subject {
 	
 	private String subjectCode;
 	private String subjectName;
-	private Semestar semester;
+	private Semester semester;
 	private int studyYear;
 	private Professor subjectProfessor;
 	private int espb;
 	private List <Student> passedStudents;
 	private List <Student> failedStudents;
 	
-	public Subject(String subjectCode, String subjectName, Semestar semester, int studyYear, Professor subjectProfessor,
+	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear, Professor subjectProfessor,
 			int espb, List<Student> passedStudents, List<Student> failedStudents) {
 		super();
 		this.subjectCode = subjectCode;
@@ -46,11 +46,11 @@ public class Subject {
 		this.subjectName = subjectName;
 	}
 
-	public Semestar getSemester() {
+	public Semester getSemester() {
 		return semester;
 	}
 
-	public void setSemester(Semestar semester) {
+	public void setSemester(Semester semester) {
 		this.semester = semester;
 	}
 
