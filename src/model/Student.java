@@ -3,10 +3,6 @@ package model;
 import java.util.Date;
 import java.util.List;
 
-enum Status {
-	B,S
-}
-
 public class Student {
 	
 	public Student() {}
@@ -22,11 +18,11 @@ public class Student {
 	private int currentYear;
 	private Status status;
 	private double avgGrade;
-	private List<Subject> passedSubjects;
+	private List<Grade> passedSubjects;
 	private List<Subject> failedSubjects;
 	
 	public Student(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status, double avgGrade, List<Subject> passedSubjects,
+			int enrollYear, int currentYear, Status status, double avgGrade, List<Grade> passedSubjects,
 			List<Subject> failedSubjects) {
 		super();
 		this.name = name;
@@ -132,11 +128,11 @@ public class Student {
 		this.avgGrade = avgGrade;
 	}
 
-	public List<Subject> getPassedSubjects() {
+	public List<Grade> getPassedSubjects() {
 		return passedSubjects;
 	}
 
-	public void setPassedSubjects(List<Subject> passedSubjects) {
+	public void setPassedSubjects(List<Grade> passedSubjects) {
 		this.passedSubjects = passedSubjects;
 	}
 
@@ -148,4 +144,7 @@ public class Student {
 		this.failedSubjects = failedSubjects;
 	}
 	
+	enum Status {
+		B,S
+	}
 }

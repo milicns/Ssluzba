@@ -8,9 +8,6 @@ import javax.swing.JFrame;
 
 public class MainFrame extends JFrame {  
 	
-	/*
-	 * private static final long serialVersionUID = 1L;
-	 */
 	
 	public MainFrame() {
 		Toolkit kit = Toolkit.getDefaultToolkit();
@@ -20,13 +17,16 @@ public class MainFrame extends JFrame {
 	    setSize(3*screenWidth / 4, 3*screenHeight/ 4);
 	    setTitle("Studentska služba");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setLocationRelativeTo(null); //na centar
+	    setLocationRelativeTo(null);
 	     
         MenuBar menu = new MenuBar();
 		this.setJMenuBar(menu);
 		
 		ToolBar toolbar = new ToolBar();
 		add(toolbar, BorderLayout.NORTH);
+		
+		Tab tabs = new Tab();
+		this.add(tabs);
 		
 	}
 	       
