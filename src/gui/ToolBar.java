@@ -8,16 +8,18 @@ import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
+import controller.StudentController;
 import view.StudentDialog;
 
 
 public class ToolBar extends JToolBar {
 	
-	public ToolBar(JFrame fr) {
+	public ToolBar(JFrame parent) {
 		
 		super(SwingConstants.HORIZONTAL);
 		setFloatable(false);
@@ -28,8 +30,10 @@ public class ToolBar extends JToolBar {
 		create.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				StudentDialog sd = new StudentDialog(fr,"Dodavanje studenta");
+				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
+				StudentDialog sd = new StudentDialog(parent,"Dodavanje studenta",true);
 				sd.setVisible(true);
+				}
 			}
 			
 		});
@@ -44,6 +48,22 @@ public class ToolBar extends JToolBar {
 		JButton delete = new JButton();
 		delete.setToolTipText("Delete");
 		delete.setIcon(new ImageIcon("images/bin.png"));
+		delete.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0)
+					if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
+					String[] options = {"Da", "Ne"};
+					int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da zelite da obrisete studenta?", "Brisanje studenta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
+					if(d == JOptionPane.YES_OPTION) {
+						String index = (MainFrame.getInstance().getStudentTable().getValueAt(MainFrame.getInstance().getStudentTable().getSelectedRow(),0)).toString();
+						StudentController.getInstance().deleteStudent(index);
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Izaberite studenta kog zelite da obrisete.");
+				}	
+			}
+		});
 		add(delete);
 		
 		JTextField tf = new JTextField();
