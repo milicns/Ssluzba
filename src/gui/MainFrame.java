@@ -13,6 +13,9 @@ import javax.swing.JTable;
 public class MainFrame extends JFrame {  
 	
 	private JTable studentsTable;
+	private JTable professorsTable;
+	private JTable subjectsTable;
+	TabbedPane tabs;
 	
 	private static MainFrame instance = null;
 	
@@ -39,9 +42,18 @@ public class MainFrame extends JFrame {
 		ToolBar toolbar = new ToolBar(this);
 		add(toolbar, BorderLayout.NORTH);
 		
-		Tab tabs = new Tab();
-		this.add(tabs);
-		showTable();
+		studentsTable = new StudentsJTable();
+		JScrollPane stp = new JScrollPane(studentsTable);
+		professorsTable = new ProfessorsJTable();
+		JScrollPane pp = new JScrollPane(professorsTable);
+		subjectsTable = new SubjectsJTable();
+		JScrollPane sbp = new JScrollPane(subjectsTable);
+		
+		tabs = new TabbedPane();
+		tabs.addTab("Studenti", stp);
+		tabs.addTab("Profesori", pp);
+		tabs.addTab("Predmeti", sbp);
+		this.add(tabs, BorderLayout.CENTER);
 	
 	}
 	
@@ -52,14 +64,13 @@ public class MainFrame extends JFrame {
 		validate();
 	}
 	
-	private void showTable() {
-		studentsTable = new StudentsJTable();
-
-		JScrollPane scrollPane = new JScrollPane(studentsTable);
-		add(scrollPane, BorderLayout.CENTER);
-
-		this.refreshStudents();
+	
+	public TabbedPane getTabs() {
+		return tabs;
 	}
 	
+	public JTable getStudentTable() {
+		return studentsTable;
+	}
 	       
 }

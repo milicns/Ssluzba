@@ -30,4 +30,9 @@ public class StudentController {
 		MainFrame.getInstance().refreshStudents();
 	}
 	
+	public void deleteStudent(String index) {
+		StudentsDatabase.getInstance().deleteStudent(index);
+		MainFrame.getInstance().refreshStudents();
+	}
+	
 }

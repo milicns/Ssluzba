@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.StudentController;
+import gui.MainFrame;
 import model.Adress;
 import model.Student;
 import model.Student.Status;
@@ -56,10 +57,11 @@ public class StudentDialog extends JDialog {
 	private JButton quit;
 	private JPanel bPnl;
 	
-	public StudentDialog(JFrame f, String title) {
+	public StudentDialog(JFrame parent, String title, boolean modal) {
 		
+		super(parent, title, modal);
 		setSize(500,500);
-		setLocationRelativeTo(f);
+		setLocationRelativeTo(parent);
 		setTitle(title);
 		initGui();
 		constructGui();
@@ -222,7 +224,6 @@ public class StudentDialog extends JDialog {
 					
 				try {	
 					StudentController.getInstance().addStudent(tfName.getText(), tfSurname.getText(), new SimpleDateFormat("dd.mm.yyyy.").parse(tfBirthDate.getText()), adress , tfPhone.getText(), tfEmail.getText(), tfIndex.getText(), Integer.parseInt(tfEnroll.getText()), currYear, status); 
-					
 				} catch (ParseException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
