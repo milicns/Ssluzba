@@ -39,6 +39,24 @@ public class Student {
 		this.passedSubjects = passedSubjects;
 		this.failedSubjects = failedSubjects;
 	}
+	
+	public Student(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
+			int enrollYear, int currentYear, Status status) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.birthDate = birthDate;
+		this.adress = adress;
+		this.phoneNr = phoneNr;
+		this.email = email;
+		this.index = index;
+		this.enrollYear = enrollYear;
+		this.currentYear = currentYear;
+		this.status = status;
+		this.avgGrade = avgGrade;
+		this.passedSubjects = passedSubjects;
+		this.failedSubjects = failedSubjects;
+	}
 
 	public String getName() {
 		return name;
@@ -144,7 +162,7 @@ public class Student {
 		this.failedSubjects = failedSubjects;
 	}
 	
-	enum Status {
+	public enum Status {
 		B,S
 	}
 }

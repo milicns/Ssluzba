@@ -20,7 +20,7 @@ public class StudentsDatabase {
 	}
 
 	private List<Student> students;
-	private List <String> columns;
+	private List<String> columns;
 	
 	private StudentsDatabase() {
 		initStudents();
@@ -39,8 +39,8 @@ public class StudentsDatabase {
 		this.students = new ArrayList<Student>();
 		
 		try {
-			students.add(new Student("Pera", "Peric", new SimpleDateFormat("dd.MM.yyyy.").parse("03.05.2000."), new Adress("Bulevar Oslobodjenja","79","Novi Sad","Srbija"),"065/111-3434","pera.peric@gmail.com","ra-22-2019",2019,3,Status.B, 8.79, new ArrayList<Grade>(), new ArrayList<Subject>()));
-			students.add(new Student("Milos", "Petrovic", new SimpleDateFormat("dd.MM.yyyy.").parse("15.08.1999."), new Adress("Temerinska","121","Novi Sad","Srbija"),"064/333-5555","milos.petrovic@gmail.com","sw-14-2018",2018,4,Status.B, 9.54, new ArrayList<Grade>(), new ArrayList<Subject>()));
+			students.add(new Student("Pera", "Peric", new SimpleDateFormat("dd.mm.yyyy.").parse("03.05.2000."), new Adress("Bulevar Oslobodjenja","79","Novi Sad","Srbija"),"065/111-3434","pera.peric@gmail.com","ra-22-2019",2019,3,Status.B, 8.79, new ArrayList<Grade>(), new ArrayList<Subject>()));
+			students.add(new Student("Milos", "Petrovic", new SimpleDateFormat("dd.mm.yyyy.").parse("15.08.1999."), new Adress("Temerinska","121","Novi Sad","Srbija"),"064/333-5555","milos.petrovic@gmail.com","sw-14-2018",2018,4,Status.B, 9.54, new ArrayList<Grade>(), new ArrayList<Subject>()));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,22 +88,21 @@ public class StudentsDatabase {
 	}
 	
 	public void addStudent(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status, double avgGrade, List<Grade> passedSubjects,
-			List<Subject> failedSubjects) {
+			int enrollYear, int currentYear, Status status) {
 		
-		this.students.add(new Student(name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status, avgGrade, passedSubjects, failedSubjects));
+		this.students.add(new Student(name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status));
 	}
 	
-	public void deleteStudent(Student st) {
+	public void deleteStudent(String id) {
 		for (Student s : students) {
-			if (s.equals(st)) {
+			if (s.getIndex().equals(id)) {
 				students.remove(s);
 				break;
 			}
 		}
 	}
 	
-	public void izmeniIgraca(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
+	public void editStudent(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
 			int enrollYear, int currentYear, Status status, double avgGrade, List<Grade> passedSubjects,
 			List<Subject> failedSubjects) {
 		for (Student s : students) {

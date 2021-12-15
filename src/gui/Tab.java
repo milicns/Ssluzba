@@ -41,6 +41,7 @@ public class Tab extends JTabbedPane{
 		
 		return sc;	
 	}
-		
+	
+	
 }
 
