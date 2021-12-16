@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 enum Status {
@@ -17,17 +18,17 @@ public class Student {
 	private Adress adress;
 	private String phoneNr;
 	private String email;
-	private String index;
+	private String index; //id 
 	private int enrollYear;
 	private int currentYear;
 	private Status status;
 	private double avgGrade;
-	private List<Subject> passedSubjects;
-	private List<Subject> failedSubjects;
+	private ArrayList<Subject> passedSubjects; //grade 
+	private ArrayList<Subject> failedSubjects;
 	
 	public Student(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status, double avgGrade, List<Subject> passedSubjects,
-			List<Subject> failedSubjects) {
+			int enrollYear, int currentYear, Status status, double avgGrade, ArrayList<Subject> passedSubjects,
+			ArrayList<Subject> failedSubjects) {
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -132,19 +133,19 @@ public class Student {
 		this.avgGrade = avgGrade;
 	}
 
-	public List<Subject> getPassedSubjects() {
+	public ArrayList<Subject> getPassedSubjects() {
 		return passedSubjects;
 	}
 
-	public void setPassedSubjects(List<Subject> passedSubjects) {
+	public void setPassedSubjects(ArrayList<Subject> passedSubjects) {
 		this.passedSubjects = passedSubjects;
 	}
 
-	public List<Subject> getFailedSubjects() {
+	public ArrayList<Subject> getFailedSubjects() {
 		return failedSubjects;
 	}
 
-	public void setFailedSubjects(List<Subject> failedSubjects) {
+	public void setFailedSubjects(ArrayList<Subject> failedSubjects) {
 		this.failedSubjects = failedSubjects;
 	}
 	
