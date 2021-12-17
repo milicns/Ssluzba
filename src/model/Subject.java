@@ -2,9 +2,6 @@ package model;
 
 import java.util.List;
 
-enum Semester {
-	L, Z
-}
 
 public class Subject {
 	
@@ -92,6 +89,10 @@ public class Subject {
 
 	public void setFailedStudents(List<Student> failedStudents) {
 		this.failedStudents = failedStudents;
+	}
+	
+	public enum Semester {
+		L, Z
 	}
 	
 }

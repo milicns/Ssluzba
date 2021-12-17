@@ -36,7 +36,7 @@ public class MainFrame extends JFrame {
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setLocationRelativeTo(null);
 	     
-        MenuBar menu = new MenuBar();
+        MenuBar menu = new MenuBar(this);
 		this.setJMenuBar(menu);
 		
 		ToolBar toolbar = new ToolBar(this);

@@ -1,4 +1,4 @@
-package model;
+/*package model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,22 +8,22 @@ import java.util.List;
 
 import model.Student.Status;
 
-public class StudentsDatabase {
+public class SubjectDatabase {
 
-	private static StudentsDatabase instance = null;
+private static SubjectDatabase instance = null;
 	
-	public static StudentsDatabase getInstance() {
+	public static SubjectDatabase getInstance() {
 		if (instance == null) {
-			instance = new StudentsDatabase();
+			instance = new SubjectDatabase();
 		}
 		return instance;
 	}
 
-	private List<Student> students;
+	private List<Subject> subjects;
 	private List<String> columns;
 	
-	private StudentsDatabase() {
-		initStudents();
+	private SubjectDatabase() {
+		
 		
 		this.columns = new ArrayList<String>();
 		
@@ -118,4 +118,4 @@ public class StudentsDatabase {
 				s.setStatus(status);
 			}
 	
-}
+}*/

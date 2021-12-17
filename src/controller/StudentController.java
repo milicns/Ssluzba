@@ -5,10 +5,7 @@ import java.util.List;
 
 import gui.MainFrame;
 import model.Adress;
-import model.Grade;
-import model.Student;
 import model.StudentsDatabase;
-import model.Subject;
 import model.Student.Status;
 
 public class StudentController {
@@ -33,6 +30,13 @@ public class StudentController {
 	public void deleteStudent(String index) {
 		StudentsDatabase.getInstance().deleteStudent(index);
 		MainFrame.getInstance().refreshStudents();
+	}
+	
+	public void editStudent(int row, String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
+			int enrollYear, int currentYear, Status status) {
+		StudentsDatabase.getInstance().editStudent(row, name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status);
+		MainFrame.getInstance().refreshStudents();
+		
 	}
 	
 }
