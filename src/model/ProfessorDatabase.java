@@ -1,6 +1,7 @@
 package model;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,14 +44,17 @@ public class ProfessorDatabase {
 	private void initProfessores()  {
 		// TODO Auto-generated method stub
 		
-		/*
-		 *Professor p1= new Professor("Nemanja","Obradovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.08.2001."),"address 1","1235860492321","mail1","Office Address 1","12345678",Title.DR,internshipYears.REDOVNIPROFESOR);
-		 *Professor p2= new Professor("Pera","Perovic",new SimpleDateFormat("dd.MM.yyyy").parse("15.05.1999."),"Address 2","5432120492049","mail2","Office Address 2","21399998",Title.PROF,internshipYears.DEKAN);
-		 *Professor p3= new Professor("Jovan","Jovanovic",new SimpleDateFormat("dd.MM.yyyy").parse("12.05.1955."),"Address 3","5555520492049","mail2","Office Address 3","44449998",Title.MR,internshipYears.DOCENT);
-		 *professors.add(p1);
-		  professors.add(p2);
-		   professors.add(p3);
-	*/
+		
+		 Professor p1;
+		try {
+			p1 = new Professor("Nemanja","Obradovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.08.2001."),new Adress("address","1","Novi Sad","Srbija"),"1235860492321","mail1",new Adress("Office Address","1","Novi Sad", "Srbija"), 21, Title.DR, InternshipYears.REDOVNIPROFESOR, new ArrayList<Subject>());
+			professors.add(p1);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	
 		
 		
 		

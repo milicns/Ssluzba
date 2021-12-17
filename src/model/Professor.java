@@ -8,6 +8,9 @@ enum Title {
 	MR, DR, PROF
 }
 
+enum InternshipYears {
+	REDOVNIPROFESOR, DOCENT, DEKAN
+}
 
 
 
@@ -20,14 +23,30 @@ public class Professor {
 	private Adress adress;
 	private String phoneNr;
 	private String email;
-	private Adress officeAdress;  //typoooo
+	private Adress officeAdress;  
 	private int idNumber;
-	private String title;
-	private int internshipYears;
+	private Title title;
+	private InternshipYears internshipYears;
 	private ArrayList <Subject> professorSubjects;
 	
 	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
-			Adress officeAdress, int idNumber, String title, int internshipYears, ArrayList<Subject> professorSubjects) {
+			Adress officeAdress, int idNumber, Title title, InternshipYears internshipYears, ArrayList<Subject> professorSubjects) {
+		super();
+		this.surname = surname;
+		this.name = name;
+		this.birthDate = birthDate;
+		this.adress = adress;
+		this.phoneNr = phoneNr;
+		this.email = email;
+		this.officeAdress = officeAdress;
+		this.idNumber = idNumber;
+		this.title = title;
+		this.internshipYears = internshipYears;
+		this.professorSubjects = professorSubjects;
+	}
+	
+	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
+			Adress officeAdress, int idNumber, Title title, InternshipYears internshipYears) {
 		super();
 		this.surname = surname;
 		this.name = name;
@@ -107,19 +126,19 @@ public class Professor {
 		this.idNumber = idNumber;
 	}
 
-	public String getTitle() {
+	public Title getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(Title title) {
 		this.title = title;
 	}
 
-	public int getInternshipYears() {
+	public InternshipYears getInternshipYears() {
 		return internshipYears;
 	}
 
-	public void setInternshipYears(int internshipYears) {
+	public void setInternshipYears(InternshipYears internshipYears) {
 		this.internshipYears = internshipYears;
 	}
 
