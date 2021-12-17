@@ -10,8 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+
 import tables.AbstractTableSubject;
-import tables.StudentsJTable;
 import tables.AbstractTableProfessor;
 
 import tables.TableProfessor;
@@ -19,9 +19,19 @@ import tables.TableSubject;
 
 public class MainFrame extends JFrame {  
 	
-	/*
-	 * private static final long serialVersionUID = 1L;
-	 */
+	private JTable studentsTable;
+	private JTable professorsTable;
+	private JTable subjectsTable;
+	TabbedPane tabs;
+	
+	private static MainFrame instance = null;
+	
+	public static MainFrame getInstance() {
+		if(instance == null) {
+			instance = new MainFrame();
+		}
+		return instance;
+	}
 	
 	
 	private JTable studentsTable;
@@ -42,12 +52,12 @@ public class MainFrame extends JFrame {
 	    setSize(3*screenWidth / 4, 3*screenHeight/ 4);
 	    setTitle("Studentska sluzba");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setLocationRelativeTo(null); //na centar
+	    setLocationRelativeTo(null);
 	     
         MenuBar menu = new MenuBar();
 		this.setJMenuBar(menu);
 		
-		ToolBar toolbar = new ToolBar();
+		ToolBar toolbar = new ToolBar(this);
 		add(toolbar, BorderLayout.NORTH);
 			
 		
@@ -78,6 +88,35 @@ public class MainFrame extends JFrame {
 		
 		
 		
+		studentsTable = new StudentsJTable();
+		JScrollPane stp = new JScrollPane(studentsTable);
+		professorsTable = new ProfessorsJTable();
+		JScrollPane pp = new JScrollPane(professorsTable);
+		subjectsTable = new SubjectsJTable();
+		JScrollPane sbp = new JScrollPane(subjectsTable);
+		
+		tabs = new TabbedPane();
+		tabs.addTab("Studenti", stp);
+		tabs.addTab("Profesori", pp);
+		tabs.addTab("Predmeti", sbp);
+		this.add(tabs, BorderLayout.CENTER);
+	
+	}
+	
+	public void refreshStudents() {
+		AbstractTableModelStudents model = (AbstractTableModelStudents) studentsTable.getModel();
+		
+		model.fireTableDataChanged();
+		validate();
+	}
+	
+	
+	public TabbedPane getTabs() {
+		return tabs;
+	}
+	
+	public JTable getStudentTable() {
+		return studentsTable;
 	}
 	       
 

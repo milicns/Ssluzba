@@ -1,5 +1,6 @@
 package gui;
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -141,3 +142,19 @@ public void setTableProfessors(JTable tableProfessors) {
 
 	
 	
+/*
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+
+public class TabbedPane extends JTabbedPane{
+	
+	public TabbedPane() {
+		super();
+	}
+	
+	
+}
+*/
+
+

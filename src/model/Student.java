@@ -4,10 +4,6 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-enum Status {
-	B,S
-}
-
 public class Student {
 	
 	public Student() {}
@@ -18,17 +14,37 @@ public class Student {
 	private Adress adress;
 	private String phoneNr;
 	private String email;
-	private String index; //id 
+	private String index;
 	private int enrollYear;
 	private int currentYear;
 	private Status status;
 	private double avgGrade;
-	private ArrayList<Subject> passedSubjects; //grade 
+
+	private ArrayList<Grade> passedSubjects;
 	private ArrayList<Subject> failedSubjects;
 	
 	public Student(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status, double avgGrade, ArrayList<Subject> passedSubjects,
+			int enrollYear, int currentYear, Status status, double avgGrade, ArrayList<Grade> passedSubjects,
 			ArrayList<Subject> failedSubjects) {
+
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.birthDate = birthDate;
+		this.adress = adress;
+		this.phoneNr = phoneNr;
+		this.email = email;
+		this.index = index;
+		this.enrollYear = enrollYear;
+		this.currentYear = currentYear;
+		this.status = status;
+		this.avgGrade = avgGrade;
+		this.passedSubjects = passedSubjects;
+		this.failedSubjects = failedSubjects;
+	}
+	
+	public Student(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
+			int enrollYear, int currentYear, Status status) {
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -133,11 +149,11 @@ public class Student {
 		this.avgGrade = avgGrade;
 	}
 
-	public ArrayList<Subject> getPassedSubjects() {
+	public ArrayList<Grade> getPassedSubjects() {
 		return passedSubjects;
 	}
 
-	public void setPassedSubjects(ArrayList<Subject> passedSubjects) {
+	public void setPassedSubjects(ArrayList<Grade> passedSubjects) {
 		this.passedSubjects = passedSubjects;
 	}
 
@@ -149,4 +165,7 @@ public class Student {
 		this.failedSubjects = failedSubjects;
 	}
 	
+	public enum Status {
+		B,S
+	}
 }
