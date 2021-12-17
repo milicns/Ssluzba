@@ -1,7 +1,14 @@
 package model;
 
 import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
+
+enum Title {
+	MR, DR, PROF
+}
+
+
 
 
 public class Professor {
@@ -13,14 +20,14 @@ public class Professor {
 	private Adress adress;
 	private String phoneNr;
 	private String email;
-	private Adress officeAdress;
+	private Adress officeAdress;  //typoooo
 	private int idNumber;
 	private String title;
 	private int internshipYears;
-	private List <Subject> professorSubjects;
+	private ArrayList <Subject> professorSubjects;
 	
 	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
-			Adress officeAdress, int idNumber, String title, int internshipYears, List<Subject> professorSubjects) {
+			Adress officeAdress, int idNumber, String title, int internshipYears, ArrayList<Subject> professorSubjects) {
 		super();
 		this.surname = surname;
 		this.name = name;
@@ -34,6 +41,7 @@ public class Professor {
 		this.internshipYears = internshipYears;
 		this.professorSubjects = professorSubjects;
 	}
+
 
 	public String getSurname() {
 		return surname;
@@ -115,11 +123,11 @@ public class Professor {
 		this.internshipYears = internshipYears;
 	}
 
-	public List<Subject> getProfessorSubjects() {
+	public ArrayList<Subject> getProfessorSubjects() {
 		return professorSubjects;
 	}
 
-	public void setProfessorSubjects(List<Subject> professorSubjects) {
+	public void setProfessorSubjects(ArrayList<Subject> professorSubjects) {
 		this.professorSubjects = professorSubjects;
 	}
 

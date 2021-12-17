@@ -40,7 +40,9 @@ public class Grade {
 	}
 
 	public void setGrade(int grade) {
+		if(grade>=6 && grade<=10) {
 		this.grade = grade;
+		}
 	}
 
 	public Date getExamDate() {

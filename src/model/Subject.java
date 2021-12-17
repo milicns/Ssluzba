@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,11 +12,24 @@ public class Subject {
 	private int studyYear;
 	private Professor subjectProfessor;
 	private int espb;
-	private List <Student> passedStudents;
-	private List <Student> failedStudents;
+	private ArrayList <Student> passedStudents;
+	private ArrayList <Student> failedStudents;
 	
 	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear, Professor subjectProfessor,
-			int espb, List<Student> passedStudents, List<Student> failedStudents) {
+			int espb, ArrayList<Student> passedStudents, ArrayList<Student> failedStudents) {
+		super();
+		this.subjectCode = subjectCode;
+		this.subjectName = subjectName;
+		this.semester = semester;
+		this.studyYear = studyYear;
+		this.subjectProfessor = subjectProfessor;
+		this.espb = espb;
+		this.passedStudents = passedStudents;
+		this.failedStudents = failedStudents;
+	}
+	
+	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear, Professor subjectProfessor,
+			int espb) {
 		super();
 		this.subjectCode = subjectCode;
 		this.subjectName = subjectName;
@@ -75,19 +89,19 @@ public class Subject {
 		this.espb = espb;
 	}
 
-	public List<Student> getPassedStudents() {
+	public ArrayList<Student> getPassedStudents() {
 		return passedStudents;
 	}
 
-	public void setPassedStudents(List<Student> passedStudents) {
+	public void setPassedStudents(ArrayList<Student> passedStudents) {
 		this.passedStudents = passedStudents;
 	}
 
-	public List<Student> getFailedStudents() {
+	public ArrayList<Student> getFailedStudents() {
 		return failedStudents;
 	}
 
-	public void setFailedStudents(List<Student> failedStudents) {
+	public void setFailedStudents(ArrayList<Student> failedStudents) {
 		this.failedStudents = failedStudents;
 	}
 	

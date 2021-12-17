@@ -4,11 +4,18 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.text.ParseException;
+
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 
+import tables.AbstractTableSubject;
+import tables.AbstractTableProfessor;
+
+import tables.TableProfessor;
+import tables.TableSubject;
 
 public class MainFrame extends JFrame {  
 	
@@ -26,13 +33,15 @@ public class MainFrame extends JFrame {
 		return instance;
 	}
 	
-	public MainFrame() {
+	
+	
+	private  MainFrame() {
 		Toolkit kit = Toolkit.getDefaultToolkit();
 	    Dimension screenSize = kit.getScreenSize();
 	    int screenHeight = screenSize.height;
 	    int screenWidth = screenSize.width;
 	    setSize(3*screenWidth / 4, 3*screenHeight/ 4);
-	    setTitle("Studentska služba");
+	    setTitle("Studentska sluzba");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setLocationRelativeTo(null);
 	     
@@ -44,18 +53,35 @@ public class MainFrame extends JFrame {
 		
 		studentsTable = new StudentsJTable();
 		JScrollPane stp = new JScrollPane(studentsTable);
-		professorsTable = new ProfessorsJTable();
+		professorsTable = new TableProfessor();
 		JScrollPane pp = new JScrollPane(professorsTable);
-		subjectsTable = new SubjectsJTable();
+		subjectsTable = new TableSubject();
 		JScrollPane sbp = new JScrollPane(subjectsTable);
 		
 		tabs = new TabbedPane();
 		tabs.addTab("Studenti", stp);
 		tabs.addTab("Profesori", pp);
 		tabs.addTab("Predmeti", sbp);
-		this.add(tabs, BorderLayout.CENTER);
-	
+		this.add(tabs, BorderLayout.CENTER);	
+		
+		}
+		
+	public void refreshTables(String akcija, int vrednost) throws ParseException {
+		
+		TableProfessor ProfessorsTable=new TableProfessor();
+		TableSubject SubjectTable=new TableSubject();
+		
+		AbstractTableProfessor ProfessorsModel = (AbstractTableProfessor) ProfessorsTable.getModel();
+		AbstractTableSubject SubjectModel = (AbstractTableSubject) SubjectTable.getModel();
+		
+		ProfessorsModel.fireTableDataChanged();
+		SubjectModel.fireTableDataChanged();
+		
+		ProfessorsTable.validate();
+		SubjectTable.validate();
+		
 	}
+		
 	
 	public void refreshStudents() {
 		AbstractTableModelStudents model = (AbstractTableModelStudents) studentsTable.getModel();
@@ -73,4 +99,5 @@ public class MainFrame extends JFrame {
 		return studentsTable;
 	}
 	       
+
 }
