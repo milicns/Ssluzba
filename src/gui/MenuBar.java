@@ -2,18 +2,25 @@ package gui;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
 
+import controller.StudentController;
+import view.StudentDialog;
+import view.StudentEditDialog;
+
 public class MenuBar extends JMenuBar {
 	
-	public MenuBar() {
+	public MenuBar(JFrame parent) {
 		
 		JMenu mFile = new JMenu("File");
 		JMenu mEdit = new JMenu("Edit");
@@ -22,10 +29,54 @@ public class MenuBar extends JMenuBar {
 		JMenu miOpen = new JMenu ("Open");
 		
 		JMenuItem miNew = new JMenuItem("New");
+		miNew.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
+					StudentDialog sd = new StudentDialog(parent,"Dodavanje studenta",true);
+					sd.setVisible(true);
+					}
+				
+			}
+			
+		});
+		
 		JMenuItem miSave = new JMenuItem ("Save");
 		JMenuItem miClose = new JMenuItem("Close");
+		//https://zetcode.com/javaswing/menusandtoolbars/
+		miClose.addActionListener((event) -> System.exit(0));
+
 		JMenuItem miEdit = new JMenuItem("Edit");
+		miEdit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0)
+				if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
+				StudentEditDialog ed = new StudentEditDialog(parent,"Izmena studenta",true);
+				ed.setVisible(true);
+				}
+			}		
+		});
+		
 		JMenuItem miDelete = new JMenuItem("Delete");
+		miDelete.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0)
+					if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
+					String[] options = {"Da", "Ne"};
+					int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da želite da obrišete studenta?", "Brisanje studenta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
+					if(d == JOptionPane.YES_OPTION) {
+						String index = (MainFrame.getInstance().getStudentTable().getValueAt(MainFrame.getInstance().getStudentTable().getSelectedRow(),0)).toString();
+						StudentController.getInstance().deleteStudent(index);
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da obrišete.");
+				}	
+			}
+		});
+		
 		JMenuItem miHelp = new JMenuItem("Help");
 		JMenuItem miAbout = new JMenuItem("About");
 		

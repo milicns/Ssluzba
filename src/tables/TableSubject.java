@@ -15,7 +15,7 @@ import model.SubjectDatabase;
 public class TableSubject extends JTable {
 	private static final long serialVersionUID = 1L;
 	
-	public TableSubject() throws ParseException {
+	public TableSubject() {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

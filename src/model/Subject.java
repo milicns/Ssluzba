@@ -3,9 +3,6 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-enum Semester {
-	L, Z
-}
 
 public class Subject {
 	
@@ -20,6 +17,19 @@ public class Subject {
 	
 	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear, Professor subjectProfessor,
 			int espb, ArrayList<Student> passedStudents, ArrayList<Student> failedStudents) {
+		super();
+		this.subjectCode = subjectCode;
+		this.subjectName = subjectName;
+		this.semester = semester;
+		this.studyYear = studyYear;
+		this.subjectProfessor = subjectProfessor;
+		this.espb = espb;
+		this.passedStudents = passedStudents;
+		this.failedStudents = failedStudents;
+	}
+	
+	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear, Professor subjectProfessor,
+			int espb) {
 		super();
 		this.subjectCode = subjectCode;
 		this.subjectName = subjectName;
@@ -93,6 +103,10 @@ public class Subject {
 
 	public void setFailedStudents(ArrayList<Student> failedStudents) {
 		this.failedStudents = failedStudents;
+	}
+	
+	public enum Semester {
+		L, Z
 	}
 	
 }

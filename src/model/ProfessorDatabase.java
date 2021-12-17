@@ -11,7 +11,7 @@ public class ProfessorDatabase {
 
 	private static ProfessorDatabase instance = null;
 
-	public static ProfessorDatabase getInstance() throws ParseException {
+	public static ProfessorDatabase getInstance() {
 		if (instance == null) {
 			instance = new ProfessorDatabase();
 		}
@@ -25,7 +25,7 @@ public class ProfessorDatabase {
 	
 	
 	
-	private ProfessorDatabase() throws ParseException {
+	private ProfessorDatabase()  {
 		
 		
 		initProfessores();
@@ -40,7 +40,7 @@ public class ProfessorDatabase {
 
 
 
-	private void initProfessores() throws ParseException {
+	private void initProfessores()  {
 		// TODO Auto-generated method stub
 		
 		/*

@@ -17,7 +17,7 @@ public class TableProfessor extends JTable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	public TableProfessor() throws ParseException {
+	public TableProfessor() {
         this.setRowSelectionAllowed(true);
         this.setColumnSelectionAllowed(true);
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -45,13 +45,5 @@ public class TableProfessor extends JTable{
         return c;
         		}
 		
-	
-
-	
-	
-	
-	
-	
-	
 
 }

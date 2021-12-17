@@ -6,7 +6,7 @@ public class Grade {
 	
 	private Student student;
 	private Subject subject;
-	private int grade; /// must be in interval 6-10
+	private int grade;
 	private Date examDate;
 		
 	public Grade () {}

@@ -39,8 +39,8 @@ public class StudentsDatabase {
 		this.students = new ArrayList<Student>();
 		
 		try {
-			students.add(new Student("Pera", "Peric", new SimpleDateFormat("dd.mm.yyyy.").parse("03.05.2000."), new Adress("Bulevar Oslobodjenja","79","Novi Sad","Srbija"),"065/111-3434","pera.peric@gmail.com","ra-22-2019",2019,3,Status.B, 8.79, new ArrayList<Grade>(), new ArrayList<Subject>()));
-			students.add(new Student("Milos", "Petrovic", new SimpleDateFormat("dd.mm.yyyy.").parse("15.08.1999."), new Adress("Temerinska","121","Novi Sad","Srbija"),"064/333-5555","milos.petrovic@gmail.com","sw-14-2018",2018,4,Status.B, 9.54, new ArrayList<Grade>(), new ArrayList<Subject>()));
+			students.add(new Student("Pera", "Perić", new SimpleDateFormat("dd.mm.yyyy.").parse("03.05.2000."), new Adress("Bulevar Oslobođenja","79","Novi Sad","Srbija"),"065/111-3434","pera.peric@gmail.com","ra-22-2019",2019,3,Status.B, 8.79, new ArrayList<Grade>(), new ArrayList<Subject>()));
+			students.add(new Student("Milos", "Petrović", new SimpleDateFormat("dd.mm.yyyy.").parse("15.08.1999."), new Adress("Temerinska","121","Novi Sad","Srbija"),"064/333-5555","milos.petrovic@gmail.com","sw-14-2018",2018,4,Status.B, 9.54, new ArrayList<Grade>(), new ArrayList<Subject>()));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,6 +54,7 @@ public class StudentsDatabase {
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
+	
 	
 	public int getColumnCount() {
 		return 6;
@@ -102,11 +103,9 @@ public class StudentsDatabase {
 		}
 	}
 	
-	public void editStudent(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status, double avgGrade, List<Grade> passedSubjects,
-			List<Subject> failedSubjects) {
-		for (Student s : students) {
-			if (s.getIndex().equals(index)) {
+	public void editStudent(int row,String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
+			int enrollYear, int currentYear, Status status) {
+				Student s = getRow(row);
 				s.setName(name);
 				s.setSurname(surname);
 				s.setBirthDate(birthDate);
@@ -117,10 +116,6 @@ public class StudentsDatabase {
 				s.setEnrollYear(enrollYear);
 				s.setCurrentYear(currentYear);
 				s.setStatus(status);
-				s.setAvgGrade(avgGrade);
 			}
-		}
-	}
-	
 	
 }
