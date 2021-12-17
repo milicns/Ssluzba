@@ -58,6 +58,8 @@ public class MenuBar extends JMenuBar {
 		subject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, ActionEvent.CTRL_MASK));
 		department.setMnemonic(KeyEvent.VK_K);
 		department.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, ActionEvent.CTRL_MASK));
+		miHelp.setMnemonic(KeyEvent.VK_H);
+		miHelp.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
 		
 		
 		mFile.setMnemonic(KeyEvent.VK_F);

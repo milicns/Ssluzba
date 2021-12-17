@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
@@ -18,12 +19,14 @@ public class Student {
 	private int currentYear;
 	private Status status;
 	private double avgGrade;
-	private List<Grade> passedSubjects;
-	private List<Subject> failedSubjects;
+
+	private ArrayList<Grade> passedSubjects;
+	private ArrayList<Subject> failedSubjects;
 	
 	public Student(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status, double avgGrade, List<Grade> passedSubjects,
-			List<Subject> failedSubjects) {
+			int enrollYear, int currentYear, Status status, double avgGrade, ArrayList<Grade> passedSubjects,
+			ArrayList<Subject> failedSubjects) {
+
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -146,19 +149,19 @@ public class Student {
 		this.avgGrade = avgGrade;
 	}
 
-	public List<Grade> getPassedSubjects() {
+	public ArrayList<Grade> getPassedSubjects() {
 		return passedSubjects;
 	}
 
-	public void setPassedSubjects(List<Grade> passedSubjects) {
+	public void setPassedSubjects(ArrayList<Grade> passedSubjects) {
 		this.passedSubjects = passedSubjects;
 	}
 
-	public List<Subject> getFailedSubjects() {
+	public ArrayList<Subject> getFailedSubjects() {
 		return failedSubjects;
 	}
 
-	public void setFailedSubjects(List<Subject> failedSubjects) {
+	public void setFailedSubjects(ArrayList<Subject> failedSubjects) {
 		this.failedSubjects = failedSubjects;
 	}
 	

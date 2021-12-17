@@ -1,18 +1,18 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
-
 public class Department {
 	
 	private String departmentCode;
 	private String departmentName;
 	private Professor departmentManager;
-	private List<Professor> departmentProfessors;
+	private ArrayList<Professor> departmentProfessors;
 	
 	public Department() {}
 
 	public Department(String departmentCode, String departmentName, Professor departmentManager,
-			List<Professor> departmentProfessors) {
+		 ArrayList<Professor> departmentProfessors) {
 		super();
 		this.departmentCode = departmentCode;
 		this.departmentName = departmentName;
@@ -44,11 +44,11 @@ public class Department {
 		this.departmentManager = departmentManager;
 	}
 
-	public List<Professor> getDepartmentProfessors() {
+	public ArrayList<Professor> getDepartmentProfessors() {
 		return departmentProfessors;
 	}
 
-	public void setDepartmentProfessors(List<Professor> departmentProfessors) {
+	public void setDepartmentProfessors(ArrayList<Professor> departmentProfessors) {
 		this.departmentProfessors = departmentProfessors;
 	}
 	
