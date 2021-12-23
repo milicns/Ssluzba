@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -13,6 +15,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.MenuKeyEvent;
+import javax.swing.event.MenuKeyListener;
 
 import controller.StudentController;
 import view.StudentDialog;
@@ -55,6 +61,8 @@ public class MenuBar extends JMenuBar {
 				if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
 				StudentEditDialog ed = new StudentEditDialog(parent,"Izmena studenta",true);
 				ed.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da izmenite.");
 				}
 			}		
 		});
@@ -118,8 +126,35 @@ public class MenuBar extends JMenuBar {
 		mHelp.setMnemonic(KeyEvent.VK_H);
 		
 		student.setIcon(new ImageIcon("images/student.png"));
+		student.addChangeListener(new ChangeListener() {
+
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				MainFrame.getInstance().getTabs().setSelectedIndex(0);
+				
+			}
+			
+		});
+		
 		professor.setIcon(new ImageIcon("images/professor.png"));
+		professor.addChangeListener(new ChangeListener() {
+
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				MainFrame.getInstance().getTabs().setSelectedIndex(1);
+				
+			}
+			
+		});
+		
 		subject.setIcon(new ImageIcon("images/subject.png"));
+		subject.addChangeListener(new ChangeListener() {
+
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				MainFrame.getInstance().getTabs().setSelectedIndex(2);
+		}});
+		
 		department.setIcon(new ImageIcon("images/department.png"));
 		
 		miNew.setIcon(new ImageIcon("images2/new.png"));

@@ -13,7 +13,7 @@ public class StudentEditDialog extends JDialog{
 		setLocationRelativeTo(parent);
 		setTitle(title);
 		setLayout(new BorderLayout());
-		this.add(new EditPane());
+		this.add(new EditPane(this));
 		setVisible(true);
 		
 	}

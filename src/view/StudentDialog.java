@@ -7,6 +7,10 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,7 +27,10 @@ import javax.swing.JTextField;
 
 import controller.StudentController;
 import model.Adress;
+import model.Grade;
+import model.StudentsDatabase;
 import model.Student.Status;
+import model.Subject;
 
 
 public class StudentDialog extends JDialog {
@@ -55,6 +62,8 @@ public class StudentDialog extends JDialog {
 	private JButton quit;
 	private JPanel bPnl;
 	
+	public StudentDialog() {}
+	
 	public StudentDialog(JFrame parent, String title, boolean modal) {
 		
 		super(parent, title, modal);
@@ -75,27 +84,203 @@ public class StudentDialog extends JDialog {
 		
 		lblName = new JLabel("Ime*");
 		tfName = new JTextField(20);
+		tfName.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfName.getText())) {
+					JOptionPane.showMessageDialog(null, "Neregularno ime. Ne sme da sadrži slova i specijalne znakove.");
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+			}
+			
+		});
 		
 		lblSurname = new JLabel("Prezime*");
 		tfSurname = new JTextField(20);
+		tfSurname.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfSurname.getText())) {
+					JOptionPane.showMessageDialog(null, "Neregularno prezime. Ne sme da sadrži slova i specijalne znakove.");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+				
+			}
+			
+		});
 		
 		lblBirthDate = new JLabel("Datum rođenja*");
 		tfBirthDate = new JTextField(20);
+		tfBirthDate.setToolTipText("dd.mm.yyyy.");
+		tfBirthDate.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("^(1[0-2]|0[1-9]).(3[01]|[12][0-9]|0[1-9]).[0-9]{4}.$", tfBirthDate.getText())) {
+					JOptionPane.showMessageDialog(null, "Nevalidan format datuma. Pravilno: dd.mm.yyyy.");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+			}
+			
+		});
+			
+
 		
-		lblAdress = new JLabel("Adresa stanovanja");
+		lblAdress = new JLabel("Adresa stanovanja*");
 		tfAdress = new JTextField(20);
+		tfAdress.setToolTipText("Ulica broj, Grad, Država");
+		tfAdress.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+[0-9]{1,3},[A-Za-zĐđŠšČčĆćŽž\\s]+,[A-Za-zĐđŠšČčĆćŽž\\s]+", tfAdress.getText())) {
+					JOptionPane.showMessageDialog(null, "Nevalidan format adrese. Pravilno: Ulica broj, Grad, Država");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+			}
+			
+		});
 
 		lblPhone = new JLabel("Broj telefona*");
 		tfPhone = new JTextField(20);
+		tfPhone.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("[0-9]{8,11}",tfPhone.getText())) {
+					JOptionPane.showMessageDialog(null, "Broj ne sme da sadrži slova i specijalne znakove.");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+			}
+			
+		});
 		
 		lblEmail = new JLabel("E-mail adresa*");
 		tfEmail = new JTextField(20);
+		tfEmail.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$", tfEmail.getText())) {
+					JOptionPane.showMessageDialog(null, "Nevalidan format email adrese. Pravilan primer: imeprezime@gmail.com");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+			}
+			
+		});
 		
 		lblIndex = new JLabel("Broj indeksa*");
 		tfIndex = new JTextField(20);
+		tfIndex.setToolTipText("sm-nn-yyyy, sm-skraćenica naziva smera");
+		tfIndex.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("[A-za-z]{1,3}-[0-9]{1,4}-[0-9]{4}", tfIndex.getText())) {
+					JOptionPane.showMessageDialog(null, "Unesite pravilan format indeksa. Npr: sm-11-2018, sm-skraćenica za naziv smera");
+					requestFocus();
+				} else if(StudentsDatabase.getInstance().findById(tfIndex.getText())) {
+					JOptionPane.showMessageDialog(null, "Postoji student sa unetim indeksom.");
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+			}
+				
+			
+			
+		});
+		
 		
 		lblEnroll = new JLabel("Godina upisa*");
 		tfEnroll = new JTextField(20);
+		tfEnroll.setToolTipText("yyyy");
+		tfEnroll.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("20[0-9]{2}", tfEnroll.getText())) {
+					JOptionPane.showMessageDialog(null, "Nevalidna godina upisa.");
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+				
+			}
+			
+		});
 		
 		lblCurrent = new JLabel("Trenutna godina studija*");
 		cbCurrent = new JComboBox(years);
@@ -104,6 +289,7 @@ public class StudentDialog extends JDialog {
 		cbStatus = new JComboBox(status);
 		
 		confirm = new JButton("Potvrdi");
+		confirm.setEnabled(false);
 		quit = new JButton("Odustani");
 		
 		bPnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -221,65 +407,14 @@ public class StudentDialog extends JDialog {
 					}
 				
 				try {
-					inputCheck();
-					StudentController.getInstance().addStudent(tfName.getText(), tfSurname.getText(), new SimpleDateFormat("dd.mm.yyyy.").parse(tfBirthDate.getText()), adress , tfPhone.getText(), tfEmail.getText(), tfIndex.getText(), Integer.parseInt(tfEnroll.getText()), currYear, status); 
+					 StudentController.getInstance().addStudent(tfName.getText(), tfSurname.getText(), new SimpleDateFormat("dd.mm.yyyy.").parse(tfBirthDate.getText()), adress , tfPhone.getText(), tfEmail.getText(), tfIndex.getText(), Integer.parseInt(tfEnroll.getText()), currYear, status, 0, new ArrayList<Grade>(), new ArrayList<Subject>());
+					
 				} catch (ParseException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
 				dispose();	
-			}
-			
-		});			
-	}
+				}
+			});			
+		}
 	
-	public void inputCheck() {
-		
-		String[] adr = tfAdress.getText().split(",");
-		String[] a = adr[0].split(" ");
-		Adress adress = new Adress(a[0], a[1], adr[1], adr[2]);
-		
-		Status status;
-		if(cbStatus.getSelectedItem().toString().equals("Budžet")) {
-			status = Status.B;
-		} else {
-			status = Status.S;
-		}
-		
-		int currYear;
-		if(cbCurrent.getSelectedItem().equals("I(prva)")){
-			currYear = 1;
-		} else if(cbCurrent.getSelectedItem().equals("II(druga)")) {
-			currYear = 2;
-		} else if(cbCurrent.getSelectedItem().equals("III(treća)")) {
-			currYear = 3;
-		} else {
-			currYear = 4;
-		}
-		
-		//https://security.dev/secure-coding-java/input-string-validation-java/
-		if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfName.getText())) {
-			JOptionPane.showMessageDialog(null, "Unesite validno ime, bez specijalnih znakova");
-			confirm.setEnabled(false);
-		}
-		if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfSurname.getText())) {
-			JOptionPane.showMessageDialog(null, "Unesite validno prezime, bez specijalnih znakova");
-			confirm.setEnabled(false);
-		}
-		if(!Pattern.matches("[0-9]{8,11}",tfPhone.getText())) {
-			JOptionPane.showMessageDialog(null, "Unesite validan broj telefona");
-			confirm.setEnabled(false);
-		}
-		if(!Pattern.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$", tfEmail.getText())) {
-			JOptionPane.showMessageDialog(null, "Unesite validnu email adresu. Na primer: imeprezime@gmail.com");
-			confirm.setEnabled(false);
-		}
-		if(!Pattern.matches("[A-za-z]{1,3}-[0-9]{1,4}-[0-9]{4}", tfIndex.getText())) {
-			JOptionPane.showMessageDialog(null, "Unesite validan broj indeksa. Na primer: ra-11-2018");
-			confirm.setEnabled(false);
-		}
-		if(!Pattern.matches("20[0-9]{2}", tfEnroll.getText())) {
-			JOptionPane.showMessageDialog(null, "Unesite validnu godinu upisa");
-			confirm.setEnabled(false);
-		}
-	}
 }

@@ -54,6 +54,8 @@ public class ToolBar extends JToolBar {
 			if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
 			StudentEditDialog ed = new StudentEditDialog(parent,"Izmena studenta",true);
 			ed.setVisible(true);
+			} else {
+				JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da izmenite.");
 			}
 			}		
 		});

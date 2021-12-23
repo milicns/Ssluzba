@@ -7,22 +7,31 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controller.StudentController;
 import gui.MainFrame;
 import model.Adress;
+import model.Grade;
 import model.Student;
 import model.StudentsDatabase;
+import model.Subject;
 import model.Student.Status;
+import controller.StudentController;
 
 public class InformationsTab extends JPanel {
 
@@ -54,13 +63,13 @@ public class InformationsTab extends JPanel {
 	private JPanel bPnl;
 	private Student student;
 	
-	public InformationsTab(int row) {
+	public InformationsTab(int row, JDialog parent) {
 	
 		student = StudentsDatabase.getInstance().getRow(row);
 		
 		initGui();
 		constructGui();
-		buttonActions();
+		buttonActions(parent);
 	}
 	
 	private void initGui() {
@@ -72,34 +81,204 @@ public class InformationsTab extends JPanel {
 		lblName = new JLabel("Ime*");
 		tfName = new JTextField(20);
 		tfName.setText(student.getName());
+		tfName.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfName.getText())) {
+					JOptionPane.showMessageDialog(null, "Neregularno ime. Ne sme da sadrži slova i specijalne znakove.");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+			}
+			
+		});
 		
 		lblSurname = new JLabel("Prezime*");
 		tfSurname = new JTextField(20);
 		tfSurname.setText(student.getSurname());
+		tfSurname.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfSurname.getText())) {
+					JOptionPane.showMessageDialog(null, "Neregularno prezime. Ne sme da sadrži slova i specijalne znakove.");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+				
+			}
+			
+		});
 		
 		lblBirthDate = new JLabel("Datum rođenja*");
 		tfBirthDate = new JTextField(20);
 		tfBirthDate.setText(new SimpleDateFormat("dd.mm.yyyy.").format(student.getBirthDate()));
+		tfBirthDate.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("^(1[0-2]|0[1-9]).(3[01]|[12][0-9]|0[1-9]).[0-9]{4}.$", tfBirthDate.getText())) {
+					JOptionPane.showMessageDialog(null, "Nevalidan format datuma. Pravilno: dd.mm.yyyy.");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+				
+			}
+			
+		});
 		
 		lblAdress = new JLabel("Adresa stanovanja");
 		tfAdress = new JTextField(20);
 		tfAdress.setText(student.getAdress().getStreet()+" "+student.getAdress().getNr()+", "+student.getAdress().getCity()+", "+student.getAdress().getState());
+		tfAdress.addFocusListener(new FocusListener() {
 
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+[0-9]{1,3},[A-Za-zĐđŠšČčĆćŽž\\s]+,[A-Za-zĐđŠšČčĆćŽž\\s]+", tfAdress.getText())) {
+					JOptionPane.showMessageDialog(null, "Nevalidan format adrese. Pravilno: Ulica broj, Grad, Država");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+				
+			}
+			
+		});
+		
 		lblPhone = new JLabel("Broj telefona*");
 		tfPhone = new JTextField(20);
 		tfPhone.setText(student.getPhoneNr());
+		tfPhone.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("[0-9]{8,11}",tfPhone.getText())) {
+					JOptionPane.showMessageDialog(null, "Broj ne sme da sadrži slova i specijalne znakove.");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+				
+			}
+			
+		});
 		
 		lblEmail = new JLabel("E-mail adresa*");
 		tfEmail = new JTextField(20);
 		tfEmail.setText(student.getEmail());
+		tfEmail.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$", tfEmail.getText())) {
+					JOptionPane.showMessageDialog(null, "Nevalidan format email adrese. Pravilan primer: imeprezime@gmail.com");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+			}
+			
+		});
 		
 		lblIndex = new JLabel("Broj indeksa*");
 		tfIndex = new JTextField(20);
 		tfIndex.setText(student.getIndex());
+		tfIndex.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("[A-za-z]{1,3}-[0-9]{1,4}-[0-9]{4}", tfIndex.getText())) {
+					JOptionPane.showMessageDialog(null, "Unesite pravilan format indeksa. Npr: sm-11-2018, sm-skraćenica za naziv smera");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else if((StudentsDatabase.getInstance().findById(tfIndex.getText())) & !(tfIndex.getText().equals(student.getIndex()))) {
+					JOptionPane.showMessageDialog(null, "Postoji student sa unetim indeksom.");
+					requestFocus();
+					confirm.setEnabled(false);
+				}else {
+					confirm.setEnabled(true);
+				}
+				
+			}
+			
+		});
 		
 		lblEnroll = new JLabel("Godina upisa*");
 		tfEnroll = new JTextField(20);
 		tfEnroll.setText(Integer.toString(student.getEnrollYear()));
+		tfEnroll.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(!Pattern.matches("20[0-9]{2}", tfEnroll.getText())) {
+					JOptionPane.showMessageDialog(null, "Nevalidna godina upisa.");
+					requestFocus();
+					confirm.setEnabled(false);
+				} else {
+					confirm.setEnabled(true);
+				}
+				
+			}
+			
+		});
 		
 		lblCurrent = new JLabel("Trenutna godina studija*");
 		String currYear;
@@ -201,14 +380,13 @@ public class InformationsTab extends JPanel {
 		add(bPnl, BorderLayout.SOUTH);
 	}
 	
-	private void buttonActions() {
+	private void buttonActions(JDialog parent) {
 		
 		quit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				//dispose();	
+				parent.dispose();	
 			}
 		});
 		
@@ -242,11 +420,11 @@ public class InformationsTab extends JPanel {
 					}
 					
 				try {	
-					StudentController.getInstance().editStudent(MainFrame.getInstance().getStudentTable().getSelectedRow(), tfName.getText(), tfSurname.getText(), new SimpleDateFormat("dd.mm.yyyy.").parse(tfBirthDate.getText()), adress , tfPhone.getText(), tfEmail.getText(), tfIndex.getText(), Integer.parseInt(tfEnroll.getText()), currYear, status); 
+					StudentController.getInstance().editStudent(MainFrame.getInstance().getStudentTable().getSelectedRow(), tfName.getText(), tfSurname.getText(), new SimpleDateFormat("dd.mm.yyyy.").parse(tfBirthDate.getText()), adress , tfPhone.getText(), tfEmail.getText(), tfIndex.getText(), Integer.parseInt(tfEnroll.getText()), currYear, status, new ArrayList<Grade>(), new ArrayList<Subject>()); 
 				} catch (ParseException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
-				//dispose();	
+				parent.dispose();	
 			}
 			
 		});
