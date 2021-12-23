@@ -1,7 +1,7 @@
 package gui;
 
 
-import java.awt.BorderLayout;
+/*import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -31,7 +31,7 @@ import tables.TableSubject;
 		//return selectedIndex1;
 	//}
 	
-/*	private static TabbedPane instance=null;
+private static TabbedPane instance=null;
 
     public static TabbedPane getInstance() {
         if (instance == null) {
@@ -136,7 +136,6 @@ import tables.TableSubject;
     
 */ 
 	
-
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -146,7 +145,6 @@ public class TabbedPane extends JTabbedPane{
 	public TabbedPane() {
 		super();
 	}
-	
 	
 }
 

@@ -47,7 +47,7 @@ public class ProfessorDatabase {
 		
 		 Professor p1;
 		try {
-			p1 = new Professor("Nemanja","Obradovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.08.2001."),new Adress("address","1","Novi Sad","Srbija"),"1235860492321","mail1",new Adress("Office Address","1","Novi Sad", "Srbija"), 21, Title.DR, InternshipYears.REDOVNIPROFESOR, new ArrayList<Subject>());
+			p1 = new Professor("Nemanja","Obradovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.08.2001."),new Adress("address","1","Novi Sad","Srbija"),"1235860492321","mail1",new Adress("Office Address","1","Novi Sad", "Srbija"), 21, Title.DR, 20, new ArrayList<Subject>());
 			professors.add(p1);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block

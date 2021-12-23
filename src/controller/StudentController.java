@@ -1,11 +1,14 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import gui.MainFrame;
 import model.Adress;
+import model.Grade;
 import model.StudentsDatabase;
+import model.Subject;
 import model.Student.Status;
 
 public class StudentController {
@@ -22,8 +25,8 @@ public class StudentController {
 	private StudentController() {}
 	
 	public void addStudent(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status) {
-		StudentsDatabase.getInstance().addStudent(name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status);
+			int enrollYear, int currentYear, Status status, double avg, ArrayList<Grade> passed, ArrayList<Subject> failed) {
+		StudentsDatabase.getInstance().addStudent(name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status, avg, passed, failed);
 		MainFrame.getInstance().refreshStudents();
 	}
 	
@@ -33,8 +36,8 @@ public class StudentController {
 	}
 	
 	public void editStudent(int row, String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status) {
-		StudentsDatabase.getInstance().editStudent(row, name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status);
+			int enrollYear, int currentYear, Status status, ArrayList<Grade> passed, ArrayList<Subject> failed) {
+		StudentsDatabase.getInstance().editStudent(row, name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status, passed, failed);
 		MainFrame.getInstance().refreshStudents();
 		
 	}

@@ -8,10 +8,6 @@ enum Title {
 	MR, DR, PROF
 }
 
-enum InternshipYears {
-	REDOVNIPROFESOR, DOCENT, DEKAN
-}
-
 
 
 public class Professor {
@@ -26,11 +22,11 @@ public class Professor {
 	private Adress officeAdress;  
 	private int idNumber;
 	private Title title;
-	private InternshipYears internshipYears;
+	private int internshipYears;
 	private ArrayList <Subject> professorSubjects;
 	
 	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
-			Adress officeAdress, int idNumber, Title title, InternshipYears internshipYears, ArrayList<Subject> professorSubjects) {
+			Adress officeAdress, int idNumber, Title title, int internshipYears, ArrayList<Subject> professorSubjects) {
 		super();
 		this.surname = surname;
 		this.name = name;
@@ -46,7 +42,7 @@ public class Professor {
 	}
 	
 	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
-			Adress officeAdress, int idNumber, Title title, InternshipYears internshipYears) {
+			Adress officeAdress, int idNumber, Title title, int internshipYears) {
 		super();
 		this.surname = surname;
 		this.name = name;
@@ -134,11 +130,11 @@ public class Professor {
 		this.title = title;
 	}
 
-	public InternshipYears getInternshipYears() {
+	public int getInternshipYears() {
 		return internshipYears;
 	}
 
-	public void setInternshipYears(InternshipYears internshipYears) {
+	public void setInternshipYears(int internshipYears) {
 		this.internshipYears = internshipYears;
 	}
 

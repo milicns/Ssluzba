@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -14,10 +15,10 @@ public class EditPane extends JTabbedPane{
 	private JPanel passed;
 	private JPanel failed;
 	
-	public EditPane() {
+	public EditPane(JDialog parent) {
 		
 		int row = MainFrame.getInstance().getStudentTable().getSelectedRow();
-		inf = new InformationsTab(row);
+		inf = new InformationsTab(row, parent);
 		this.addTab("Informacije", inf);
 		
 		passed = new PassedTab(row);

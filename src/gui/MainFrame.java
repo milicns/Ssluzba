@@ -7,9 +7,11 @@ import java.awt.Toolkit;
 import java.text.ParseException;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import tables.AbstractTableSubject;
 import tables.AbstractTableProfessor;
@@ -23,6 +25,7 @@ public class MainFrame extends JFrame {
 	private JTable professorsTable;
 	private JTable subjectsTable;
 	TabbedPane tabs;
+	StatusBar sb;
 	
 	private static MainFrame instance = null;
 	
@@ -32,7 +35,6 @@ public class MainFrame extends JFrame {
 		}
 		return instance;
 	}
-	
 	
 	
 	private  MainFrame() {
@@ -62,7 +64,22 @@ public class MainFrame extends JFrame {
 		tabs.addTab("Studenti", stp);
 		tabs.addTab("Profesori", pp);
 		tabs.addTab("Predmeti", sbp);
-		this.add(tabs, BorderLayout.CENTER);	
+		this.add(tabs, BorderLayout.CENTER);
+		
+		this.add(getSb(), BorderLayout.SOUTH);
+		tabs.addChangeListener(new ChangeListener() {
+
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				if(tabs.getSelectedIndex()==0) {
+					refreshSb("Studenti");
+				} else if(tabs.getSelectedIndex()==1) {
+					refreshSb("Profesori");
+				}else if(tabs.getSelectedIndex()==2) {
+					refreshSb("Predmeti");
+				}
+			}
+		});
 		
 		}
 		
@@ -81,13 +98,32 @@ public class MainFrame extends JFrame {
 		SubjectTable.validate();
 		
 	}
-		
+	
+	public StatusBar getSb() {
+		if(tabs.getSelectedIndex()==0) {
+			sb = new StatusBar("Studenti");
+		} else if (tabs.getSelectedIndex()==1) {
+			sb = new StatusBar("Profesori");
+		} else if (tabs.getSelectedIndex()==2) {
+			sb = new StatusBar("Predmeti");
+		}
+			return sb;
+	}
+	
 	
 	public void refreshStudents() {
 		AbstractTableModelStudents model = (AbstractTableModelStudents) studentsTable.getModel();
 		
 		model.fireTableDataChanged();
 		validate();
+	}
+	
+	public void refreshSb(String tName) {
+		
+		this.sb = new StatusBar(tName);
+		this.add(sb, BorderLayout.SOUTH);
+		validate();
+		
 	}
 	
 	

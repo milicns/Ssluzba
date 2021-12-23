@@ -39,8 +39,8 @@ public class StudentsDatabase {
 		this.students = new ArrayList<Student>();
 		
 		try {
-			students.add(new Student("Pera", "Perić", new SimpleDateFormat("dd.mm.yyyy.").parse("03.05.2000."), new Adress("Bulevar Oslobođenja","79","Novi Sad","Srbija"),"065/111-3434","pera.peric@gmail.com","ra-22-2019",2019,3,Status.B, 8.79, new ArrayList<Grade>(), new ArrayList<Subject>()));
-			students.add(new Student("Milos", "Petrović", new SimpleDateFormat("dd.mm.yyyy.").parse("15.08.1999."), new Adress("Temerinska","121","Novi Sad","Srbija"),"064/333-5555","milos.petrovic@gmail.com","sw-14-2018",2018,4,Status.B, 9.54, new ArrayList<Grade>(), new ArrayList<Subject>()));
+			students.add(new Student("Pera", "Perić", new SimpleDateFormat("dd.mm.yyyy.").parse("03.05.2000."), new Adress("Bulevar Oslobođenja","79","Novi Sad","Srbija"),"0651113434","pera.peric@gmail.com","ra-22-2019",2019,3,Status.B, 8.79, new ArrayList<Grade>(), new ArrayList<Subject>()));
+			students.add(new Student("Milos", "Petrović", new SimpleDateFormat("dd.mm.yyyy.").parse("15.08.1999."), new Adress("Temerinska","121","Novi Sad","Srbija"),"0643335555","milos.petrovic@gmail.com","sw-14-2018",2018,4,Status.B, 9.54, new ArrayList<Grade>(), new ArrayList<Subject>()));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,10 +88,19 @@ public class StudentsDatabase {
 		}
 	}
 	
+	public boolean findById(String id) {
+		for(Student s: students) {
+			if(s.getIndex().equals(id)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public void addStudent(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status) {
+			int enrollYear, int currentYear, Status status, double avg, ArrayList<Grade> passed, ArrayList<Subject> failed) {
 		
-		this.students.add(new Student(name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status));
+		this.students.add(new Student(name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status, avg, passed, failed));
 	}
 	
 	public void deleteStudent(String id) {
@@ -104,7 +113,7 @@ public class StudentsDatabase {
 	}
 	
 	public void editStudent(int row,String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status) {
+			int enrollYear, int currentYear, Status status, ArrayList<Grade> passed, ArrayList<Subject> failed) {
 				Student s = getRow(row);
 				s.setName(name);
 				s.setSurname(surname);
