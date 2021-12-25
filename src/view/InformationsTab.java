@@ -91,16 +91,9 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfName.getText())) {
-					JOptionPane.showMessageDialog(null, "Neregularno ime. Ne sme da sadrži slova i specijalne znakove.");
-					requestFocus();
-					confirm.setEnabled(false);
-				} else {
-					confirm.setEnabled(true);
-				}
-			}
+				inputCheck();
 			
-		});
+		}});
 		
 		lblSurname = new JLabel("Prezime*");
 		tfSurname = new JTextField(20);
@@ -115,16 +108,8 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfSurname.getText())) {
-					JOptionPane.showMessageDialog(null, "Neregularno prezime. Ne sme da sadrži slova i specijalne znakove.");
-					requestFocus();
-					confirm.setEnabled(false);
-				} else {
-					confirm.setEnabled(true);
-				}
-				
+					inputCheck();	
 			}
-			
 		});
 		
 		lblBirthDate = new JLabel("Datum rođenja*");
@@ -140,13 +125,7 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				if(!Pattern.matches("^(1[0-2]|0[1-9]).(3[01]|[12][0-9]|0[1-9]).[0-9]{4}.$", tfBirthDate.getText())) {
-					JOptionPane.showMessageDialog(null, "Nevalidan format datuma. Pravilno: dd.mm.yyyy.");
-					requestFocus();
-					confirm.setEnabled(false);
-				} else {
-					confirm.setEnabled(true);
-				}
+				inputCheck();
 				
 			}
 			
@@ -165,13 +144,7 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				if(!Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+[0-9]{1,3},[A-Za-zĐđŠšČčĆćŽž\\s]+,[A-Za-zĐđŠšČčĆćŽž\\s]+", tfAdress.getText())) {
-					JOptionPane.showMessageDialog(null, "Nevalidan format adrese. Pravilno: Ulica broj, Grad, Država");
-					requestFocus();
-					confirm.setEnabled(false);
-				} else {
-					confirm.setEnabled(true);
-				}
+				inputCheck();
 				
 			}
 			
@@ -190,13 +163,7 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				if(!Pattern.matches("[0-9]{8,11}",tfPhone.getText())) {
-					JOptionPane.showMessageDialog(null, "Broj ne sme da sadrži slova i specijalne znakove.");
-					requestFocus();
-					confirm.setEnabled(false);
-				} else {
-					confirm.setEnabled(true);
-				}
+				inputCheck();
 				
 			}
 			
@@ -215,13 +182,7 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				if(!Pattern.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$", tfEmail.getText())) {
-					JOptionPane.showMessageDialog(null, "Nevalidan format email adrese. Pravilan primer: imeprezime@gmail.com");
-					requestFocus();
-					confirm.setEnabled(false);
-				} else {
-					confirm.setEnabled(true);
-				}
+				inputCheck();
 			}
 			
 		});
@@ -239,18 +200,10 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				if(!Pattern.matches("[A-za-z]{1,3}-[0-9]{1,4}-[0-9]{4}", tfIndex.getText())) {
-					JOptionPane.showMessageDialog(null, "Unesite pravilan format indeksa. Npr: sm-11-2018, sm-skraćenica za naziv smera");
-					requestFocus();
-					confirm.setEnabled(false);
-				} else if((StudentsDatabase.getInstance().findById(tfIndex.getText())) & !(tfIndex.getText().equals(student.getIndex()))) {
+				inputCheck();
+				if((StudentsDatabase.getInstance().findById(tfIndex.getText())) && !(tfIndex.getText().equals(student.getIndex()))) {
 					JOptionPane.showMessageDialog(null, "Postoji student sa unetim indeksom.");
-					requestFocus();
-					confirm.setEnabled(false);
-				}else {
-					confirm.setEnabled(true);
 				}
-				
 			}
 			
 		});
@@ -268,13 +221,7 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				if(!Pattern.matches("20[0-9]{2}", tfEnroll.getText())) {
-					JOptionPane.showMessageDialog(null, "Nevalidna godina upisa.");
-					requestFocus();
-					confirm.setEnabled(false);
-				} else {
-					confirm.setEnabled(true);
-				}
+				inputCheck();
 				
 			}
 			
@@ -430,5 +377,28 @@ public class InformationsTab extends JPanel {
 		});
 				
 	}
+	
+	private void inputCheck() {
+		
+		if((Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfName.getText())) &&
+				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfSurname.getText())) &&
+				   (Pattern.matches("^(1[0-2]|0[1-9]).(3[01]|[12][0-9]|0[1-9]).[0-9]{4}.$", tfBirthDate.getText())) &&
+				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+[0-9]{1,3},[A-Za-zĐđŠšČčĆćŽž\\s]+,[A-Za-zĐđŠšČčĆćŽž\\s]+", tfAdress.getText())) && 
+				   (Pattern.matches("[0-9]{8,11}",tfPhone.getText())) &&
+				   (Pattern.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$", tfEmail.getText())) &&
+				   (Pattern.matches("[A-za-z]{1,3}-[0-9]{1,4}-[0-9]{4}", tfIndex.getText())) &&
+				   (Pattern.matches("20[0-9]{2}", tfEnroll.getText()))) {
+					confirm.setEnabled(true);
+				} else {
+					confirm.setEnabled(false);
+				}
+		
+		if((StudentsDatabase.getInstance().findById(tfIndex.getText())) && !(tfIndex.getText().equals(student.getIndex()))) {
+			confirm.setEnabled(false);
+		}
+		
+		
+	}
+	
 	
 }
