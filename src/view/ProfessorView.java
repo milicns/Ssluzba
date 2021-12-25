@@ -4,16 +4,26 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.Window;
 import java.awt.event.KeyListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+
+
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
 
 import controller.ProfessorController;
-
+import model.Adress;
 import model.Professor;
 
 public class ProfessorView extends JPanel{
@@ -28,8 +38,8 @@ private static final long serialVersionUID = 1L;
 		}
 		return instance;
 	}
-	private Professor profesor;
-	private ProfessorController profesoriController;
+	private Professor professor;
+	private ProfessorController professorsController;
 	
 	private JPanel pnlContent;
 	private JLabel lblSurname;
@@ -109,7 +119,7 @@ private static final long serialVersionUID = 1L;
 		
 		
 		lblTitle = new JLabel("Titula*");
-		String[] TitleStrings = {"Mr","Dr","Prof"};  ///TREBA OVDE VALJDA JOS DA SE DODA
+		String[] TitleStrings = {"Mr","Dr","Prof"};  
 		cbTitle = new JComboBox<String>(TitleStrings);
 		
 		
@@ -193,7 +203,96 @@ private static final long serialVersionUID = 1L;
 		
 	}
 
-	
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+		professorsController = null;
+		refreshView();
+	}
+
+	public void refreshView() {
+		
+		tfSurname.setText(professor.getSurname());
+		tfName.setText(professor.getName());
+		String timePattern = "dd.MM.yyyy.";
+		DateFormat df = new SimpleDateFormat(timePattern);
+		tfBirthDate.setText(df.format(professor.getBirthDate()));
+		String adressPattern = "[0-9A-Z.,-/ ]";
+	//	AdressFormat af = new SimpleAdressFormat(adressPattern);
+		//tfAdress.setText(Adress.toString(professor.getAdress());  ////Kako aadresu da pretvorim >? ? ?  ??  !!!!!!!!!!!!!
+		tfPhone.setText(professor.getPhoneNr());
+		tfEmail.setText(professor.getEmail());
+		//tfOffAdress.setText(Adress.toString(professor.getOfficeAdress()));  ////kako adresu da pretvorim ? ? ? ?  !!!!!!!!!!!!!!!!!!!!!!!!!!
+		tfIdNumber.setText((Integer.toString(professor.getIdNumber())));
+
+
+		
+		
+		switch(String.valueOf(professor.getTitle())){
+		case "MR":
+			cbTitle.setSelectedIndex(0);
+			break;
+		case  "DR":
+			cbTitle.setSelectedIndex(1);
+			break;
+		case "PROF":
+			cbTitle.setSelectedIndex(2);
+			break;
+		
+		}
+		
+		switch(String.valueOf(professor.getInternshipYears())){
+		case "REDOVNIPROFESOR":
+			cbinternshipYears.setSelectedIndex(0);
+			break;
+		case  "DOCENT":
+			cbinternshipYears.setSelectedIndex(1);
+			break;
+		case "DEKAN":
+			cbinternshipYears.setSelectedIndex(2);
+			break;
+		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
 	
 	
 	

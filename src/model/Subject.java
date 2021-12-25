@@ -15,14 +15,13 @@ public class Subject {
 	private ArrayList <Student> passedStudents;
 	private ArrayList <Student> failedStudents;
 	
-	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear, Professor subjectProfessor,
-			int espb, ArrayList<Student> passedStudents, ArrayList<Student> failedStudents) {
+	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear,int espb) {
 		super();
 		this.subjectCode = subjectCode;
 		this.subjectName = subjectName;
 		this.semester = semester;
 		this.studyYear = studyYear;
-		this.subjectProfessor = subjectProfessor;
+		this.subjectProfessor = subjectProfessor; ///MOZDA OVDE null
 		this.espb = espb;
 		this.passedStudents = passedStudents;
 		this.failedStudents = failedStudents;

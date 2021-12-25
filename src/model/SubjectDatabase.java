@@ -45,17 +45,33 @@ public class SubjectDatabase {
 		
 		this.subjects = new ArrayList<Subject>();
 		
-		//Subject s1= new Subject("E22","OISISI",Semester.Z,2);
-		//Subject s2= new Subject("E21","Baze Podataaka",Semester.L,3);
-		//subjects.add(s1);
-		//subjects.add(s2);
+		Subject s1;
+		Subject s2;
+		Subject s3;
+		Subject s4;
+		
 			
+			try {
+				s1 = new Subject("E11","OISISI",Subject.Semester.L, 2, 5);
+				subjects.add(s1);
+				s2 = new Subject("E01","Analiza 1",Subject.Semester.L,1 ,4);
+				subjects.add(s2);
+				s3 = new Subject("E22","Analiza 2",Subject.Semester.Z, 2, 3);
+				subjects.add(s3);
+				s4 = new Subject("E23","Fizika",Subject.Semester.Z,3, 7);
+				subjects.add(s4);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+					
 		
 		refresh= subjects;
 		
 	}
 	
 	
+
 	
 	public List<Subject> getSubjects() {
 		return subjects;
@@ -95,5 +111,36 @@ public class SubjectDatabase {
 			return null;
 		}
 	}
+	
+
+	
+	
+	public void addSubject(String subjectCode, String subjectName, Semester semester, int studyYear,int espb) {
+		this.subjects.add(new Subject(subjectCode, subjectName, semester, studyYear, espb));
+			
+	}
+	
+	public void deleteSubject(String subjectCode) {
+		for (Subject sb : subjects) {
+			if (sb.getSubjectCode().equals(subjectCode)) {
+				subjects.remove(sb);
+				break;
+			}
+		}
+	}
+	
+	
+	public void editSubject(int row, String subjectCode, String subjectName, Semester semester, int studyYear,int espb) {
+				Subject sb = getRow(row);
+				sb.setSubjectCode(subjectCode);
+				sb.setSubjectName(subjectName);
+				sb.setSemester(semester);
+				sb.setStudyYear(studyYear);
+				sb.setEspb(espb);
+				
+			}
+	
+	
+	
 	
 }

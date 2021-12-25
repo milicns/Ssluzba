@@ -37,7 +37,7 @@ public class ProfessorDialog extends JDialog {
 		setSize(300, 350);
 		setLocationRelativeTo(parent);
 
-
+ ///FALI TABBED PANE
 		
 		
 		

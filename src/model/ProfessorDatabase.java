@@ -46,9 +46,18 @@ public class ProfessorDatabase {
 		
 		
 		 Professor p1;
+		 Professor p2;
+		 Professor p3;
+		 Professor p4;
 		try {
 			p1 = new Professor("Nemanja","Obradovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.08.2001."),new Adress("address","1","Novi Sad","Srbija"),"1235860492321","mail1",new Adress("Office Address","1","Novi Sad", "Srbija"), 21, Title.DR, InternshipYears.REDOVNIPROFESOR, new ArrayList<Subject>());
 			professors.add(p1);
+			p2 = new Professor("Milan","Milovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.11.2001."),new Adress("address","2","Beograd","Srbija"),"1235860492321","mail2",new Adress("Office Address","3","Novi Sad", "Srbija"), 21, Title.MR, InternshipYears.DEKAN, new ArrayList<Subject>());
+			professors.add(p2);
+			p3 = new Professor("Jovan","Jovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.11.2011."),new Adress("address","2","Beograd","Srbija"),"1235860491234","mail3",new Adress("Office Address","2","Novi Sad", "Srbija"), 21, Title.MR, InternshipYears.REDOVNIPROFESOR, new ArrayList<Subject>());
+			professors.add(p3);
+			p4 = new Professor("Uros","Nedic",new SimpleDateFormat("dd.MM.yyyy").parse("01.11.1996."),new Adress("address","5","Novi Sad","Srbija"),"3215860491234","mail4",new Adress("Office Address","4","Beograd", "Srbija"), 21, Title.DR, InternshipYears.REDOVNIPROFESOR, new ArrayList<Subject>());
+			professors.add(p4);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -97,13 +106,56 @@ public class ProfessorDatabase {
 		default:
 			return null;
 		}
-	}
 	
-	/*public void addProfesor(String name,String surname,Date birthDate,String adress,String phoneNr,String email,String officeAdress,String idNumber,Title title, int intershipYears ) {
-		this.professors.add(new Professor(name,surname,birthDate,adress,phoneNr,email,officeAdress,idNumber,title,intershipYears));
-		refresh=professors;*/
-		
+	
 	}
+
+
+public void addProfessor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
+		Adress officeAdress, int idNumber, Title title, InternshipYears internshipYears) {
+	
+	this.professors.add(new Professor(surname,  name,  birthDate,  adress,  phoneNr,  email, officeAdress,  idNumber,  title,  internshipYears));
+		
+}
+
+
+
+public void editProfessor(int row, String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
+		Adress officeAdress, int idNumber, Title title, InternshipYears internshipYears) {
+	Professor p = getRow(row);
+		p.setName(name);
+		p.setSurname(surname);
+		p.setBirthDate(birthDate);
+		p.setAdress(adress);
+		p.setPhoneNr(phoneNr);
+		p.setEmail(email);
+		p.setAdress(officeAdress);
+		p.setIdNumber(idNumber);
+		p.setTitle(title);
+		p.setInternshipYears(internshipYears);
+	
+}
+
+
+
+public void deleteProfessor(int  idNumber) {
+	for (Professor p : professors) {
+		if (p. getIdNumber() == (idNumber)) {
+			professors.remove(p);
+			break;
+		}
+	}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
 	
 	
 	

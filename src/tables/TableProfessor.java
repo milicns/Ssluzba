@@ -21,7 +21,7 @@ public class TableProfessor extends JTable{
         this.setRowSelectionAllowed(true);
         this.setColumnSelectionAllowed(true);
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.getTableHeader().setBackground(new Color(100, 120, 100));
+        this.getTableHeader().setBackground( Color.LIGHT_GRAY);
        
         this.setModel(new AbstractTableProfessor());
         
