@@ -25,8 +25,8 @@ public class StudentController {
 	private StudentController() {}
 	
 	public void addStudent(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status, double avg, ArrayList<Grade> passed, ArrayList<Subject> failed) {
-		StudentsDatabase.getInstance().addStudent(name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status, avg, passed, failed);
+			int enrollYear, int currentYear, Status status, ArrayList<Grade> passed, ArrayList<Subject> failed) {
+		StudentsDatabase.getInstance().addStudent(name, surname, birthDate, adress, phoneNr, email, index, enrollYear, currentYear, status, passed, failed);
 		MainFrame.getInstance().refreshStudents();
 	}
 	

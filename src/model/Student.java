@@ -44,7 +44,7 @@ public class Student {
 	}
 	
 	public Student(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
-			int enrollYear, int currentYear, Status status) {
+			int enrollYear, int currentYear, Status status, ArrayList<Grade> passedSubjects, ArrayList<Subject> failedSubjects) {
 		super();
 		this.name = name;
 		this.surname = surname;
