@@ -21,6 +21,8 @@ import javax.swing.event.MenuKeyEvent;
 import javax.swing.event.MenuKeyListener;
 
 import controller.StudentController;
+import dialog.ProfessorDialog;
+import dialog.SubjectDialog;
 import view.StudentDialog;
 import view.StudentEditDialog;
 
@@ -42,11 +44,15 @@ public class MenuBar extends JMenuBar {
 				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
 					StudentDialog sd = new StudentDialog(parent,"Dodavanje studenta",true);
 					sd.setVisible(true);
-					}
-				
+				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 1) {
+					ProfessorDialog pd = new ProfessorDialog(parent);
+					pd.setVisible(true);
+				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
+					SubjectDialog sbd = new SubjectDialog(parent);
+					sbd.setVisible(true);
 			}
 			
-		});
+		}});
 		
 		JMenuItem miSave = new JMenuItem ("Save");
 		JMenuItem miClose = new JMenuItem("Close");

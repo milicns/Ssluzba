@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 enum Title {
-	MR, DR, PROF
+	REDOVNIPROFESOR, DOCENT, DEKAN
 }
 
 
@@ -151,47 +151,21 @@ public class Professor {
 		Title t=null;
 		switch(Integer.parseInt(titula)) {
 		case 0:
-			t =Title.MR;
+			t =Title.REDOVNIPROFESOR;
 		
 		    break;
 		case 1:
-		     t=Title.DR;
+		     t=Title.DOCENT;
 		     break;
 		     
 		case 2:
-		     t=Title.PROF;
+		     t=Title.DEKAN;
 		     break;
 		
 		}
 		
 		return t;
 	}
-	public InternshipYears InternshipYearsSearch (String InternshipYearsSearch) {
-		InternshipYears Iy=null;
-		switch(Integer.parseInt(InternshipYearsSearch)) {
-		case 0:
-			Iy=InternshipYears.REDOVNIPROFESOR;
-		     break;
-		case 1:
-			Iy=InternshipYears.DOCENT;
-		     break;
-		case 2:
-			 Iy=InternshipYears.DEKAN;
-		     break;
-		
-		
-		}
-	
-		return Iy;
-	
-	
-	
-	
-	
-	
-	
-	}
-	
 	
 	
 	

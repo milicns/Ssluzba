@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -11,12 +12,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 
 import controller.StudentController;
+import dialog.ProfessorDialog;
+import dialog.SubjectDialog;
 import view.StudentDialog;
 import view.StudentEditDialog;
 
@@ -35,12 +39,17 @@ public class ToolBar extends JToolBar {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
-				StudentDialog sd = new StudentDialog(parent,"Dodavanje studenta",true);
-				sd.setVisible(true);
-				}
+					StudentDialog sd = new StudentDialog(parent,"Dodavanje studenta",true);
+					sd.setVisible(true);
+				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 1) {
+					ProfessorDialog pd = new ProfessorDialog(parent);
+					pd.setVisible(true);
+				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
+					SubjectDialog sbd = new SubjectDialog(parent);
+					sbd.setVisible(true);
 			}
 			
-		});
+		}});
 		create.setMnemonic(KeyEvent.VK_C);
 		add(create);
 		

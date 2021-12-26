@@ -19,7 +19,7 @@ public class ProfessorDialog extends JDialog {
 
 
 	public ProfessorDialog(Frame parent) {
-		super(parent, "Add Professor", false);
+		super(parent, "Add Professor", true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setSize(300, 350);
 		setLocationRelativeTo(parent);

@@ -2,7 +2,9 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Window;
 import java.awt.event.KeyListener;
@@ -70,7 +72,7 @@ private static final long serialVersionUID = 1L;
 	
 	public ProfessorView()
 	{
-		initGUI(false);
+		initGUI();
 		constructGUI();
 	}
 
@@ -78,10 +80,14 @@ private static final long serialVersionUID = 1L;
 
 
 
-	private void initGUI(boolean b) {
+	private void initGUI() {
 		// TODO Auto-generated method stub
 		
 		
+		
+		setLayout(new BorderLayout());
+
+		pnlContent = new JPanel(new GridBagLayout());
 		
 		lblSurname = new JLabel("Prezime*");
 		tfSurname = new JTextField(20);
@@ -93,7 +99,7 @@ private static final long serialVersionUID = 1L;
 		
 		
 		
-		lblBirthDate = new JLabel("Datum rođenja*");
+		lblBirthDate = new JLabel("Datum roÄ‘enja*");
 		tfBirthDate = new JTextField(20);
 		
 	   
@@ -114,7 +120,7 @@ private static final long serialVersionUID = 1L;
 		
 
 		
-		lblIdNumber = new JLabel("Broj lične karte*");
+		lblIdNumber = new JLabel("Broj liÄ�ne karte*");
 		tfIdNumber = new JTextField(20);
 		
 		
@@ -132,7 +138,7 @@ private static final long serialVersionUID = 1L;
 		quit = new JButton("Odustani");
 		confirm = new JButton("Potvrdi");
 		
-		
+		pnlButton = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		
 		
 		

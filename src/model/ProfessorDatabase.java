@@ -50,13 +50,13 @@ public class ProfessorDatabase {
 		 Professor p3;
 		 Professor p4;
 		try {
-			p1 = new Professor("Nemanja","Obradovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.08.2001."),new Adress("address","1","Novi Sad","Srbija"),"1235860492321","mail1",new Adress("Office Address","1","Novi Sad", "Srbija"), 21, Title.DR, 20, new ArrayList<Subject>());
+			p1 = new Professor("Nemanja","Obradovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.08.2001."),new Adress("address","1","Novi Sad","Srbija"),"1235860492321","mail1",new Adress("Office Address","1","Novi Sad", "Srbija"), 21321353, Title.DOCENT, 20, new ArrayList<Subject>());
 			professors.add(p1);
-			p2 = new Professor("Milan","Milovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.11.2001."),new Adress("address","2","Beograd","Srbija"),"1235860492321","mail2",new Adress("Office Address","3","Novi Sad", "Srbija"), 21, Title.MR, InternshipYears.DEKAN, new ArrayList<Subject>());
+			p2 = new Professor("Milan","Milovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.11.2001."),new Adress("address","2","Beograd","Srbija"),"1235860492321","mail2",new Adress("Office Address","3","Novi Sad", "Srbija"), 8867123, Title.DEKAN, 30, new ArrayList<Subject>());
 			professors.add(p2);
-			p3 = new Professor("Jovan","Jovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.11.2011."),new Adress("address","2","Beograd","Srbija"),"1235860491234","mail3",new Adress("Office Address","2","Novi Sad", "Srbija"), 21, Title.MR, InternshipYears.REDOVNIPROFESOR, new ArrayList<Subject>());
+			p3 = new Professor("Jovan","Jovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.11.2011."),new Adress("address","2","Beograd","Srbija"),"1235860491234","mail3",new Adress("Office Address","2","Novi Sad", "Srbija"), 3258764, Title.REDOVNIPROFESOR, 17, new ArrayList<Subject>());
 			professors.add(p3);
-			p4 = new Professor("Uros","Nedic",new SimpleDateFormat("dd.MM.yyyy").parse("01.11.1996."),new Adress("address","5","Novi Sad","Srbija"),"3215860491234","mail4",new Adress("Office Address","4","Beograd", "Srbija"), 21, Title.DR, InternshipYears.REDOVNIPROFESOR, new ArrayList<Subject>());
+			p4 = new Professor("Uros","Nedic",new SimpleDateFormat("dd.MM.yyyy").parse("01.11.1996."),new Adress("address","5","Novi Sad","Srbija"),"3215860491234","mail4",new Adress("Office Address","4","Beograd", "Srbija"), 53056351, Title.REDOVNIPROFESOR, 22, new ArrayList<Subject>());
 			professors.add(p4);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -112,7 +112,7 @@ public class ProfessorDatabase {
 
 
 public void addProfessor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
-		Adress officeAdress, int idNumber, Title title, InternshipYears internshipYears) {
+		Adress officeAdress, int idNumber, Title title, int internshipYears) {
 	
 	this.professors.add(new Professor(surname,  name,  birthDate,  adress,  phoneNr,  email, officeAdress,  idNumber,  title,  internshipYears));
 		
@@ -121,7 +121,7 @@ public void addProfessor(String surname, String name, Date birthDate, Adress adr
 
 
 public void editProfessor(int row, String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
-		Adress officeAdress, int idNumber, Title title, InternshipYears internshipYears) {
+		Adress officeAdress, int idNumber, Title title, int internshipYears) {
 	Professor p = getRow(row);
 		p.setName(name);
 		p.setSurname(surname);

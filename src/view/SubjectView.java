@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -62,7 +63,7 @@ private static final long serialVersionUID = 1L;
 	
 	public SubjectView()
 	{
-		initGUI(false);
+		initGUI();
 		constructGUI();
 	}
 	
@@ -75,7 +76,7 @@ private static final long serialVersionUID = 1L;
 	}
 */
 
-	private void initGUI(boolean b) {
+	private void initGUI() {
 		// TODO Auto-generated method stub
 		
 		setLayout(new BorderLayout());
@@ -114,7 +115,7 @@ private static final long serialVersionUID = 1L;
 		quit = new JButton("Odustani");
 		confirm = new JButton("Potvrdi");
 		
-		
+		pnlButton = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		
 		
 		
