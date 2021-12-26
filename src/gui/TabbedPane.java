@@ -59,14 +59,14 @@ private static TabbedPane instance=null;
     }
 
     
-    public void refreshProfessors(String akcija, int vrednost) {
+    public void refreshProfessors(String a, int v) {
     	AbstractTableProfessor model = (AbstractTableProfessor) TableProfessors.getModel();
 
          model.fireTableDataChanged();
          validate();
      }
     
-    public void refreshSubject(String akcija, int vrednost) {
+    public void refreshSubject(String a, int v) {
     	AbstractTableSubject model = (AbstractTableSubject) TableSubject.getModel();
 
         model.fireTableDataChanged();

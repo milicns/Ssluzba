@@ -9,6 +9,7 @@ import java.awt.event.FocusListener;
 import java.awt.event.KeyListener;
 
 import javax.security.auth.Subject;
+ /// import model.Subject; Javlja greskU !! ! 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -17,6 +18,8 @@ import javax.swing.JTextField;
 
 
 import controller.SubjectController;
+
+import model.SubjectDatabase;
 
 
 
@@ -37,7 +40,7 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	private Subject subject;
-	private SubjectController predmetController;
+	private SubjectController subjectController;
 	
 	private JPanel pnlContent;
 	private JLabel lblsubjectCode;
@@ -55,14 +58,22 @@ private static final long serialVersionUID = 1L;
 	private JButton confirm;
 	private JButton quit;
 	private JPanel pnlButton;
-	
+	private JLabel lblMessage;
 	
 	public SubjectView()
 	{
 		initGUI(false);
 		constructGUI();
 	}
+	
+	/*
+	public SubjectView(int selRow) {
+		initGUI(true);
+		constructGUI();
 
+		setSubject(SubjectDatabase.getInstance().getRow(selRow));
+	}
+*/
 
 	private void initGUI(boolean b) {
 		// TODO Auto-generated method stub
@@ -148,6 +159,97 @@ private static final long serialVersionUID = 1L;
 		
 	}
 	
+	
+	public Subject getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+		subjectController = null;
+		refreshView();
+	}
+
+	public void refreshView() {
+	//	tfsubjectCode.setText(subject.getSubjectCode()); ///za klasu SUBJECT PRAVI PROBLEM I ZATO NECE ovi geteri ! 
+		//tfsubjectName.setText(subject.getSubjectName());
+		/*  switch(subject.studyYear()){
+		case 1:
+			cbstudyYear.setSelectedIndex(0);
+			break;
+		case 2:
+			cbstudyYear.setSelectedIndex(1);
+			break;
+		case 3:
+			cbstudyYear.setSelectedIndex(2);
+			
+		case 4:
+			cbstudyYear.setSelectedIndex(3);
+			break;
+		case 5:
+			cbstudyYear.setSelectedIndex(4);
+			break;
+		default:
+			cbstudyYear.setSelectedIndex(5);
+		}
+		
+		if(subject.getSemester() == Subject.Semester.Z)
+			cbSemester.setSelectedIndex(0);
+		else
+			cbSemester.setSelectedIndex(1);
+		tfespb.setText(Integer.toString(subject.getEspb()));
+		*/
+	}
+	
+	
+	/*
+	 * 	@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(StudentsDatabase.getInstance().findById(tfIndex.getText())) {
+					JOptionPane.showMessageDialog(null, "Postoji student sa unetim indeksom.");
+					requestFocus();
+				}
+				inputCheck();
+				
+			}
+	 */
+	
+	public JTextField getTfsubjectCode() {
+		return tfsubjectCode;
+	}
+	public void setTfCode(JTextField tfsubjectCode) {
+		this.tfsubjectCode = tfsubjectCode;
+	}
+	public JTextField getTfsubjectName() {
+		return tfsubjectName;
+	}
+	public void setTfName(JTextField tfsubjectName) {
+		this.tfsubjectName = tfsubjectName;
+	}
+	public JTextField getTfespb() {
+		return tfespb;
+	}
+	public void setTfESPB(JTextField tfespb) {
+		this.tfespb = tfespb;
+	}
+	public JButton getBtnconfirm() {
+		return confirm;
+	}
+	public void setBtnOK(JButton confirm) {
+		this.confirm = confirm;
+	}
+	public JLabel getLblMessage() {
+		return lblMessage;
+	}
+	public void setLblMessage(JLabel lblMessage) {
+		this.lblMessage = lblMessage;
+	}
 	
 	
 	

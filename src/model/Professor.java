@@ -145,5 +145,56 @@ public class Professor {
 	public void setProfessorSubjects(ArrayList<Subject> professorSubjects) {
 		this.professorSubjects = professorSubjects;
 	}
+	
+	
+	public Title TitleSearch(String titula) {
+		Title t=null;
+		switch(Integer.parseInt(titula)) {
+		case 0:
+			t =Title.MR;
+		
+		    break;
+		case 1:
+		     t=Title.DR;
+		     break;
+		     
+		case 2:
+		     t=Title.PROF;
+		     break;
+		
+		}
+		
+		return t;
+	}
+	public InternshipYears InternshipYearsSearch (String InternshipYearsSearch) {
+		InternshipYears Iy=null;
+		switch(Integer.parseInt(InternshipYearsSearch)) {
+		case 0:
+			Iy=InternshipYears.REDOVNIPROFESOR;
+		     break;
+		case 1:
+			Iy=InternshipYears.DOCENT;
+		     break;
+		case 2:
+			 Iy=InternshipYears.DEKAN;
+		     break;
+		
+		
+		}
+	
+		return Iy;
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
 
 }

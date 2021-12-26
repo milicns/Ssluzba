@@ -83,7 +83,7 @@ public class MainFrame extends JFrame {
 		
 		}
 		
-	public void refreshTables(String akcija, int vrednost) throws ParseException {
+	public void refreshTables(String a, int v) throws ParseException {
 		
 		TableProfessor ProfessorsTable=new TableProfessor();
 		TableSubject SubjectTable=new TableSubject();
