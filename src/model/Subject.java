@@ -21,14 +21,14 @@ public class Subject {
 		this.subjectName = subjectName;
 		this.semester = semester;
 		this.studyYear = studyYear;
-		this.subjectProfessor = subjectProfessor; ///MOZDA OVDE null
+		this.subjectProfessor = subjectProfessor; 
 		this.espb = espb;
 		this.passedStudents = passedStudents;
 		this.failedStudents = failedStudents;
 	}
 	
-	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear, Professor subjectProfessor,
-			int espb) {
+	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear,
+			int espb, ArrayList<Student> passedStudents, ArrayList<Student> failedStudents) {
 		super();
 		this.subjectCode = subjectCode;
 		this.subjectName = subjectName;

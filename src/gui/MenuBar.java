@@ -22,9 +22,10 @@ import javax.swing.event.MenuKeyListener;
 
 import controller.StudentController;
 import dialog.ProfessorDialog;
-import dialog.SubjectDialog;
 import view.StudentDialog;
 import view.StudentEditDialog;
+import view.SubjectDialog;
+import view.SubjectEditDialog;
 
 public class MenuBar extends JMenuBar {
 	
@@ -48,8 +49,9 @@ public class MenuBar extends JMenuBar {
 					ProfessorDialog pd = new ProfessorDialog(parent);
 					pd.setVisible(true);
 				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
-					SubjectDialog sbd = new SubjectDialog(parent);
+					SubjectDialog sbd = new SubjectDialog(parent,"Dodavanje predmeta",true);
 					sbd.setVisible(true);
+
 			}
 			
 		}});
@@ -63,14 +65,23 @@ public class MenuBar extends JMenuBar {
 		miEdit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0)
+			if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
 				if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
 				StudentEditDialog ed = new StudentEditDialog(parent,"Izmena studenta",true);
 				ed.setVisible(true);
 				} else {
-					JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da izmenite.");
+					JOptionPane.showMessageDialog(null, "Izaberite studenta kog Å¾elite da izmenite.");
 				}
-			}		
+			} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
+				int row = MainFrame.getInstance().getSubjectTable().getSelectedRow();
+				if(row != -1) {
+				SubjectEditDialog sbd = new SubjectEditDialog(parent,"Izmena predmeta",true,row);
+				sbd.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Izaberite predmet koji Å¾elite da izmenite.");
+				}
+			}
+			}
 		});
 		
 		JMenuItem miDelete = new JMenuItem("Delete");
@@ -80,13 +91,13 @@ public class MenuBar extends JMenuBar {
 				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0)
 					if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
 					String[] options = {"Da", "Ne"};
-					int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da želite da obrišete studenta?", "Brisanje studenta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
+					int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da ï¿½elite da obriï¿½ete studenta?", "Brisanje studenta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
 					if(d == JOptionPane.YES_OPTION) {
 						String index = (MainFrame.getInstance().getStudentTable().getValueAt(MainFrame.getInstance().getStudentTable().getSelectedRow(),0)).toString();
 						StudentController.getInstance().deleteStudent(index);
 					}
 				}else {
-					JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da obrišete.");
+					JOptionPane.showMessageDialog(null, "Izaberite studenta kog ï¿½elite da obriï¿½ete.");
 				}	
 			}
 		});

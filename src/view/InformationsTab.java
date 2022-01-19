@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import gui.AbstractTableModelFailed;
 import gui.MainFrame;
 import model.Adress;
 import model.Grade;
@@ -42,8 +43,14 @@ public class InformationsTab extends JPanel {
 	private JTextField tfSurname;
 	private JLabel lblBirthDate;
 	private JTextField tfBirthDate;
-	private JLabel lblAdress;
-	private JTextField tfAdress;
+	private JLabel lblStreet;
+	private JTextField tfStreet;
+	private JLabel lblNr;
+	private JTextField tfNr;
+	private JLabel lblCity;
+	private JTextField tfCity;
+	private JLabel lblState;
+	private JTextField tfState;
 	private JLabel lblPhone;
 	private JTextField tfPhone;
 	private JLabel lblEmail;
@@ -66,6 +73,7 @@ public class InformationsTab extends JPanel {
 	public InformationsTab(int row, JDialog parent) {
 	
 		student = StudentsDatabase.getInstance().getRow(row);
+		
 		
 		initGui();
 		constructGui();
@@ -131,10 +139,10 @@ public class InformationsTab extends JPanel {
 			
 		});
 		
-		lblAdress = new JLabel("Adresa stanovanja");
-		tfAdress = new JTextField(20);
-		tfAdress.setText(student.getAdress().getStreet()+" "+student.getAdress().getNr()+", "+student.getAdress().getCity()+", "+student.getAdress().getState());
-		tfAdress.addFocusListener(new FocusListener() {
+		lblStreet = new JLabel("Ulica");
+		tfStreet = new JTextField(20);
+		tfStreet.setText(student.getAdress().getStreet());
+		tfStreet.addFocusListener(new FocusListener() {
 
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -145,7 +153,60 @@ public class InformationsTab extends JPanel {
 			@Override
 			public void focusLost(FocusEvent e) {
 				inputCheck();
+			}
+			
+		});
+		
+		lblNr = new JLabel("Broj");
+		tfNr = new JTextField(20);
+		tfNr.setText(student.getAdress().getNr());
+		tfNr.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
 				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				inputCheck();
+			}
+			
+		});
+		
+		lblCity = new JLabel("Grad");
+		tfCity = new JTextField(20);
+		tfCity.setText(student.getAdress().getCity());
+		tfCity.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				inputCheck();
+			}
+			
+		});
+		
+		lblState = new JLabel("Drzava");
+		tfState = new JTextField(20);
+		tfState.setText(student.getAdress().getState());
+		tfState.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				inputCheck();
 			}
 			
 		});
@@ -262,69 +323,87 @@ public class InformationsTab extends JPanel {
 	private void constructGui() {
 	
 		pnl.add(lblName, new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
-	
-		pnl.add(tfName, new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
-	
-		pnl.add(lblSurname, new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
-	
-		pnl.add(tfSurname, new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
-	
-		pnl.add(lblBirthDate, new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
-	
-		pnl.add(tfBirthDate, new GridBagConstraints(1, 2, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
-	
-		pnl.add(lblAdress, new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
-	
-		pnl.add(tfAdress, new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
-	
-		pnl.add(lblPhone, new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
-	
-		pnl.add(tfPhone, new GridBagConstraints(1, 4, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
-	
-		pnl.add(lblEmail, new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
-	
-		pnl.add(tfEmail, new GridBagConstraints(1, 5, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
-	
-		pnl.add(lblIndex, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
-	
-		pnl.add(tfIndex, new GridBagConstraints(1, 6, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
-	
-		pnl.add(lblEnroll, new GridBagConstraints(0, 7, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
-	
-		pnl.add(tfEnroll, new GridBagConstraints(1, 7, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
-	
-		pnl.add(lblCurrent, new GridBagConstraints(0, 8, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
-	
-		pnl.add(cbCurrent, new GridBagConstraints(1, 8, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
-	
-		pnl.add(lblStatus, new GridBagConstraints(0, 9, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
-	
-		pnl.add(cbStatus, new GridBagConstraints(1, 9, 1, 1, 0, 0, GridBagConstraints.WEST,
-			GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
-	
-		bPnl.add(confirm);
-		bPnl.add(quit);
-		add(pnl, BorderLayout.CENTER);
-		add(bPnl, BorderLayout.SOUTH);
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+		
+			pnl.add(tfName, new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+		
+			pnl.add(lblSurname, new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+		
+			pnl.add(tfSurname, new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+		
+			pnl.add(lblBirthDate, new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+		
+			pnl.add(tfBirthDate, new GridBagConstraints(1, 2, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+		
+			pnl.add(lblStreet, new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+		
+			pnl.add(tfStreet, new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+			
+			pnl.add(lblNr, new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+			
+			pnl.add(tfNr, new GridBagConstraints(1, 4, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+			
+			pnl.add(lblCity, new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+				
+			pnl.add(tfCity, new GridBagConstraints(1, 5, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+			
+			pnl.add(lblState, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+					
+			pnl.add(tfState, new GridBagConstraints(1, 6, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+		
+			pnl.add(lblPhone, new GridBagConstraints(0, 7, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+		
+			pnl.add(tfPhone, new GridBagConstraints(1, 7, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+		
+			pnl.add(lblEmail, new GridBagConstraints(0, 8, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+		
+			pnl.add(tfEmail, new GridBagConstraints(1, 8, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+		
+			pnl.add(lblIndex, new GridBagConstraints(0, 9, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+		
+			pnl.add(tfIndex, new GridBagConstraints(1, 9, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+		
+			pnl.add(lblEnroll, new GridBagConstraints(0, 10, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+		
+			pnl.add(tfEnroll, new GridBagConstraints(1, 10, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+		
+			pnl.add(lblCurrent, new GridBagConstraints(0, 11, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+		
+			pnl.add(cbCurrent, new GridBagConstraints(1, 11, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+		
+			pnl.add(lblStatus, new GridBagConstraints(0, 12, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(20, 0, 0, 0), 0, 0));
+		
+			pnl.add(cbStatus, new GridBagConstraints(1, 12, 1, 1, 0, 0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(20, 20, 0, 20), 0, 0));
+		
+			bPnl.add(confirm);
+			bPnl.add(quit);
+			add(pnl, BorderLayout.CENTER);
+			add(bPnl, BorderLayout.SOUTH);
 	}
 	
 	private void buttonActions(JDialog parent) {
@@ -344,9 +423,6 @@ public class InformationsTab extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-					String[] adr = tfAdress.getText().split(",");
-					String[] a = adr[0].split(" ");
-					Adress adress = new Adress(a[0], a[1], adr[1], adr[2]);
 					
 					Status status;
 					if(cbStatus.getSelectedItem().toString().equals("Budžet")) {
@@ -367,7 +443,7 @@ public class InformationsTab extends JPanel {
 					}
 					
 				try {	
-					StudentController.getInstance().editStudent(MainFrame.getInstance().getStudentTable().getSelectedRow(), tfName.getText(), tfSurname.getText(), new SimpleDateFormat("dd.mm.yyyy.").parse(tfBirthDate.getText()), adress , tfPhone.getText(), tfEmail.getText(), tfIndex.getText(), Integer.parseInt(tfEnroll.getText()), currYear, status, new ArrayList<Grade>(), new ArrayList<Subject>()); 
+					StudentController.getInstance().editStudent(MainFrame.getInstance().getStudentTable().getSelectedRow(), tfName.getText(), tfSurname.getText(), new SimpleDateFormat("dd.mm.yyyy.").parse(tfBirthDate.getText()), new Adress(tfStreet.getText(),tfNr.getText(),tfCity.getText(),tfState.getText()) , tfPhone.getText(), tfEmail.getText(), tfIndex.getText(), Integer.parseInt(tfEnroll.getText()), currYear, status, new ArrayList<Grade>(), new ArrayList<Subject>()); 
 				} catch (ParseException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
@@ -382,11 +458,15 @@ public class InformationsTab extends JPanel {
 		
 		if((Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfName.getText())) &&
 				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfSurname.getText())) &&
-				   (Pattern.matches("^(1[0-2]|0[1-9]).(3[01]|[12][0-9]|0[1-9]).[0-9]{4}.$", tfBirthDate.getText())) &&
-				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+[0-9]{1,3},[A-Za-zĐđŠšČčĆćŽž\\s]+,[A-Za-zĐđŠšČčĆćŽž\\s]+", tfAdress.getText())) && 
-				   (Pattern.matches("[0-9]{8,11}",tfPhone.getText())) &&
+				   (Pattern.matches("(3[01]|[12][0-9]|0[1-9]).^(1[0-2]|0[1-9]).[0-9]{4}.$", tfBirthDate.getText())) &&
+				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+", tfStreet.getText())) &&
+				   (Pattern.matches("[0-9]+[a-z]{0,1}", tfNr.getText())) &&
+				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+", tfCity.getText())) &&
+				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+", tfState.getText())) && 
+				   (Pattern.matches("0{1}[1-9]{2}/[0-9]{3,4}-[0-9]{3,4}",tfPhone.getText())) &&
 				   (Pattern.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$", tfEmail.getText())) &&
 				   (Pattern.matches("[A-za-z]{1,3}-[0-9]{1,4}-[0-9]{4}", tfIndex.getText())) &&
+				   (!StudentsDatabase.getInstance().findById(tfIndex.getText())) &&
 				   (Pattern.matches("20[0-9]{2}", tfEnroll.getText()))) {
 					confirm.setEnabled(true);
 				} else {

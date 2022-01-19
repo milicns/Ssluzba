@@ -24,7 +24,6 @@ public class SubjectDatabase {
 
 	private List<Subject> subjects;
 	private List<String> columns;
-	private List<Subject> refresh =new ArrayList<>();
 
 	private SubjectDatabase() {
 	   
@@ -66,7 +65,6 @@ public class SubjectDatabase {
 			}
 					
 		
-		refresh= subjects;
 		
 	}
 	
@@ -77,6 +75,14 @@ public class SubjectDatabase {
 		return subjects;
 	}
 	
+	public Subject findByCode(String code) {
+		for(Subject s: subjects) {
+			if(s.getSubjectCode().equals(code)) {
+				return s;
+			}
+		}
+		return null;
+	}
 
 	public void setSubjects(List<Subject> predmeti) {
 		this.subjects = predmeti;
@@ -112,11 +118,10 @@ public class SubjectDatabase {
 		}
 	}
 	
-
 	
 	
-	public void addSubject(String subjectCode, String subjectName, Semester semester, int studyYear,int espb) {
-		this.subjects.add(new Subject(subjectCode, subjectName, semester, studyYear, espb));
+	public void addSubject(String subjectCode, String subjectName, Semester semester, int studyYear,int espb, ArrayList<Student> passed,ArrayList<Student> failed) {
+		this.subjects.add(new Subject(subjectCode, subjectName, semester, studyYear, espb,passed,failed));
 			
 	}
 	
