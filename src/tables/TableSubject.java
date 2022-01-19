@@ -20,25 +20,16 @@ public class TableSubject extends JTable {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
-		this.getTableHeader().setBackground( Color.WHITE);
 		this.setModel( new AbstractTableSubject());
-		
-		
-		
-		
-		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
-		for(int i = 0;i < SubjectDatabase.getInstance().getColumnCount();i++)
-			
-		this.getColumnModel().getColumn(i).setCellRenderer( centerRenderer );
-		this.setAutoCreateRowSorter(true);
 	}
-	
-	
-	
-	
-	
-	
-
+		@Override
+		public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+			Component c = super.prepareRenderer(renderer, row, column);
+			if (isRowSelected(row)) {
+				c.setBackground(Color.LIGHT_GRAY);
+			} else {
+				c.setBackground(Color.WHITE);
+			}
+			return c;
+		}
 }

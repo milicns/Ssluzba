@@ -60,6 +60,8 @@ public class Student {
 		this.passedSubjects = passedSubjects;
 		this.failedSubjects = failedSubjects;
 	}
+	
+	
 
 	public String getName() {
 		return name;
@@ -163,6 +165,24 @@ public class Student {
 
 	public void setFailedSubjects(ArrayList<Subject> failedSubjects) {
 		this.failedSubjects = failedSubjects;
+	}
+	
+	public String getValue(int row, int column) {
+		Subject subject = this.failedSubjects.get(row);
+		switch (column) {
+		case 0:
+			return subject.getSubjectCode();
+		case 1:
+			return subject.getSubjectName();
+		case 2:
+			return Integer.toString(subject.getEspb());
+		case 3:
+			return Integer.toString(subject.getStudyYear());
+		case 4:
+			return String.valueOf(subject.getSemester());
+		default:
+			return null;
+		}
 	}
 	
 	public enum Status {

@@ -1,0 +1,801 @@
+<list>
+  <student>
+    <name>Marko</name>
+    <surname>Milosevic</surname>
+    <birthDate>2001-01-11 23:03:00.0 UTC</birthDate>
+    <adress>
+      <street>Šafarikova</street>
+      <nr>2</nr>
+      <city>Novi Sad</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>021/333-555</phoneNr>
+    <email>marko.milosevic@mailinator.com</email>
+    <index>RA 2/2020</index>
+    <enrollYear>2020</enrollYear>
+    <currentYear>1</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Marija</name>
+    <surname>Milić</surname>
+    <birthDate>2000-01-11 23:01:00.0 UTC</birthDate>
+    <adress>
+      <street>Nikole Tesle</street>
+      <nr>56</nr>
+      <city>Novi Sad</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>021/555-2222</phoneNr>
+    <email>marija.milic@mailinator.com</email>
+    <index>RA 3/2019</index>
+    <enrollYear>2019</enrollYear>
+    <currentYear>2</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Nikola</name>
+    <surname>Nikolic</surname>
+    <birthDate>2001-01-29 23:08:00.0 UTC</birthDate>
+    <adress>
+      <street>Bulevar Patrijaha Pavla</street>
+      <nr>3</nr>
+      <city>Beograd</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>021/135-463</phoneNr>
+    <email>nikola.nikolic@mailinator.com</email>
+    <index>RA 3/2017</index>
+    <enrollYear>2017</enrollYear>
+    <currentYear>1</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E11</subjectCode>
+        <subjectName>OISISI</subjectName>
+        <semester>L</semester>
+        <studyYear>2</studyYear>
+        <espb>5</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Pera</name>
+    <surname>Peric</surname>
+    <birthDate>1995-01-06 23:06:00.0 UTC</birthDate>
+    <adress>
+      <street>Stražilovska</street>
+      <nr>6a</nr>
+      <city>Novi Sad</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>021/903-463</phoneNr>
+    <email>pera.peric@mailinator.com</email>
+    <index>RA 134/2015</index>
+    <enrollYear>2015</enrollYear>
+    <currentYear>3</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Sofija</name>
+    <surname>Ilic</surname>
+    <birthDate>1999-01-05 23:05:00.0 UTC</birthDate>
+    <adress>
+      <street>Nikole Pašića</street>
+      <nr>2d</nr>
+      <city>Kikinda</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>021/731-067</phoneNr>
+    <email>sofija.ilic@mailinator.com</email>
+    <index>RA 5/2019</index>
+    <enrollYear>2019</enrollYear>
+    <currentYear>3</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E01</subjectCode>
+        <subjectName>Analiza 1</subjectName>
+        <semester>L</semester>
+        <studyYear>1</studyYear>
+        <espb>4</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Martina</name>
+    <surname>Lukic</surname>
+    <birthDate>1999-01-15 23:05:00.0 UTC</birthDate>
+    <adress>
+      <street>Bulevar Kralja Petra</street>
+      <nr>22</nr>
+      <city>Niš</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>011/4333-800</phoneNr>
+    <email>martina.lukic@mailinator.com</email>
+    <index>RA 8/2018</index>
+    <enrollYear>2018</enrollYear>
+    <currentYear>3</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Stojan</name>
+    <surname>Stojakovic</surname>
+    <birthDate>2001-01-18 23:10:00.0 UTC</birthDate>
+    <adress>
+      <street>Tolstojeva</street>
+      <nr>31</nr>
+      <city>Novi Sad</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>011/3130-007</phoneNr>
+    <email>stojan.stojakovic@mailinator.com</email>
+    <index>RA 10/2017</index>
+    <enrollYear>2017</enrollYear>
+    <currentYear>1</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects/>
+  </student>
+  <student>
+    <name>Milan</name>
+    <surname>Milanovic</surname>
+    <birthDate>2000-01-01 23:11:00.0 UTC</birthDate>
+    <adress>
+      <street>Marićeva</street>
+      <nr>11</nr>
+      <city>Kragujevac</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>015/313-061</phoneNr>
+    <email>milan.milanovic@mailinator.com</email>
+    <index>RA 12/2017</index>
+    <enrollYear>2017</enrollYear>
+    <currentYear>2</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E01</subjectCode>
+        <subjectName>Analiza 1</subjectName>
+        <semester>L</semester>
+        <studyYear>1</studyYear>
+        <espb>4</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Miroslav</name>
+    <surname>Milic</surname>
+    <birthDate>2000-01-10 23:10:00.0 UTC</birthDate>
+    <adress>
+      <street>Stražilovska</street>
+      <nr>3</nr>
+      <city>Beograd</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>021/351-091</phoneNr>
+    <email>miroslav.milic@mailinator.com</email>
+    <index>RA 16/2019</index>
+    <enrollYear>2019</enrollYear>
+    <currentYear>2</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Stefan</name>
+    <surname>Gojic</surname>
+    <birthDate>1998-12-31 23:05:00.0 UTC</birthDate>
+    <adress>
+      <street>Nikole Pašića</street>
+      <nr>6a</nr>
+      <city>Novi Sad</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>015/324-500</phoneNr>
+    <email>stefan.gojic@mailinator.com</email>
+    <index>RA 21/2015</index>
+    <enrollYear>2015</enrollYear>
+    <currentYear>3</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Anastasija</name>
+    <surname>Jokic</surname>
+    <birthDate>1999-01-10 23:07:00.0 UTC</birthDate>
+    <adress>
+      <street>Bulevar Kralja Petra</street>
+      <nr>2d</nr>
+      <city>Niš</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>011/2333-900</phoneNr>
+    <email>anastasija.jokic@mailinator.com</email>
+    <index>RA 9/2020</index>
+    <enrollYear>2020</enrollYear>
+    <currentYear>3</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E01</subjectCode>
+        <subjectName>Analiza 1</subjectName>
+        <semester>L</semester>
+        <studyYear>1</studyYear>
+        <espb>4</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Bogdan</name>
+    <surname>Bogdanovic</surname>
+    <birthDate>1999-01-22 23:07:00.0 UTC</birthDate>
+    <adress>
+      <street>Knez Mihajlova</street>
+      <nr>22</nr>
+      <city>Beograd</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>021/231-231</phoneNr>
+    <email>bogdan.bogdanovic@mailinator.com</email>
+    <index>RA 4/2017</index>
+    <enrollYear>2017</enrollYear>
+    <currentYear>3</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Ana</name>
+    <surname>Dabovic</surname>
+    <birthDate>2001-01-11 23:12:00.0 UTC</birthDate>
+    <adress>
+      <street></street>
+      <nr></nr>
+      <city></city>
+      <state></state>
+    </adress>
+    <phoneNr>014/303-007</phoneNr>
+    <email>ana.dabovic@mailinator.com</email>
+    <index>RA 30/2019</index>
+    <enrollYear>2019</enrollYear>
+    <currentYear>1</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Mika</name>
+    <surname>Mikic</surname>
+    <birthDate>2001-01-04 23:11:00.0 UTC</birthDate>
+    <adress>
+      <street>Nikole Tesle</street>
+      <nr>56</nr>
+      <city>Novi Sad</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>015/101-909</phoneNr>
+    <email>mika.mikic@mailinator.com</email>
+    <index>RA 1/2020</index>
+    <enrollYear>2020</enrollYear>
+    <currentYear>1</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects/>
+  </student>
+  <student>
+    <name>Jovan</name>
+    <surname>Deretic</surname>
+    <birthDate>1998-01-09 23:09:00.0 UTC</birthDate>
+    <adress>
+      <street>Bulevar Patrijaha Pavla</street>
+      <nr>3</nr>
+      <city>Beograd</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>002/200-300</phoneNr>
+    <email>jovan.deretic@mailinator.com</email>
+    <index>RA 11/2018</index>
+    <enrollYear>2018</enrollYear>
+    <currentYear>4</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E01</subjectCode>
+        <subjectName>Analiza 1</subjectName>
+        <semester>L</semester>
+        <studyYear>1</studyYear>
+        <espb>4</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Nikola</name>
+    <surname>Miskovic</surname>
+    <birthDate>1998-01-02 23:08:00.0 UTC</birthDate>
+    <adress>
+      <street>Stražilovska</street>
+      <nr>6a</nr>
+      <city>Novi Sad</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>022/123-456</phoneNr>
+    <email>nikola.miskovic@mailinator.com</email>
+    <index>RA 12/2018</index>
+    <enrollYear>2018</enrollYear>
+    <currentYear>4</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Martin</name>
+    <surname>Stojanovic</surname>
+    <birthDate>1997-12-31 23:05:00.0 UTC</birthDate>
+    <adress>
+      <street></street>
+      <nr></nr>
+      <city></city>
+      <state></state>
+    </adress>
+    <phoneNr>024/321-775</phoneNr>
+    <email>martin.stojanovic@mailinator.com</email>
+    <index>RA 13/2018</index>
+    <enrollYear>2018</enrollYear>
+    <currentYear>4</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Tomislav</name>
+    <surname>Novakovic</surname>
+    <birthDate>1996-01-24 23:02:00.0 UTC</birthDate>
+    <adress>
+      <street>Bulevar Kralja Petra</street>
+      <nr>22</nr>
+      <city>Niš</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>011/1188-379</phoneNr>
+    <email>tomislav.novakovic@mailinator.com</email>
+    <index>RA 14/2018</index>
+    <enrollYear>2018</enrollYear>
+    <currentYear>4</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E23</subjectCode>
+        <subjectName>Fizika</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <espb>7</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Lena</name>
+    <surname>Ivic</surname>
+    <birthDate>1998-01-10 23:05:00.0 UTC</birthDate>
+    <adress>
+      <street>Tolstojeva</street>
+      <nr>31</nr>
+      <city>Novi Sad</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>024/333-555</phoneNr>
+    <email>lena.ivic@mailinator.com</email>
+    <index>RA 154/2016</index>
+    <enrollYear>2016</enrollYear>
+    <currentYear>4</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject reference="../../../student[11]/failedSubjects/model.Subject"/>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Jovan</name>
+    <surname>Lazic</surname>
+    <birthDate>2001-01-21 23:01:00.0 UTC</birthDate>
+    <adress>
+      <street>Marićeva</street>
+      <nr>11</nr>
+      <city>Kragujevac</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>025/1189-479</phoneNr>
+    <email>jovan.lazic@mailinator.com</email>
+    <index>RA 23/2020</index>
+    <enrollYear>2020</enrollYear>
+    <currentYear>1</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Isidora</name>
+    <surname>Mikic</surname>
+    <birthDate>2000-01-30 23:12:00.0 UTC</birthDate>
+    <adress>
+      <street>Stražilovska</street>
+      <nr>3</nr>
+      <city>Beograd</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>011/1122-366</phoneNr>
+    <email>isidora.mikic@mailinator.com</email>
+    <index>RA 1/2019</index>
+    <enrollYear>2019</enrollYear>
+    <currentYear>2</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects/>
+  </student>
+  <student>
+    <name>Vladimir</name>
+    <surname>Ilic</surname>
+    <birthDate>1998-01-30 23:08:00.0 UTC</birthDate>
+    <adress>
+      <street>Nikole Pašića</street>
+      <nr>6a</nr>
+      <city>Novi Sad</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>0211122-367</phoneNr>
+    <email>vladimir.ilic@mailinator.com</email>
+    <index>SW 4/2014</index>
+    <enrollYear>2014</enrollYear>
+    <currentYear>4</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects>
+      <model.Subject reference="../../../student[9]/failedSubjects/model.Subject"/>
+      <model.Subject>
+        <subjectCode>E22</subjectCode>
+        <subjectName>Analiza 2</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <espb>3</espb>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>E01</subjectCode>
+        <subjectName>Analiza 1</subjectName>
+        <semester>L</semester>
+        <studyYear>1</studyYear>
+        <espb>4</espb>
+      </model.Subject>
+    </failedSubjects>
+  </student>
+  <student>
+    <name>Mirko</name>
+    <surname>Alicic</surname>
+    <birthDate>1999-01-20 23:07:00.0 UTC</birthDate>
+    <adress>
+      <street>Bulevar Kralja Petra</street>
+      <nr>2d</nr>
+      <city>Niš</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>012/1122-368</phoneNr>
+    <email>mirko.alicic@mailinator.com</email>
+    <index>SW 17/2015</index>
+    <enrollYear>2015</enrollYear>
+    <currentYear>3</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects/>
+  </student>
+  <student>
+    <name>Milisav</name>
+    <surname>Perković</surname>
+    <birthDate>1998-01-27 23:09:00.0 UTC</birthDate>
+    <adress>
+      <street>Knez Mihajlova</street>
+      <nr>22</nr>
+      <city>Beograd</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>012/1122-369</phoneNr>
+    <email>milisav.pejkovic@mailinator.com</email>
+    <index>SW 17/2016</index>
+    <enrollYear>2016</enrollYear>
+    <currentYear>4</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects/>
+  </student>
+  <student>
+    <name>Purisa</name>
+    <surname>Djordjević</surname>
+    <birthDate>2000-01-28 23:02:00.0 UTC</birthDate>
+    <adress>
+      <street>Bulevar Patrijaha Pavla</street>
+      <nr>3</nr>
+      <city>Beograd</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>011/1543-370</phoneNr>
+    <email>purisa.djordjevic@mailinator.com</email>
+    <index>SW 27/2018</index>
+    <enrollYear>2018</enrollYear>
+    <currentYear>2</currentYear>
+    <status>B</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects/>
+  </student>
+  <student>
+    <name>Mikica</name>
+    <surname>Kovacević</surname>
+    <birthDate>1999-01-22 23:03:00.0 UTC</birthDate>
+    <adress>
+      <street>Nikole Pašića</street>
+      <nr>2d</nr>
+      <city>Kikinda</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>011/1992-371</phoneNr>
+    <email>mikica.kovacevic@mailinator.com</email>
+    <index>RA 226/2017</index>
+    <enrollYear>2017</enrollYear>
+    <currentYear>3</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects/>
+  </student>
+  <student>
+    <name>Miloš</name>
+    <surname>Milić</surname>
+    <birthDate>2001-01-20 23:10:00.0 UTC</birthDate>
+    <adress>
+      <street>Nikole Tesle</street>
+      <nr>56</nr>
+      <city>Novi Sad</city>
+      <state>Srbija</state>
+    </adress>
+    <phoneNr>011/8172-372</phoneNr>
+    <email>milos.milic@mailinator.com</email>
+    <index>SW 12/2021</index>
+    <enrollYear>2021</enrollYear>
+    <currentYear>1</currentYear>
+    <status>S</status>
+    <avgGrade>0.0</avgGrade>
+    <passedSubjects/>
+    <failedSubjects/>
+  </student>
+</list>

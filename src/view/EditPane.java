@@ -22,10 +22,10 @@ public class EditPane extends JTabbedPane{
 		this.addTab("Informacije", inf);
 		
 		passed = new PassedTab(row);
-		this.addTab("Poloûeni", passed);
+		this.addTab("Polo≈æeni", passed);
 		
-		failed = new FailedTab(row);
-		this.addTab("Nepoloûeni", failed);
+		failed = new FailedTab(this,row);
+		this.addTab("Nepolo≈æeni", failed);
 		
 	}
 	

@@ -7,13 +7,18 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
 
+import model.Student;
+import model.StudentsDatabase;
+
 public class PassedJTable extends JTable{
 
 	public PassedJTable() {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.setModel(new AbstractTableModelPassed());
+		int row = MainFrame.getInstance().getStudentTable().getSelectedRow();
+		Student s = StudentsDatabase.getInstance().getRow(row);
+		this.setModel(new AbstractTableModelPassed(s));
 	}
 	
 	@Override

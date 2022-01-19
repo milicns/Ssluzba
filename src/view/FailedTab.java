@@ -3,17 +3,31 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 
+import controller.StudentController;
+import gui.AbstractTableModelFailed;
 import gui.FailedJTable;
+import gui.MainFrame;
+import model.FailedSubjects;
 import model.Student;
 import model.StudentsDatabase;
+import model.Subject;
 
 public class FailedTab extends JPanel{
 	
@@ -21,15 +35,25 @@ public class FailedTab extends JPanel{
 	private JButton add;
 	private JButton delete;
 	private JButton exam;
-	private JTable failed;
+	private FailedJTable failed;
 	private JPanel btnPnl;
 	private JPanel table;
 	
+	private static FailedTab instance = null;
+	public static FailedTab getInstance() {
+		if (instance == null) {
+			instance = new FailedTab();
+		}
+		return instance;
+	}
 	
-	public FailedTab(int row) {
-		student = StudentsDatabase.getInstance().getRow(row);
+	private FailedTab() {}
+	
+	public FailedTab(EditPane parent, int row) {
+		
 		initGui();
 		constructGui();
+		buttonActions(this, row);
 		
 	}
 	
@@ -43,7 +67,7 @@ public class FailedTab extends JPanel{
 		failed = new FailedJTable();
 		
 		add = new JButton("Dodaj");
-		delete = new JButton("Obriši");
+		delete = new JButton("ObriÅ¡i");
 		exam = new JButton("Polaganje");
 	}
 	
@@ -61,5 +85,49 @@ public class FailedTab extends JPanel{
 		add(btnPnl,BorderLayout.NORTH);
 		
 	}
+	
+	private void buttonActions(FailedTab ft, int row) {
+		
+		add.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				StudentSubjectDialog sbd = new StudentSubjectDialog(ft, true,StudentsDatabase.getInstance().getRow(row).getIndex());
+				sbd.setVisible(true);
+			}
+			
+		});
+		
+		delete.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String[] options = {"Da", "Ne"};
+				int d = JOptionPane.showOptionDialog(ft,"Da li ste sigurni da ï¿½elite da obriï¿½ete predmet?", "Brisanje predmeta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
+				if(d == JOptionPane.YES_OPTION) {
+					int row = getTable().getSelectedRow();
+					student = StudentsDatabase.getInstance().getRow(MainFrame.getInstance().getStudentTable().getSelectedRow());
+					String index = student.getFailedSubjects().get(row).getSubjectCode();
+					StudentsDatabase.getInstance().removeSubject(student,index);
+					refreshTable();
+					//dispose();
+				}
+				
+			}
+			
+		});
+		
+	}
+	
+
+public void refreshTable() {
+	 AbstractTableModelFailed model = (AbstractTableModelFailed) failed.getModel();
+	 model.fireTableDataChanged();
+   }
+	
+   public FailedJTable getTable() {
+	  return failed;
+  
+   }
 
 }

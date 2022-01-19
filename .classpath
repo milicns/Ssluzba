@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/cglib-nodep-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/jdom-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/jdom2-2.0.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/jettison-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/joda-time-1.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/kxml2-min-2.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/mxparser-1.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/stax-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/wstx-asl-3.2.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/xmlpull-1.1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/xom-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/xpp3_min-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="C:/Users/milic/eclipse-workspace/Ssluzba/lib/xstream-1.4.18.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

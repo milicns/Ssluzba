@@ -16,6 +16,7 @@ public class Adress {
 		this.city = city;
 		this.state = state;
 	}
+	
 
 	public String getStreet() {
 		return street;
@@ -48,5 +49,7 @@ public class Adress {
 	public void setState(String state) {
 		this.state = state;
 	}
+
+
        
 }

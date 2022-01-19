@@ -5,7 +5,10 @@ import java.awt.Component;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+
 import javax.swing.table.TableCellRenderer;
+
+
 
 public class StudentsJTable extends JTable{
 	
@@ -15,6 +18,9 @@ public class StudentsJTable extends JTable{
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new AbstractTableModelStudents());
+		this.setAutoCreateRowSorter(true);
+		
+		
 	}
 	
 	@Override

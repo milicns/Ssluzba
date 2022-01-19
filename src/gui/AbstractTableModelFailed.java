@@ -2,29 +2,42 @@ package gui;
 
 import javax.swing.table.AbstractTableModel;
 
+import model.FailedSubjects;
+import model.Student;
+
 
 public class AbstractTableModelFailed extends AbstractTableModel{
+	
+	FailedSubjects subData;
+	
+	public AbstractTableModelFailed(Student s) {
+		subData = new FailedSubjects(s);
+	}
+	
 
 	@Override
 	public int getRowCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		
+		return subData.getSubjects().size();
 	}
 
 	@Override
 	public int getColumnCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return 5;
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		// TODO Auto-generated method stub
-		return null;
+		return subData.getValueAt(rowIndex, columnIndex);
 	}
 
 	@Override
 	public String getColumnName(int column) {
-		return "";
+		return subData.getColumnName(column);
 	}
+	
+	
 }

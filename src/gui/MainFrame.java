@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.text.ParseException;
 
 import javax.swing.JFrame;
@@ -13,6 +16,8 @@ import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import listeners.WindowList;
+import model.StudentsDatabase;
 import tables.AbstractTableSubject;
 import tables.AbstractTableProfessor;
 
@@ -43,7 +48,7 @@ public class MainFrame extends JFrame {
 	    int screenHeight = screenSize.height;
 	    int screenWidth = screenSize.width;
 	    setSize(3*screenWidth / 4, 3*screenHeight/ 4);
-	    setTitle("Studentska sluzba");
+	    setTitle("Studentska služba");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setLocationRelativeTo(null);
 	     
@@ -80,22 +85,19 @@ public class MainFrame extends JFrame {
 				}
 			}
 		});
+		addWindowListener(new WindowList());
 		
-		}
+	}
 		
 	public void refreshTables(String a, int v) throws ParseException {
 		
 		TableProfessor ProfessorsTable=new TableProfessor();
-		TableSubject SubjectTable=new TableSubject();
 		
 		AbstractTableProfessor ProfessorsModel = (AbstractTableProfessor) ProfessorsTable.getModel();
-		AbstractTableSubject SubjectModel = (AbstractTableSubject) SubjectTable.getModel();
 		
 		ProfessorsModel.fireTableDataChanged();
-		SubjectModel.fireTableDataChanged();
 		
 		ProfessorsTable.validate();
-		SubjectTable.validate();
 		
 	}
 	
@@ -118,6 +120,12 @@ public class MainFrame extends JFrame {
 		validate();
 	}
 	
+	public void refreshSubjects() {
+		AbstractTableSubject model = (AbstractTableSubject) subjectsTable.getModel();
+		
+		model.fireTableDataChanged();
+		validate();
+	}
 	public void refreshSb(String tName) {
 		
 		this.sb = new StatusBar(tName);
@@ -134,6 +142,9 @@ public class MainFrame extends JFrame {
 	public JTable getStudentTable() {
 		return studentsTable;
 	}
-	       
+	
+	public JTable getSubjectTable() {
+		return subjectsTable;
+	}
 
 }

@@ -1,12 +1,23 @@
 package model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.AnyTypePermission;
+
 import model.Student.Status;
+
+/**
+ * @param args
+ * @throws IOException
+ */
 
 public class StudentsDatabase {
 
@@ -39,14 +50,14 @@ public class StudentsDatabase {
 		this.students = new ArrayList<Student>();
 		
 		try {
-			students.add(new Student("Pera", "Perić", new SimpleDateFormat("dd.mm.yyyy.").parse("03.05.2000."), new Adress("Bulevar Oslobođenja","79","Novi Sad","Srbija"),"0651113434","pera.peric@gmail.com","ra-22-2019",2019,3,Status.B, 8.79, new ArrayList<Grade>(), new ArrayList<Subject>()));
-			students.add(new Student("Milos", "Petrović", new SimpleDateFormat("dd.mm.yyyy.").parse("15.08.1999."), new Adress("Temerinska","121","Novi Sad","Srbija"),"0643335555","milos.petrovic@gmail.com","sw-14-2018",2018,4,Status.B, 9.54, new ArrayList<Grade>(), new ArrayList<Subject>()));
-		} catch (ParseException e) {
+			deserialize();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
 	
+		
+	}
 	public List<Student> getStudents() {
 		return students;
 	}
@@ -59,6 +70,7 @@ public class StudentsDatabase {
 	public int getColumnCount() {
 		return 6;
 	}
+	
 	
 	public String getColumnName(int index) {
 		return this.columns.get(index);
@@ -97,6 +109,31 @@ public class StudentsDatabase {
 		return false;
 	}
 	
+	public Student findById2(String id) {
+		for(Student s: students) {
+			if(s.getIndex().equals(id)) {
+				return s;
+			}
+		}
+		return null;
+	}
+	
+	public void addSubject(Student s, Subject sb) {
+		s.getFailedSubjects().add(sb);
+		
+	}
+	
+	public void removeSubject(Student s, String id) {
+		List<Subject> subjects = s.getFailedSubjects();
+		for(Subject sb: subjects) {
+			if(sb.getSubjectCode().equals(id)) {
+				subjects.remove(sb);
+				break;
+			}
+			
+		}
+	}
+	
 	public void addStudent(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email, String index,
 			int enrollYear, int currentYear, Status status, ArrayList<Grade> passed, ArrayList<Subject> failed) {
 		
@@ -126,5 +163,34 @@ public class StudentsDatabase {
 				s.setCurrentYear(currentYear);
 				s.setStatus(status);
 			}
+	
+	public void serialize() throws IOException{
+		
+		
+		File f = new File("database/students.xml");
+		OutputStream os = new BufferedOutputStream(new FileOutputStream(f));
+		try {
+
+			XStream xs = new XStream();
+			xs.addPermission(AnyTypePermission.ANY);
+			xs.alias("student", Student.class);
+			xs.toXML(students, os); 
+		} finally {
+			os.close();
+		}
+	}
+		
+	@SuppressWarnings("unchecked")
+	public void deserialize() throws IOException {
+		File f = new File("database/students.xml");
+		
+			XStream xs = new XStream();
+			xs.allowTypes(new Class[] {Student.class,Subject.class});
+			xs.alias("student", Student.class);
+			this.students = (List<Student>) xs.fromXML(f);
+	
+	}
+	
+	
 	
 }
