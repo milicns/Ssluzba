@@ -306,9 +306,9 @@ public class InformationsTab extends JPanel {
 		lblStatus = new JLabel("Način finansiranja*");
 		String stat;
 		if(student.getStatus() == Status.B) {
-			stat = "Budžet";
+			stat = status[0];
 		} else {
-			stat = "Samofinansiranje";
+			stat = status[1];
 		}
 		cbStatus = new JComboBox(status);
 		cbStatus.setSelectedItem(stat);

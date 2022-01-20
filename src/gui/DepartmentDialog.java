@@ -2,6 +2,8 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -16,12 +18,14 @@ public class DepartmentDialog extends JDialog {
 	private JTable dpTable;
 	private JButton set;
 	private JPanel btnPnl;
+	private JDialog dial = this;
 	
 	public DepartmentDialog(JFrame parent, String title, boolean modal) {
 		setSize(500,550);
 		setLocationRelativeTo(parent);
 		setTitle(title);
 		constructGui();
+		buttonActions();
 		
 	}
 	
@@ -39,7 +43,20 @@ public class DepartmentDialog extends JDialog {
 		btnPnl.add(set);
 		add(btnPnl, BorderLayout.NORTH);
 		
-		
+	}
+	
+	private void buttonActions() {
+		set.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int row = dpTable.getSelectedRow();
+				DMDialog dmd = new DMDialog(dial,"Postavljanje šefa",true,row);
+				dmd.setVisible(true);
+				
+			}
+			
+		});
 	}
 
 }

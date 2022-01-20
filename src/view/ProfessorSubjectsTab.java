@@ -30,7 +30,10 @@ public class ProfessorSubjectsTab extends JPanel{
 	private JPanel table;
 	private Professor prof;
 	
-	public ProfessorSubjectsTab() {
+	public ProfessorSubjectsTab(JDialog parent, int row) {
+		initGui();
+		constructGui();
+		buttonActions(parent,row);
 		
 	}
 
@@ -94,6 +97,7 @@ public class ProfessorSubjectsTab extends JPanel{
 						}
 					}
 				}
+				validate();
 			
 		}});
 		

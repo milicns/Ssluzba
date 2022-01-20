@@ -23,12 +23,15 @@ import javax.swing.event.ChangeListener;
 import controller.ResourceBundleController;
 import controller.StudentController;
 import dialog.ProfessorDialog;
+import view.ProfessorEditDialog;
 import view.StudentDialog;
 import view.StudentEditDialog;
 import view.SubjectDialog;
 import view.SubjectEditDialog;
 
 public class MenuBar extends JMenuBar {
+	
+	DepartmentDialog dd;
 	
 	public MenuBar(JFrame parent) {
 		
@@ -65,6 +68,7 @@ public class MenuBar extends JMenuBar {
 					sbd.setVisible(true);
 
 			}
+				
 			
 		}});
 		
@@ -94,9 +98,17 @@ public class MenuBar extends JMenuBar {
 				} else {
 					JOptionPane.showMessageDialog(null, "Izaberite predmet koji želite da izmenite.");
 				}
+			} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 1) {
+				int row = MainFrame.getInstance().getProfessorTable().getSelectedRow();
+				if(row != -1) {
+					String pedTitle = "Izmena profesora";
+				ProfessorEditDialog ped = new ProfessorEditDialog(parent,pedTitle,true);
+				ped.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Izaberite profesora kog želite da izmenite.");
+				}
 			}
-			}
-		});
+		}});
 		
 		JMenuItem miDelete = new JMenuItem("Delete");
 		miDelete.addActionListener(new ActionListener() {
@@ -128,7 +140,7 @@ public class MenuBar extends JMenuBar {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DepartmentDialog dd = new DepartmentDialog(parent, "Katedre", true);
+				dd = new DepartmentDialog(parent, "Katedre", true);
 				dd.setVisible(true);
 				
 			}
@@ -243,4 +255,5 @@ public class MenuBar extends JMenuBar {
 		setBorder(lb);
 		
 	}
+	
 }

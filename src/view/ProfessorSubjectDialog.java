@@ -52,7 +52,7 @@ public class ProfessorSubjectDialog extends JDialog{
 		
 		subList = new JList<>();
 		subList.setModel(subName);
-		subList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		subList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		
 		pnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		
@@ -88,11 +88,11 @@ public class ProfessorSubjectDialog extends JDialog{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			 int ind[] = subList.getSelectedIndices();
-			 if(ind.length == 0) {
+			 List<String> temp= subList.getSelectedValuesList();
+			 if(temp.size() == 0) {
 				 JOptionPane.showMessageDialog(parent, "Izaberite predmet ili više za dodavanje");
 				 
-			 } else if(ind.length == 1) {
+			 } else if(temp.size() == 1) {
 				 String[] name = subList.getSelectedValue().split(" ");
 				 String code = name[0];
 				 Subject sb = SubjectDatabase.getInstance().findByCode(code);
@@ -100,14 +100,14 @@ public class ProfessorSubjectDialog extends JDialog{
 				 ProfessorController.getInstance().addSubjectToProfessor(p, sb);
 
 			 } else {
-				List<String> val = subList.getSelectedValuesList();
-				for(int i = 0; i<val.size(); i++) {
-					String[] name = val.get(i).split(" ");
+				for(int i = 0; i<temp.size(); i++) {
+					String[] name = temp.get(i).split(" ");
 					String id = name[0];
 					Subject sb = SubjectDatabase.getInstance().findByCode(id);	
 					ProfessorController.getInstance().addSubjectToProfessor(p, sb);
 				}
 			}
+			 
 			 dispose();
 			}
 			
@@ -118,7 +118,7 @@ public class ProfessorSubjectDialog extends JDialog{
 	
 	private void conditions() {
 		subName = new DefaultListModel<>();
-		for(Subject sb: p.getProfessorSubjects()) {
+		for(Subject sb: SubjectDatabase.getInstance().getSubjects()) {
 			if(!p.findSubj(sb)) {
 				String name = sb.getSubjectCode()+" - "+sb.getSubjectName()+"                         ";
 				subName.addElement(name);

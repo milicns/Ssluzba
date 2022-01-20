@@ -92,8 +92,8 @@ public class FailedTab extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//StudentSubjectDialog sbd = new StudentSubjectDialog(ft, true,StudentsDatabase.getInstance().getRow(row).getIndex());
-				//sbd.setVisible(true);
+				StudentSubjectDialog sbd = new StudentSubjectDialog(ft, true,StudentsDatabase.getInstance().getRow(row).getIndex());
+				sbd.setVisible(true);
 			}
 			
 		});

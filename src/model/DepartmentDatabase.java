@@ -22,6 +22,9 @@ public class DepartmentDatabase {
 		departments = new ArrayList<Department>();
 		columns = new ArrayList<String>();
 		
+		Department d = new Department("1232","metematika",new Professor(),new ArrayList<Professor>());
+		departments.add(d);
+		
 		this.columns.add("Šifra katedre");
 		this.columns.add("Naziv");
 		this.columns.add("Šef");
@@ -31,6 +34,10 @@ public class DepartmentDatabase {
 	
 	public String getColumnName(int index) {
 		return this.columns.get(index);
+	}
+	
+	public void addManager(Department d,Professor p) {
+		d.setDepartmentManager(p);
 	}
 	
 	public Department getRow(int rowIndex) {

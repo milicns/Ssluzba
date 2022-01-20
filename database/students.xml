@@ -130,6 +130,13 @@
         <studyYear>3</studyYear>
         <espb>7</espb>
       </model.Subject>
+      <model.Subject>
+        <subjectCode>E01</subjectCode>
+        <subjectName>Analiza 1</subjectName>
+        <semester>L</semester>
+        <studyYear>1</studyYear>
+        <espb>4</espb>
+      </model.Subject>
     </failedSubjects>
   </student>
   <student>
@@ -333,13 +340,6 @@
     <passedSubjects/>
     <failedSubjects>
       <model.Subject reference="../../../student[3]/failedSubjects/model.Subject"/>
-      <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
       <model.Subject>
         <subjectCode>E22</subjectCode>
         <subjectName>Analiza 2</subjectName>

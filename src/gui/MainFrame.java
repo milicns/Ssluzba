@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.text.ParseException;
 
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
@@ -22,8 +23,8 @@ public class MainFrame extends JFrame {
 	private JTable studentsTable;
 	private JTable professorsTable;
 	private JTable subjectsTable;
-	TabbedPane tabs;
-	StatusBar sb;
+	private TabbedPane tabs;
+	private StatusBar sb;
 	
 	private static MainFrame instance = null;
 	
@@ -144,5 +145,5 @@ public class MainFrame extends JFrame {
 	public JTable getSubjectTable() {
 		return subjectsTable;
 	}
-
+	
 }

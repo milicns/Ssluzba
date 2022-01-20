@@ -18,7 +18,7 @@ import view.ProfessorView;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class ProfessorController {
+public class ProfessorController<Title> {
 	
 	 private static ProfessorController instance = null;
 		
@@ -48,8 +48,8 @@ public class ProfessorController {
 			ProfessorDatabase.getInstance().removeSubjectFromProfessor(p, id);
 		}
 		
-		public String addProfessor(String surname, String name, String birthDate, String adress, String phoneNr, String email,
-				String officeAdress, String idNumber) throws ParseException {
+		public String addProfessor(String name, String surname, String birthDate, String adress, String phoneNr, String email,
+				String officeAdress, String idNumber, Title title, int internshipYears) throws ParseException {
 		
 		List<Professor> checking = ProfessorDatabase.getInstance().getProfessors();
 		
@@ -77,7 +77,7 @@ public class ProfessorController {
 		if (birthDate.isEmpty()) {
 			return "Unesite datum rodjenja ";
 		}
-		if(birthDate.lengt()!=11){
+		if(birthDate.length()!=11){
 			return "Nepravilan format";
 		}
 		if (adress == null) {
@@ -117,10 +117,10 @@ public class ProfessorController {
 			return "Broj licne karte mora imati 8+ karaktera";
 		}
 		
-		if(ProfessorView.getInstance().findById(tfIdNumber.getText()))
-				return "Broj licne karte već postoji, unesite novi br licne karte";
+		//if(ProfessorView.getInstance().findById(tfIdNumber.getText()))
+			//	return "Broj licne karte već postoji, unesite novi br licne karte";
 		
-		ProfessorDatabase.getInstance().findById(tfIndex.getText()))
+		//ProfessorDatabase.getInstance().findById(tfIndex.getText()))
 		
 		
 		
@@ -130,7 +130,7 @@ public class ProfessorController {
 		
 		
 		 
-		ProfessorDatabase.getInstance().addProfessor(surname,name,new SimpleDateFormat("dd.MM.yyyy").parse(birthDate), adress, phoneNr, email, officeAdress, idNumber, prof.TitleSearch(title),  prof.InternshipYearsSearch(internshipYears));
+		//ProfessorDatabase.getInstance().addProfessor(surname,name,new SimpleDateFormat("dd.MM.yyyy").parse(birthDate), adress, phoneNr, email, officeAdress, idNumber, title,  internshipYears);
 	
 		MainFrame.getInstance().refreshTables("DODAT", -1);
 		return "Profesor uspesno dodat";

@@ -55,7 +55,7 @@ public class StudentSubjectDialog extends JDialog{
 
 		subList = new JList<>();
 		subList.setModel(subName);
-		subList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		subList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		pnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		

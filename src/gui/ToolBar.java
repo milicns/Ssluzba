@@ -22,6 +22,7 @@ import javax.swing.SwingConstants;
 
 import controller.StudentController;
 import dialog.ProfessorDialog;
+import view.ProfessorEditDialog;
 import view.StudentDialog;
 import view.StudentEditDialog;
 import view.SubjectDialog;
@@ -81,7 +82,17 @@ public class ToolBar extends JToolBar {
 		   } else {
 			   JOptionPane.showMessageDialog(null, "Izaberite koji predmet želite da izmenite.");
 		   }
-		}
+		   }else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 1) {
+				int row = MainFrame.getInstance().getProfessorTable().getSelectedRow();
+				if(row != -1) {
+					String pedTitle = "Izmena profesora";
+				ProfessorEditDialog ped = new ProfessorEditDialog(parent,pedTitle,true);
+				ped.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Izaberite profesora kog želite da izmenite.");
+				}
+			}
+		
 		}});
 		edit.setMnemonic(KeyEvent.VK_M);
 		add(edit);
@@ -148,5 +159,5 @@ public class ToolBar extends JToolBar {
 		 
 	});
 
-}
+	}
 }
