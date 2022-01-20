@@ -120,8 +120,8 @@ public class SubjectDatabase {
 	
 	
 	
-	public void addSubject(String subjectCode, String subjectName, Semester semester, int studyYear,int espb, ArrayList<Student> passed,ArrayList<Student> failed) {
-		this.subjects.add(new Subject(subjectCode, subjectName, semester, studyYear, espb,passed,failed));
+	public void addSubject(String subjectCode, String subjectName, Semester semester, int studyYear,Professor subjectProfessor, int espb, ArrayList<Student> passed,ArrayList<Student> failed) {
+		this.subjects.add(new Subject(subjectCode, subjectName, semester, studyYear,subjectProfessor, espb,passed,failed));
 			
 	}
 	

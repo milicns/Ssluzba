@@ -21,9 +21,9 @@ import model.StudentsDatabase;
 public class PassedTab extends JPanel {
 
 	
-	private JLabel avg;
+	private JLabel lblAvg;
 	private JLabel avgValue;
-	private JLabel espb;
+	private JLabel lEspb;
 	private JLabel espbValue;
 	private JPanel btnPnl;
 	private JPanel table;
@@ -50,10 +50,10 @@ public class PassedTab extends JPanel {
 		
 		lblPnl = new JPanel(new GridBagLayout());
 		
-		avg = new JLabel("Prosečna ocena: ");
+		lblAvg = new JLabel("Prosečna ocena: ");
 		avgValue = new JLabel(Double.toString(student.getAvgGrade()));
 		
-		espb =  new JLabel("Ukupno ESPB: ");
+		lEspb =  new JLabel("Ukupno ESPB: ");
 		espbValue = new JLabel(Integer.toString(espbSum()));
 		
 		passed = new PassedJTable();
@@ -69,12 +69,12 @@ public class PassedTab extends JPanel {
 		add(table, BorderLayout.CENTER);
 		
 		lblPnl.add(Box.createHorizontalStrut(120));
-		lblPnl.add(avg);
+		lblPnl.add(lblAvg);
 		lblPnl.add(Box.createHorizontalGlue());
 		lblPnl.add(avgValue);
 		lblPnl.add(Box.createVerticalStrut(10));
 		lblPnl.add(Box.createHorizontalStrut(120));
-		lblPnl.add(espb);
+		lblPnl.add(lEspb);
 		lblPnl.add(Box.createHorizontalGlue());
 		lblPnl.add(espbValue);
 		

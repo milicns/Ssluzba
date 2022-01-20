@@ -61,13 +61,6 @@
         <espb>7</espb>
       </model.Subject>
       <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
-      <model.Subject>
         <subjectCode>E22</subjectCode>
         <subjectName>Analiza 2</subjectName>
         <semester>Z</semester>
@@ -96,18 +89,11 @@
     <passedSubjects/>
     <failedSubjects>
       <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E11</subjectCode>
-        <subjectName>OISISI</subjectName>
+        <subjectCode>E01</subjectCode>
+        <subjectName>Analiza 1</subjectName>
         <semester>L</semester>
-        <studyYear>2</studyYear>
-        <espb>5</espb>
+        <studyYear>1</studyYear>
+        <espb>4</espb>
       </model.Subject>
     </failedSubjects>
   </student>
@@ -144,6 +130,13 @@
         <studyYear>3</studyYear>
         <espb>7</espb>
       </model.Subject>
+      <model.Subject>
+        <subjectCode>E01</subjectCode>
+        <subjectName>Analiza 1</subjectName>
+        <semester>L</semester>
+        <studyYear>1</studyYear>
+        <espb>4</espb>
+      </model.Subject>
     </failedSubjects>
   </student>
   <student>
@@ -173,25 +166,11 @@
         <espb>3</espb>
       </model.Subject>
       <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-      <model.Subject>
         <subjectCode>E23</subjectCode>
         <subjectName>Fizika</subjectName>
         <semester>Z</semester>
         <studyYear>3</studyYear>
         <espb>7</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E01</subjectCode>
-        <subjectName>Analiza 1</subjectName>
-        <semester>L</semester>
-        <studyYear>1</studyYear>
-        <espb>4</espb>
       </model.Subject>
     </failedSubjects>
   </student>
@@ -360,13 +339,7 @@
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
     <failedSubjects>
-      <model.Subject>
-        <subjectCode>E01</subjectCode>
-        <subjectName>Analiza 1</subjectName>
-        <semester>L</semester>
-        <studyYear>1</studyYear>
-        <espb>4</espb>
-      </model.Subject>
+      <model.Subject reference="../../../student[3]/failedSubjects/model.Subject"/>
       <model.Subject>
         <subjectCode>E22</subjectCode>
         <subjectName>Analiza 2</subjectName>
@@ -604,7 +577,13 @@
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
     <failedSubjects>
-      <model.Subject reference="../../../student[11]/failedSubjects/model.Subject"/>
+      <model.Subject>
+        <subjectCode>E01</subjectCode>
+        <subjectName>Analiza 1</subjectName>
+        <semester>L</semester>
+        <studyYear>1</studyYear>
+        <espb>4</espb>
+      </model.Subject>
       <model.Subject>
         <subjectCode>E22</subjectCode>
         <subjectName>Analiza 2</subjectName>

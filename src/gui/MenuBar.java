@@ -7,7 +7,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -17,11 +19,11 @@ import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.event.MenuKeyEvent;
-import javax.swing.event.MenuKeyListener;
 
+import controller.ResourceBundleController;
 import controller.StudentController;
 import dialog.ProfessorDialog;
+import view.ProfessorEditDialog;
 import view.StudentDialog;
 import view.StudentEditDialog;
 import view.SubjectDialog;
@@ -29,11 +31,22 @@ import view.SubjectEditDialog;
 
 public class MenuBar extends JMenuBar {
 	
+	DepartmentDialog dd;
+	
 	public MenuBar(JFrame parent) {
 		
 		JMenu mFile = new JMenu("File");
 		JMenu mEdit = new JMenu("Edit");
 		JMenu mHelp = new JMenu("Help");
+		JMenu mLang = new JMenu("Language");
+		
+		ButtonGroup btnGroup = new ButtonGroup();
+		JCheckBox mSrb = new JCheckBox("Serbian");
+		JCheckBox mEng = new JCheckBox("English");
+		btnGroup.add(mSrb);
+		btnGroup.add(mEng);
+		mLang.add(mSrb);
+		mLang.add(mEng);
 		
 		JMenu miOpen = new JMenu ("Open");
 		
@@ -43,16 +56,19 @@ public class MenuBar extends JMenuBar {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
-					StudentDialog sd = new StudentDialog(parent,"Dodavanje studenta",true);
+					String sdTitle = "Dodavanje studenta";
+					StudentDialog sd = new StudentDialog(parent,sdTitle,true);
 					sd.setVisible(true);
 				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 1) {
 					ProfessorDialog pd = new ProfessorDialog(parent);
 					pd.setVisible(true);
 				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
-					SubjectDialog sbd = new SubjectDialog(parent,"Dodavanje predmeta",true);
+					String sbdTitle = "Dodavanje predmeta";
+					SubjectDialog sbd = new SubjectDialog(parent,sbdTitle,true);
 					sbd.setVisible(true);
 
 			}
+				
 			
 		}});
 		
@@ -67,7 +83,8 @@ public class MenuBar extends JMenuBar {
 			public void actionPerformed(ActionEvent e) {
 			if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
 				if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
-				StudentEditDialog ed = new StudentEditDialog(parent,"Izmena studenta",true);
+				String sedTitle = "Izmena studenta";
+				StudentEditDialog ed = new StudentEditDialog(parent,sedTitle,true);
 				ed.setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da izmenite.");
@@ -75,14 +92,23 @@ public class MenuBar extends JMenuBar {
 			} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
 				int row = MainFrame.getInstance().getSubjectTable().getSelectedRow();
 				if(row != -1) {
-				SubjectEditDialog sbd = new SubjectEditDialog(parent,"Izmena predmeta",true,row);
+					String sbedTitle = "Izmena predmeta";
+				SubjectEditDialog sbd = new SubjectEditDialog(parent,sbedTitle,true,row);
 				sbd.setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(null, "Izaberite predmet koji želite da izmenite.");
 				}
+			} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 1) {
+				int row = MainFrame.getInstance().getProfessorTable().getSelectedRow();
+				if(row != -1) {
+					String pedTitle = "Izmena profesora";
+				ProfessorEditDialog ped = new ProfessorEditDialog(parent,pedTitle,true);
+				ped.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Izaberite profesora kog želite da izmenite.");
+				}
 			}
-			}
-		});
+		}});
 		
 		JMenuItem miDelete = new JMenuItem("Delete");
 		miDelete.addActionListener(new ActionListener() {
@@ -91,13 +117,13 @@ public class MenuBar extends JMenuBar {
 				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0)
 					if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
 					String[] options = {"Da", "Ne"};
-					int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da �elite da obri�ete studenta?", "Brisanje studenta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
+					int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da želite da obrišete studenta?", "Brisanje studenta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
 					if(d == JOptionPane.YES_OPTION) {
 						String index = (MainFrame.getInstance().getStudentTable().getValueAt(MainFrame.getInstance().getStudentTable().getSelectedRow(),0)).toString();
 						StudentController.getInstance().deleteStudent(index);
 					}
 				}else {
-					JOptionPane.showMessageDialog(null, "Izaberite studenta kog �elite da obri�ete.");
+					JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da obrišete.");
 				}	
 			}
 		});
@@ -105,10 +131,21 @@ public class MenuBar extends JMenuBar {
 		JMenuItem miHelp = new JMenuItem("Help");
 		JMenuItem miAbout = new JMenuItem("About");
 		
-		JMenuItem student = new JMenuItem("Student");
-		JMenuItem professor = new JMenuItem("Professor");
-		JMenuItem subject = new JMenuItem("Subject");
-		JMenuItem department = new JMenuItem("Department");
+		JMenuItem miStudent = new JMenuItem("Student");
+		JMenuItem miProfessor = new JMenuItem("Professor");
+		JMenuItem miSubject = new JMenuItem("Subject");
+		JMenuItem miDepartment = new JMenuItem("Department");
+		
+		miDepartment.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dd = new DepartmentDialog(parent, "Katedre", true);
+				dd.setVisible(true);
+				
+			}
+			
+		});
 		
 		miNew.setMnemonic(KeyEvent.VK_N);
 		miNew.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
@@ -126,14 +163,14 @@ public class MenuBar extends JMenuBar {
 		miAbout.setMnemonic(KeyEvent.VK_A);
 		miAbout.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
 		
-		student.setMnemonic(KeyEvent.VK_U);
-		student.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, ActionEvent.CTRL_MASK));
-		professor.setMnemonic(KeyEvent.VK_P);
-		professor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.CTRL_MASK));
-		subject.setMnemonic(KeyEvent.VK_I);
-		subject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, ActionEvent.CTRL_MASK));
-		department.setMnemonic(KeyEvent.VK_K);
-		department.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, ActionEvent.CTRL_MASK));
+		miStudent.setMnemonic(KeyEvent.VK_U);
+		miStudent.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, ActionEvent.CTRL_MASK));
+		miProfessor.setMnemonic(KeyEvent.VK_P);
+		miProfessor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.CTRL_MASK));
+		miSubject.setMnemonic(KeyEvent.VK_I);
+		miSubject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, ActionEvent.CTRL_MASK));
+		miDepartment.setMnemonic(KeyEvent.VK_K);
+		miDepartment.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, ActionEvent.CTRL_MASK));
 		miHelp.setMnemonic(KeyEvent.VK_H);
 		miHelp.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
 		
@@ -142,8 +179,8 @@ public class MenuBar extends JMenuBar {
 		mEdit.setMnemonic(KeyEvent.VK_E);
 		mHelp.setMnemonic(KeyEvent.VK_H);
 		
-		student.setIcon(new ImageIcon("images/student.png"));
-		student.addChangeListener(new ChangeListener() {
+		miStudent.setIcon(new ImageIcon("images/student.png"));
+		miStudent.addChangeListener(new ChangeListener() {
 
 			@Override
 			public void stateChanged(ChangeEvent e) {
@@ -153,8 +190,8 @@ public class MenuBar extends JMenuBar {
 			
 		});
 		
-		professor.setIcon(new ImageIcon("images/professor.png"));
-		professor.addChangeListener(new ChangeListener() {
+		miProfessor.setIcon(new ImageIcon("images/professor.png"));
+		miProfessor.addChangeListener(new ChangeListener() {
 
 			@Override
 			public void stateChanged(ChangeEvent e) {
@@ -164,15 +201,15 @@ public class MenuBar extends JMenuBar {
 			
 		});
 		
-		subject.setIcon(new ImageIcon("images/subject.png"));
-		subject.addChangeListener(new ChangeListener() {
+		miSubject.setIcon(new ImageIcon("images/subject.png"));
+		miSubject.addChangeListener(new ChangeListener() {
 
 			@Override
 			public void stateChanged(ChangeEvent e) {
 				MainFrame.getInstance().getTabs().setSelectedIndex(2);
 		}});
 		
-		department.setIcon(new ImageIcon("images/department.png"));
+		miDepartment.setIcon(new ImageIcon("images/department.png"));
 		
 		miNew.setIcon(new ImageIcon("images2/new.png"));
 		miSave.setIcon(new ImageIcon("images2/save.png"));
@@ -189,13 +226,13 @@ public class MenuBar extends JMenuBar {
 		mFile.add(miSave);
 		mFile.addSeparator();
 		
-		miOpen.add(student);
+		miOpen.add(miStudent);
 		miOpen.addSeparator();
-		miOpen.add(professor);
+		miOpen.add(miProfessor);
 		miOpen.addSeparator();
-		miOpen.add(subject);
+		miOpen.add(miSubject);
 		miOpen.addSeparator();
-		miOpen.add(department);
+		miOpen.add(miDepartment);
 		
 		mFile.add(miOpen);
 		mFile.addSeparator();
@@ -212,9 +249,11 @@ public class MenuBar extends JMenuBar {
 		add(mFile);
 		add(mEdit);
 		add(mHelp);
+		add(mLang);
 		
 		LineBorder lb = new LineBorder(Color.LIGHT_GRAY);
 		setBorder(lb);
 		
 	}
+	
 }

@@ -92,8 +92,8 @@ public class FailedTab extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//StudentSubjectDialog sbd = new StudentSubjectDialog(ft, true,StudentsDatabase.getInstance().getRow(row).getIndex());
-				//sbd.setVisible(true);
+				StudentSubjectDialog sbd = new StudentSubjectDialog(ft, true,StudentsDatabase.getInstance().getRow(row).getIndex());
+				sbd.setVisible(true);
 			}
 			
 		});
@@ -102,17 +102,20 @@ public class FailedTab extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String[] options = {"Da", "Ne"};
-				int d = JOptionPane.showOptionDialog(ft,"Da li ste sigurni da �elite da obri�ete predmet?", "Brisanje predmeta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
-				if(d == JOptionPane.YES_OPTION) {
-					int row = getTable().getSelectedRow();
-					student = StudentsDatabase.getInstance().getRow(MainFrame.getInstance().getStudentTable().getSelectedRow());
-					String index = student.getFailedSubjects().get(row).getSubjectCode();
-					StudentsDatabase.getInstance().removeSubject(student,index);
-					refreshTable();
-					//dispose();
-				}
 				
+				if(failed.getSelectedRow() == -1) {
+					JOptionPane.showMessageDialog(ft, "Izaberite predmet za brisanje");
+				} else {
+				String[] options = {"Da", "Ne"};
+				int d = JOptionPane.showOptionDialog(ft,"Da li ste sigurni da želite da obrišete predmet?", "Brisanje predmeta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
+				if(d == JOptionPane.YES_OPTION) {
+					int row1 = getTable().getSelectedRow();
+					student = StudentsDatabase.getInstance().getRow(row);
+					String id = student.getFailedSubjects().get(row1).getSubjectCode();
+					StudentController.getInstance().removeSubjectFromStudent(student,id);
+					refreshTable();
+				}
+				}
 			}
 			
 		});
@@ -120,7 +123,7 @@ public class FailedTab extends JPanel{
 	}
 	
 
-public void refreshTable() {
+   public void refreshTable() {
 	 AbstractTableModelFailed model = (AbstractTableModelFailed) failed.getModel();
 	 model.fireTableDataChanged();
    }

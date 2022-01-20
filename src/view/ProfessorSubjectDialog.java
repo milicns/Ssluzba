@@ -4,58 +4,55 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.util.List;
 
-import javax.swing.Box;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
+import controller.ProfessorController;
 import controller.StudentController;
-import controller.SubjectController;
 import gui.MainFrame;
 import model.FailedSubjects;
 import model.PassedSubjects;
-import model.Student;
-import model.StudentsDatabase;
+import model.Professor;
+import model.ProfessorDatabase;
 import model.Subject;
 import model.SubjectDatabase;
 
-public class StudentSubjectDialog extends JDialog{
-	
+
+public class ProfessorSubjectDialog extends JDialog{
+
 	private JList<String> subList;
-	private JButton add;
+	private JButton confirm;
 	private JButton quit;
 	private JPanel pnl;
 	private JPanel btnPnl;
-	private Student s;
-	private PassedSubjects ps;
-	private FailedSubjects fd;
+	private Professor p;
 	DefaultListModel<String> subName;
 	
-	public StudentSubjectDialog(FailedTab parent, boolean modal,String id) {
-		setTitle("Dodaj predmet studentu");
+	public ProfessorSubjectDialog(JDialog parent, boolean modal,int row) {
+		
+		setTitle("Dodaj predmet");
 		setSize(300,300);
 		setLocationRelativeTo(parent);
-		s = StudentsDatabase.getInstance().findById2(id);
+		p = ProfessorDatabase.getInstance().getRow(row);
 		conditions();
 		constructGui();
 		buttonActions(parent);
 		
-		
 	}
 	
 	private void constructGui(){
-
+		
 		subList = new JList<>();
 		subList.setModel(subName);
-		subList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		subList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		
 		pnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		
@@ -66,16 +63,17 @@ public class StudentSubjectDialog extends JDialog{
 		pnl.add(sp);
 		add(pnl, BorderLayout.NORTH);
 		
-		add = new JButton("Dodaj");
+		confirm = new JButton("Potvrdi");
 		quit = new JButton("Odustani");
 		
-		btnPnl.add(add);
+		btnPnl.add(confirm);
 		btnPnl.add(quit);
 		add(btnPnl, BorderLayout.SOUTH);
 		
 	}
 	
-	private void buttonActions(FailedTab parent) {
+	
+	private void buttonActions(JDialog parent) {
 		
 		quit.addActionListener(new ActionListener() {
 
@@ -86,43 +84,46 @@ public class StudentSubjectDialog extends JDialog{
 			}
 		});
 		
-		add.addActionListener(new ActionListener() {
+		confirm.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+			 List<String> temp= subList.getSelectedValuesList();
+			 if(temp.size() == 0) {
+				 JOptionPane.showMessageDialog(parent, "Izaberite predmet ili više za dodavanje");
+				 
+			 } else if(temp.size() == 1) {
+				 String[] name = subList.getSelectedValue().split(" ");
+				 String code = name[0];
+				 Subject sb = SubjectDatabase.getInstance().findByCode(code);
 			
-			 if(subList.getSelectedIndex() == -1) {
-				 JOptionPane.showMessageDialog(parent, "Izaberite predmet za dodavanje");
-			 } else {
-			 String[] name = subList.getSelectedValue().split(" ");
-			 String code = name[0];
-			 Subject sb = SubjectDatabase.getInstance().findByCode(code);
-			
-			 StudentController.getInstance().addSubjectToStudent(s, sb);
-			 parent.getTable().refresh();
+				 ProfessorController.getInstance().addSubjectToProfessor(p, sb);
 
-			 dispose();
+			 } else {
+				for(int i = 0; i<temp.size(); i++) {
+					String[] name = temp.get(i).split(" ");
+					String id = name[0];
+					Subject sb = SubjectDatabase.getInstance().findByCode(id);	
+					ProfessorController.getInstance().addSubjectToProfessor(p, sb);
+				}
 			}
+			 
+			 dispose();
 			}
 			
 		});
 		
-		
 	}
 	
+	
 	private void conditions() {
-		fd = new FailedSubjects(s);
-		ps = new PassedSubjects(s);
 		subName = new DefaultListModel<>();
 		for(Subject sb: SubjectDatabase.getInstance().getSubjects()) {
-			if((sb.getStudyYear() <= s.getCurrentYear())&&!(fd.findByCode2(sb.getSubjectCode()))&&!(ps.findSubject(sb.getSubjectCode()))) {
+			if(!p.findSubj(sb)) {
 				String name = sb.getSubjectCode()+" - "+sb.getSubjectName()+"                         ";
 				subName.addElement(name);
 				
 			}
 		}
-		
-		
 	}
-
 }

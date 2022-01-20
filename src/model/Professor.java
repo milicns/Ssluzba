@@ -4,9 +4,6 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-enum Title {
-	REDOVNIPROFESOR, DOCENT, DEKAN
-}
 
 
 
@@ -24,6 +21,8 @@ public class Professor {
 	private Title title;
 	private int internshipYears;
 	private ArrayList <Subject> professorSubjects;
+	
+	public Professor() {}
 	
 	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
 			Adress officeAdress, int idNumber, Title title, int internshipYears, ArrayList<Subject> professorSubjects) {
@@ -57,9 +56,6 @@ public class Professor {
 		this.professorSubjects = professorSubjects;
 	}
 
-	public Professor() {
-		super();
-	}
 	
 
 	public String getSurname() {
@@ -150,12 +146,21 @@ public class Professor {
 		this.professorSubjects = professorSubjects;
 	}
 	
+	public boolean findSubj(Subject s) {
+		for(Subject sb: professorSubjects) {
+			if(s.getSubjectCode().equals(s.getSubjectCode())) {
+				return true;
+			}
+		}
+		return false;
+		
+	}
 	
 	public Title TitleSearch(String titula) {
 		Title t=null;
 		switch(Integer.parseInt(titula)) {
 		case 0:
-			t =Title.REDOVNIPROFESOR;
+			t =Title.REDOVNI_PROFESOR;
 		
 		    break;
 		case 1:
@@ -163,7 +168,7 @@ public class Professor {
 		     break;
 		     
 		case 2:
-		     t=Title.DEKAN;
+		     t=Title.VANREDNI_PROFESOR;
 		     break;
 		
 		}
@@ -171,7 +176,9 @@ public class Professor {
 		return t;
 	}
 	
-	
+	public enum Title {
+		REDOVNI_PROFESOR, DOCENT, VANREDNI_PROFESOR
+	}
 	
 	
 

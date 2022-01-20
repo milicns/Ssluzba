@@ -27,7 +27,7 @@ public class Subject {
 		this.failedStudents = failedStudents;
 	}
 	
-	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear,
+	public Subject(String subjectCode, String subjectName, Semester semester, int studyYear, Professor subjectProfessor,
 			int espb, ArrayList<Student> passedStudents, ArrayList<Student> failedStudents) {
 		super();
 		this.subjectCode = subjectCode;

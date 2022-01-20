@@ -26,6 +26,12 @@ public class AbstractTableModelGrade extends AbstractTableModel {
 		return GradeDatabase.getInstance().getColumnName(column);
 	}
 
+	@Override
+	public Object getValueAt(int rowIndex, int columnIndex) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 	
