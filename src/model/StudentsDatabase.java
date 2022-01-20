@@ -118,12 +118,12 @@ public class StudentsDatabase {
 		return null;
 	}
 	
-	public void addSubject(Student s, Subject sb) {
+	public void addSubjectToStudent(Student s, Subject sb) {
 		s.getFailedSubjects().add(sb);
 		
 	}
 	
-	public void removeSubject(Student s, String id) {
+	public void removeSubjectFromStudent(Student s, String id) {
 		List<Subject> subjects = s.getFailedSubjects();
 		for(Subject sb: subjects) {
 			if(sb.getSubjectCode().equals(id)) {

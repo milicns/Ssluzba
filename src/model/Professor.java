@@ -25,6 +25,8 @@ public class Professor {
 	private int internshipYears;
 	private ArrayList <Subject> professorSubjects;
 	
+	public Professor() {}
+	
 	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
 			Adress officeAdress, int idNumber, Title title, int internshipYears, ArrayList<Subject> professorSubjects) {
 		super();
@@ -146,6 +148,15 @@ public class Professor {
 		this.professorSubjects = professorSubjects;
 	}
 	
+	public boolean findSubj(Subject s) {
+		for(Subject sb: professorSubjects) {
+			if(s.getSubjectCode().equals(s.getSubjectCode())) {
+				return true;
+			}
+		}
+		return false;
+		
+	}
 	
 	public Title TitleSearch(String titula) {
 		Title t=null;

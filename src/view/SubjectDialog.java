@@ -175,7 +175,7 @@ private static final long serialVersionUID = 1L;
 					year = 4;
 				}
 
-				SubjectController.getInstance().addSubject(tfSubjectCode.getText(), tfSubjectName.getText() ,sem, year, Integer.parseInt(tfEspb.getText()), new ArrayList<Student>(), new ArrayList<Student>());
+				SubjectController.getInstance().addSubject(tfSubjectCode.getText(), tfSubjectName.getText() ,sem, year,new Professor(), Integer.parseInt(tfEspb.getText()), new ArrayList<Student>(), new ArrayList<Student>());
 				dispose();
 			}
 

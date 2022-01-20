@@ -1,26 +1,19 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.io.IOException;
 import java.text.ParseException;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import listeners.WindowList;
-import model.StudentsDatabase;
-import tables.AbstractTableSubject;
 import tables.AbstractTableProfessor;
-
+import tables.AbstractTableSubject;
 import tables.TableProfessor;
 import tables.TableSubject;
 
@@ -51,6 +44,7 @@ public class MainFrame extends JFrame {
 	    setTitle("Studentska služba");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setLocationRelativeTo(null);
+	    
 	     
         MenuBar menu = new MenuBar(this);
 		this.setJMenuBar(menu);
@@ -141,6 +135,10 @@ public class MainFrame extends JFrame {
 	
 	public JTable getStudentTable() {
 		return studentsTable;
+	}
+	
+	public JTable getProfessorTable() {
+		return professorsTable;
 	}
 	
 	public JTable getSubjectTable() {

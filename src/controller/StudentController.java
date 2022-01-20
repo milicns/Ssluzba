@@ -48,8 +48,12 @@ public class StudentController {
 		
 	}
 	
+	public void removeSubjectFromStudent(Student s, String id) {
+		StudentsDatabase.getInstance().removeSubjectFromStudent(s, id);
+	}
+	
 	public void addSubjectToStudent(Student s, Subject sb) {
-		StudentsDatabase.getInstance().addSubject(s, sb);
+		StudentsDatabase.getInstance().addSubjectToStudent(s, sb);
 	}
 	
 }

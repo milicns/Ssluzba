@@ -110,19 +110,33 @@ public class ProfessorDatabase {
 	
 	}
 
+	public void addSubjectToProfessor(Professor p, Subject sb) {
+		p.getProfessorSubjects().add(sb);
+	}
+	
+	public void removeSubjectFromProfessor(Professor p, String id) {
+		List<Subject> subjects = p.getProfessorSubjects();
+		for(Subject sb: subjects) {
+			if(sb.getSubjectCode().equals(id)) {
+				subjects.remove(sb);
+				break;
+			}
+		}
+	}
+	
 
-public void addProfessor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
+	public void addProfessor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
 		Adress officeAdress, int idNumber, Title title, int internshipYears) {
 	
-	this.professors.add(new Professor(surname,  name,  birthDate,  adress,  phoneNr,  email, officeAdress,  idNumber,  title,  internshipYears));
+		this.professors.add(new Professor(surname,  name,  birthDate,  adress,  phoneNr,  email, officeAdress,  idNumber,  title,  internshipYears));
 		
-}
+	}
 
 
 
-public void editProfessor(int row, String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
+	public void editProfessor(int row, String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
 		Adress officeAdress, int idNumber, Title title, int internshipYears) {
-	Professor p = getRow(row);
+		Professor p = getRow(row);
 		p.setName(name);
 		p.setSurname(surname);
 		p.setBirthDate(birthDate);
@@ -134,18 +148,18 @@ public void editProfessor(int row, String surname, String name, Date birthDate, 
 		p.setTitle(title);
 		p.setInternshipYears(internshipYears);
 	
-}
+	}
 
 
 
-public void deleteProfessor(int  idNumber) {
-	for (Professor p : professors) {
-		if (p. getIdNumber() == (idNumber)) {
-			professors.remove(p);
-			break;
+	public void deleteProfessor(int  idNumber) {
+		for (Professor p : professors) {
+			if (p. getIdNumber() == (idNumber)) {
+				professors.remove(p);
+				break;
+			}
 		}
 	}
-}
 	
 	
 	

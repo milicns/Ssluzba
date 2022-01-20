@@ -27,9 +27,9 @@ public class SubjectController {
 	}
 	private SubjectController() {}
 
-	public void addSubject(String subjectCode, String subjectName, Semester semester, int studyYear, int espb, ArrayList<Student> passed, ArrayList<Student> failed) {
+	public void addSubject(String subjectCode, String subjectName, Semester semester, int studyYear,Professor prof, int espb, ArrayList<Student> passed, ArrayList<Student> failed) {
 		
-	SubjectDatabase.getInstance().addSubject(subjectCode, subjectName, semester, studyYear, espb, passed, failed);
+	SubjectDatabase.getInstance().addSubject(subjectCode, subjectName, semester, studyYear, prof, espb, passed, failed);
 	MainFrame.getInstance().refreshSubjects();
 				
 	}

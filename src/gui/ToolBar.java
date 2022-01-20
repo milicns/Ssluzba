@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.Action;
 import javax.swing.Box;
@@ -16,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
+import javax.swing.RowFilter;
 import javax.swing.SwingConstants;
 
 import controller.StudentController;
@@ -40,13 +42,15 @@ public class ToolBar extends JToolBar {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
-					StudentDialog sd = new StudentDialog(parent,"Dodavanje studenta",true);
+					String sdTitle = "Dodavanje studenta";
+					StudentDialog sd = new StudentDialog(parent,sdTitle,true);
 					sd.setVisible(true);
 				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 1) {
 					ProfessorDialog pd = new ProfessorDialog(parent);
 					pd.setVisible(true);
 				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
-					SubjectDialog sbd = new SubjectDialog(parent,"Dodavanje predmeta",true);
+					String sbdTitle = "Dodavanje studenta";
+					SubjectDialog sbd = new SubjectDialog(parent,sbdTitle,true);
 					sbd.setVisible(true);
 			}
 			
@@ -62,7 +66,8 @@ public class ToolBar extends JToolBar {
 		public void actionPerformed(ActionEvent e) {
 		if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
 			if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
-			StudentEditDialog ed = new StudentEditDialog(parent,"Izmena studenta",true);
+			String sedTitle = "Izmena studenta";
+			StudentEditDialog ed = new StudentEditDialog(parent,sedTitle,true);
 			ed.setVisible(true);
 			} else {
 				JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da izmenite.");
@@ -70,7 +75,8 @@ public class ToolBar extends JToolBar {
 		}else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
 		   int row = MainFrame.getInstance().getSubjectTable().getSelectedRow();
 		   if(row != -1) {
-		   SubjectEditDialog sbe = new SubjectEditDialog(parent, "Izmena predmeta",true,row);
+			String sbedTitle = "Izmena studenta";
+		   SubjectEditDialog sbe = new SubjectEditDialog(parent, sbedTitle,true,row);
 		   sbe.setVisible(true);
 		   } else {
 			   JOptionPane.showMessageDialog(null, "Izaberite koji predmet želite da izmenite.");
@@ -89,13 +95,13 @@ public class ToolBar extends JToolBar {
 				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0)
 					if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
 					String[] options = {"Da", "Ne"};
-					int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da �elite da obri�ete studenta?", "Brisanje studenta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
+					int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da želite da obrišete studenta?", "Brisanje studenta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
 					if(d == JOptionPane.YES_OPTION) {
 						String index = (MainFrame.getInstance().getStudentTable().getValueAt(MainFrame.getInstance().getStudentTable().getSelectedRow(),0)).toString();
 						StudentController.getInstance().deleteStudent(index);
 					}
 				}else {
-					JOptionPane.showMessageDialog(null, "Izaberite studenta kog �elite da obri�ete.");
+					JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da obrišete.");
 				}	
 			}
 		});
@@ -112,6 +118,35 @@ public class ToolBar extends JToolBar {
 		search.setIcon(new ImageIcon("images/search.png"));
 		add(search);
 		
-	}
+		search.addActionListener(new ActionListener() {
 
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					String input = tf.getText();
+					String[] parts=input.split(",");
+				
+					
+					if(MainFrame.getInstance().getTabs().getSelectedIndex()==0) {
+						RowFilter<AbstractTableModelStudents,Object> rowFilter = null;
+						ArrayList<RowFilter<AbstractTableModelStudents,Object>> filter = new ArrayList<RowFilter<AbstractTableModelStudents,Object>>();
+						
+						if(parts.length > 3) {
+							JOptionPane.showMessageDialog(parent, "Ne unosite vise od 3 reci");
+							return;
+						}
+						
+						if(parts.length > 1) {
+							filter.add(rowFilter.regexFilter("(?i)"+parts[1], 1));
+							rowFilter.andFilter(filter);
+							StudentsJTable.getInstance().getRowSorter().setRowFilter(rowFilter);
+						}
+						
+						
+					}
+				}
+		 
+	});
+
+}
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 import gui.TabbedPane;
 import model.ProfessorDatabase;
-
+import model.Subject;
 import model.Adress;
 
 import model.Professor;
@@ -40,7 +40,13 @@ public class ProfessorController {
 		}
 		
 		
+		public void addSubjectToProfessor(Professor p, Subject sb) {
+			ProfessorDatabase.getInstance().addSubjectToProfessor(p, sb);
+		}
 		
+		public void removeSubjectFromProfessor(Professor p, String id) {
+			ProfessorDatabase.getInstance().removeSubjectFromProfessor(p, id);
+		}
 		
 		public String addProfessor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
 				Adress officeAdress, int idNumber) throws ParseException {
@@ -197,17 +203,9 @@ public class ProfessorController {
 			}
 			if(idNumber.length()<8){
 				return "Broj licne karte mora imati 8+ karaktera";
-			}
-			
-			
+			}	
 		
 */
-
-		
-		
-		
-		
-		
 		public ProfessorView getProfessorView() {
 			return ProfessorView;
 		}
@@ -219,7 +217,4 @@ public class ProfessorController {
 			this.ProfessorView = ProfessorView;
 		}
 		
-
-	
-	
 }
