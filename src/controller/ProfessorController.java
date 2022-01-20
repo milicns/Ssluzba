@@ -48,13 +48,13 @@ public class ProfessorController {
 			ProfessorDatabase.getInstance().removeSubjectFromProfessor(p, id);
 		}
 		
-		public String addProfessor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
-				Adress officeAdress, int idNumber) throws ParseException {
+		public String addProfessor(String surname, String name, String birthDate, String adress, String phoneNr, String email,
+				String officeAdress, String idNumber) throws ParseException {
 		
 		List<Professor> checking = ProfessorDatabase.getInstance().getProfessors();
 		
 		
-	/*	if (surname == null) {
+		if (surname == null) {
 			return "Unesite prezime profesora";
 		}
 		surname = surname.trim();
@@ -120,17 +120,17 @@ public class ProfessorController {
 		if(ProfessorView.getInstance().findById(tfIdNumber.getText()))
 				return "Broj licne karte već postoji, unesite novi br licne karte";
 		
-		////ProfessorDatabase.getInstance().findById(tfIndex.getText()))
-		
-		*/
+		ProfessorDatabase.getInstance().findById(tfIndex.getText()))
 		
 		
 		
 		
-		/////// StudentController.getInstance().addStudent(tfName.getText(), tfSurname.getText(), new SimpleDateFormat("dd.mm.yyyy.").parse(tfBirthDate.getText()), adress , tfPhone.getText(), tfEmail.getText(), tfIndex.getText(), Integer.parseInt(tfEnroll.getText()), currYear, status, new ArrayList<Grade>(), new ArrayList<Subject>());
+		
+		
+		
 		
 		 
-		//ProfessorDatabase.getInstance().addProfessor(surname,name,new SimpleDateFormat("dd.MM.yyyy").parse(birthDate), adress, phoneNr, email, officeAdress, idNumber, prof.TitleSearch(title),  prof.InternshipYearsSearch(internshipYears));
+		ProfessorDatabase.getInstance().addProfessor(surname,name,new SimpleDateFormat("dd.MM.yyyy").parse(birthDate), adress, phoneNr, email, officeAdress, idNumber, prof.TitleSearch(title),  prof.InternshipYearsSearch(internshipYears));
 	
 		MainFrame.getInstance().refreshTables("DODAT", -1);
 		return "Profesor uspesno dodat";
