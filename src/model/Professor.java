@@ -57,6 +57,10 @@ public class Professor {
 		this.professorSubjects = professorSubjects;
 	}
 
+	public Professor() {
+		super();
+	}
+	
 
 	public String getSurname() {
 		return surname;
