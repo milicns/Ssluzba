@@ -143,13 +143,7 @@ public class ProfessorDatabase {
 		this.professors = professors;
 	}
 
-	public int getColumnCount() {
-		return 4;
-	}
-
-	public String getColumnName(int index) {
-		return this.columns.get(index);
-	}
+	
 
 	public Professor getRow(int rowIndex) {
 		return this.professors.get(rowIndex);
@@ -173,20 +167,33 @@ public class ProfessorDatabase {
 	
 	
 	}
-	
-	public Professor findByName(String name) {
-		for(Professor p: this.professors) {
-			if(p.getName().equals(name)) {
-				return p;
-			}
-		}
-		return null;
+		
+	public int getColumnCount() {
+		return 4;
 	}
+		
+	
 
 	public void addSubjectToProfessor(Professor p, Subject sb) {
 		p.getProfessorSubjects().add(sb);
 	}
 	
+
+	
+	public String getColumnName(int index) {
+		return this.columns.get(index);
+	}
+	
+	public void removeSubjectFromProfessor(Professor p, String id) {
+		List<Subject> subjects = p.getProfessorSubjects();
+		for(Subject sb: subjects) {
+			if(sb.getSubjectCode().equals(id)) {
+				subjects.remove(sb);
+				break;
+			}
+		}
+	}
+
 	
 
 	public void addProfessor(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email,
@@ -212,6 +219,16 @@ public class ProfessorDatabase {
 		p.setTitle(title);
 		p.setInternshipYears(internshipYears);
 	
+	}
+	
+	
+	public Professor findByName(String name) {
+		for(Professor p: this.professors) {
+			if(p.getName().equals(name)) {
+				return p;
+			}
+		}
+		return null;
 	}
 
 
@@ -247,7 +264,7 @@ public class ProfessorDatabase {
 
 			XStream xs = new XStream();
 			xs.addPermission(AnyTypePermission.ANY);
-			xs.alias("professor", Student.class);
+			xs.alias("professor", Professor.class);
 			xs.toXML(professors, os); 
 		} finally {
 			os.close();
@@ -259,8 +276,8 @@ public class ProfessorDatabase {
 		File f = new File("database/professors.xml");
 		
 			XStream xs = new XStream();
-			xs.allowTypes(new Class[] {Professor.class});
-			xs.alias("professor", Student.class);
+			xs.allowTypes(new Class[] {Professor.class,Subject.class});
+			xs.alias("professor", Professor.class);
 			this.professors = (List<Professor>) xs.fromXML(f);
 	
 	}

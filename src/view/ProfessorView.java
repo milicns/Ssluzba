@@ -63,6 +63,7 @@ private static final long serialVersionUID = 1L;
 	private JLabel lblTitle;
 	private JComboBox<String> cbTitle;
 	private JLabel lblinternshipYears;
+	private JTextField tflinternshipYears;
 	private JComboBox<String> cbinternshipYears;
 	private JButton confirm;
 	private JButton quit;
@@ -129,9 +130,12 @@ private static final long serialVersionUID = 1L;
 		cbTitle = new JComboBox<String>(TitleStrings);
 		
 		
-		lblinternshipYears = new JLabel("Zvanje*");
-		String[] lblinternshipYearsStrings = {"Dekan","Redovni profesor","Docent","Vanredni profesor","Asistent","Redovni profesor","Saradnik"};
-		cbinternshipYears = new JComboBox<String>(lblinternshipYearsStrings);
+		
+		lblinternshipYears = new JLabel("Godine staza*");
+		tflinternshipYears = new JTextField(20);
+		
+		
+		
 		
 
 		
@@ -196,7 +200,7 @@ private static final long serialVersionUID = 1L;
 		
 		pnlContent.add(lblinternshipYears, new GridBagConstraints(0, 9, 1, 1, 0, 0, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0));
-		pnlContent.add(cbinternshipYears, new GridBagConstraints(1, 9, 1, 1, 100, 0, GridBagConstraints.WEST,
+		pnlContent.add(tflinternshipYears, new GridBagConstraints(1, 9, 1, 1, 100, 0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, new Insets(5, 5, 5, 5), 0, 0));
 		
 		pnlContent.add(confirm, new GridBagConstraints(0, 10, 1, 1, 0, 0, GridBagConstraints.WEST,
@@ -250,6 +254,7 @@ private static final long serialVersionUID = 1L;
 		
 		}
 		
+		/*
 		switch(String.valueOf(professor.getInternshipYears())){
 		case "REDOVNIPROFESOR":
 			cbinternshipYears.setSelectedIndex(0);
@@ -260,7 +265,7 @@ private static final long serialVersionUID = 1L;
 		case "DEKAN":
 			cbinternshipYears.setSelectedIndex(2);
 			break;
-		
+		*/
 		}
 		
 		

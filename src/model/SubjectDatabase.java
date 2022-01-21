@@ -48,6 +48,12 @@ public class SubjectDatabase {
 	}
 	
 	
+
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
+	
+	
 	private void initSubjects() {
 		
 		this.subjects = new ArrayList<Subject>();
@@ -161,7 +167,7 @@ public class SubjectDatabase {
 		
 	}
 	
-	
+
 
 	
 	public List<Subject> getSubjects() {
@@ -220,6 +226,16 @@ public class SubjectDatabase {
 		}
 	}
 	
+	public Subject findById2(String id) {
+		for(Subject s: subjects) {
+			if(s.getSubjectCode().equals(id)) {
+				return s;
+			}
+		}
+		return null;
+	}
+	
+	
 	
 	
 	public void addSubject(String subjectCode, String subjectName, Semester semester, int studyYear,Professor subjectProfessor, int espb, ArrayList<Student> passed,ArrayList<Student> failed) {
@@ -242,7 +258,6 @@ public class SubjectDatabase {
 			}
 		}
 	}
-	
 	
 	public void editSubject(int row, String subjectCode, String subjectName, Semester semester, int studyYear,int espb) {
 				Subject sb = getRow(row);
@@ -296,6 +311,17 @@ public class SubjectDatabase {
 			this.subjects = (List<Subject>) xs.fromXML(f);
 	
 	}
+	
+	public void deleteSubject(String subjectCode) {
+		for (Subject sb : subjects) {
+			if (sb.getSubjectCode().equals(subjectCode)) {
+				subjects.remove(sb);
+				break;
+			}
+		}
+	}
+	
+	
 	
 	
 }

@@ -111,7 +111,7 @@ private void constructGUI(int selRow, int subject) {
 	// TODO Auto-generated method stub
 	
 	
-	Dimension dimension = new Dimension(150,25);
+	Dimension dimension = new Dimension(130,30);
 	pnlButtons.add(btnConfirm);
 	pnlButtons.add(btnCancel);	
 	
