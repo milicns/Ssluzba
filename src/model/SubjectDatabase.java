@@ -49,7 +49,7 @@ public class SubjectDatabase {
 	
 	
 
-	public List<Subject> getSubjects() {
+	public List<Subject> getSubjects1() {
 		return subjects;
 	}
 	
@@ -275,7 +275,7 @@ public class SubjectDatabase {
 	}
 	
 	public void removeStudentFromSubject(Student s) {
-		List<Subject> subjects = SubjectDatabase.getInstance().getSubjects();
+		List<Subject> subjects = SubjectDatabase.getInstance().getSubjects1();
 		for(Subject sb: subjects) {
 			if(sb.getFailedStudents().contains(s)) {
 				sb.getFailedStudents().remove(s);

@@ -2,7 +2,7 @@ package gui;
 
 import javax.swing.table.AbstractTableModel;
 
-import model.GradeDatabase;
+//import model.GradeDatabase;
 
 public class AbstractTableModelGrade extends AbstractTableModel {
 	
@@ -14,16 +14,19 @@ public class AbstractTableModelGrade extends AbstractTableModel {
 
 	@Override
 	public int getRowCount() {
-		return GradeDatabase.getInstance().getOcene().size();
+	//	return GradeDatabase.getInstance().getOcene().size();
 	}
 	
 	@Override
 	public int getColumnCount() {
-		return GradeDatabase.getInstance().getColumnCount();
+	//	return GradeDatabase.getInstance().getColumnCount();
+		
+
 	}
 	
 	public String getColumnName(int column) {
-		return GradeDatabase.getInstance().getColumnName(column);
+	//	return GradeDatabase.getInstance().getColumnName(column);
+		return "dodate kolone";
 	}
 
 	@Override
@@ -34,14 +37,6 @@ public class AbstractTableModelGrade extends AbstractTableModel {
 
 	
 	
-	
-	/*
-	@Override          OVDE NAKON ISPISIVANJA VREDNOSTI OCENE ! 
-	public Object getValueAt(int rowIndex,int columnIndex) {
-		return GradeDatabase.getInstance().getValueAt(rowIndex, columnIndex);
-	}
-	
-	*/
 	
 	
 
