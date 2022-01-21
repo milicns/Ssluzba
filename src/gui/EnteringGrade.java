@@ -15,7 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 
 
-import model.Grade;
+//import model.Grade;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -56,7 +56,7 @@ private static final long serialVersionUID = 1L;
     JTextField txtDate;
 	 
      String Date;
-     ///GradeValue gv; OVO JE ZA VREDNOST OCENE OPET DA LI ENUM ILI OGRANICENJE ili nesto 3ce 
+    
 	 
 	public  EnteringGrade(Frame parent,int selRow,int subject) throws ParseException {
 		super(parent, "Upis Ocene", true);
@@ -121,7 +121,6 @@ private void constructGUI(int selRow, int subject) {
 	lblPassword.setPreferredSize(dimension);  
 	txtPassword.setPreferredSize(dimension);
 	
-	//txtPassword.setText(DA LI JE FAILED SUBJECT ? .getInstance().getRow(subject).getSpr()); ///MISLIM DA JE OVDE JFAILED SUBJECT NISAM SIGURAN
 	
 	txtPassword.setBackground(Color.WHITE);
 	txtPassword.setEditable(false);
@@ -131,8 +130,7 @@ private void constructGUI(int selRow, int subject) {
     lblName.setPreferredSize(dimension);
     txtName.setBackground(Color.WHITE);
     
-   // txtName.setText(DA LI JE FAILED SUBJECT ?.getInstance().getRow(subject).getNaziv()); ///MISLIM DA JE OVDE JFAILED SUBJECT NISAM SIGURAN
-
+   
     txtName.setEditable(false);
     txtName.setPreferredSize(dimension);
     panName.add(lblName);

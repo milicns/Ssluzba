@@ -254,18 +254,7 @@ private static final long serialVersionUID = 1L;
 		
 		}
 		
-		/*
-		switch(String.valueOf(professor.getInternshipYears())){
-		case "REDOVNIPROFESOR":
-			cbinternshipYears.setSelectedIndex(0);
-			break;
-		case  "DOCENT":
-			cbinternshipYears.setSelectedIndex(1);
-			break;
-		case "DEKAN":
-			cbinternshipYears.setSelectedIndex(2);
-			break;
-		*/
+		
 		}
 		
 		
