@@ -1,5 +1,5 @@
 <list>
-  <model.Professor>
+  <professor>
     <surname>Nikolic</surname>
     <name>Milos</name>
     <birthDate>1965-12-11 23:00:00.0 UTC</birthDate>
@@ -21,8 +21,8 @@
     <title>REDOVNI_PROFESOR</title>
     <internshipYears>30</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Mirkovic</surname>
     <name>Nikola</name>
     <birthDate>1977-12-31 23:00:00.0 UTC</birthDate>
@@ -34,13 +34,13 @@
     </adress>
     <phoneNr>021/368-456</phoneNr>
     <email>nikola.mirkovic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>321321321</idNumber>
     <title>REDOVNI_PROFESOR</title>
     <internshipYears>22</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Petkovic</surname>
     <name>Ilija</name>
     <birthDate>1988-09-02 22:00:00.0 UTC</birthDate>
@@ -52,13 +52,13 @@
     </adress>
     <phoneNr>021/215-314</phoneNr>
     <email>ilija.petkovic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>456456456</idNumber>
     <title>VANREDNI_PROFESOR</title>
     <internshipYears>22</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Petrovic</surname>
     <name>Mitar</name>
     <birthDate>1976-07-24 23:00:00.0 UTC</birthDate>
@@ -70,13 +70,13 @@
     </adress>
     <phoneNr>021/884-640</phoneNr>
     <email>mitar.petrovic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>789789789</idNumber>
     <title>VANREDNI_PROFESOR</title>
     <internshipYears>27</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Micic</surname>
     <name>Vasa</name>
     <birthDate>1970-02-13 23:00:00.0 UTC</birthDate>
@@ -88,13 +88,13 @@
     </adress>
     <phoneNr>021/212-114</phoneNr>
     <email>vasa.micic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>100100144</idNumber>
     <title>DOCENT</title>
     <internshipYears>24</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Miletic</surname>
     <name>Srdjan</name>
     <birthDate>1966-04-19 23:00:00.0 UTC</birthDate>
@@ -106,13 +106,13 @@
     </adress>
     <phoneNr>021/978-224</phoneNr>
     <email>srdjan.miletic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>200020244</idNumber>
     <title>DOCENT</title>
     <internshipYears>31</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Mihajlovic</surname>
     <name>Branislav</name>
     <birthDate>1980-06-27 22:00:00.0 UTC</birthDate>
@@ -124,13 +124,13 @@
     </adress>
     <phoneNr>021/778-323</phoneNr>
     <email>branislav.mihajlovic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>559585632</idNumber>
     <title>REDOVNI_PROFESOR</title>
     <internshipYears>13</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Markovic</surname>
     <name>Marko</name>
     <birthDate>1985-01-30 23:00:00.0 UTC</birthDate>
@@ -142,13 +142,13 @@
     </adress>
     <phoneNr>021/899-659</phoneNr>
     <email>marko.markovic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>334968855</idNumber>
     <title>REDOVNI_PROFESOR</title>
     <internshipYears>17</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Milakovic</surname>
     <name>Milos</name>
     <birthDate>1975-09-20 23:00:00.0 UTC</birthDate>
@@ -160,26 +160,26 @@
     </adress>
     <phoneNr>021/122-326</phoneNr>
     <email>milos.milakovic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>730703654</idNumber>
     <title>VANREDNI_PROFESOR</title>
     <internshipYears>12</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Bratic</surname>
     <name>Lazar</name>
     <birthDate>1973-11-12 23:00:00.0 UTC</birthDate>
-    <adress reference="../../model.Professor/officeAdress"/>
+    <adress reference="../../professor/officeAdress"/>
     <phoneNr>021/888-156</phoneNr>
     <email>lazar.bratic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>600378644</idNumber>
     <title>VANREDNI_PROFESOR</title>
     <internshipYears>3</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Drazic</surname>
     <name>Ljeposava</name>
     <birthDate>1964-08-10 23:00:00.0 UTC</birthDate>
@@ -191,13 +191,13 @@
     </adress>
     <phoneNr>021/456-125</phoneNr>
     <email>ljeposava.drazic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>158496152</idNumber>
     <title>DOCENT</title>
     <internshipYears>31</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Dragic</surname>
     <name>Miroljub</name>
     <birthDate>1959-03-01 23:00:00.0 UTC</birthDate>
@@ -209,101 +209,101 @@
     </adress>
     <phoneNr>021/886-455</phoneNr>
     <email>miroljub.dragic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>777348595</idNumber>
     <title>DOCENT</title>
     <internshipYears>42</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Rekavic</surname>
     <name>Bogdan</name>
     <birthDate>1977-06-22 23:00:00.0 UTC</birthDate>
-    <adress reference="../../model.Professor[6]/adress"/>
+    <adress reference="../../professor[6]/adress"/>
     <phoneNr>021/945-155</phoneNr>
     <email>bogdan.rekavic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>721254363</idNumber>
     <title>VANREDNI_PROFESOR</title>
     <internshipYears>18</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Milic</surname>
     <name>Stanka</name>
     <birthDate>1991-03-02 23:00:00.0 UTC</birthDate>
-    <adress reference="../../model.Professor[3]/adress"/>
+    <adress reference="../../professor[3]/adress"/>
     <phoneNr>021/746-659</phoneNr>
     <email>stanka.milic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>225533448</idNumber>
     <title>DOCENT</title>
     <internshipYears>7</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Vukovic</surname>
     <name>Milica</name>
     <birthDate>1967-10-17 23:00:00.0 UTC</birthDate>
-    <adress reference="../../model.Professor[8]/adress"/>
+    <adress reference="../../professor[8]/adress"/>
     <phoneNr>021/489-326</phoneNr>
     <email>milica.vukovic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>111555888</idNumber>
     <title>VANREDNI_PROFESOR</title>
     <internshipYears>14</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Misic</surname>
     <name>Misa</name>
     <birthDate>1969-10-19 23:00:00.0 UTC</birthDate>
-    <adress reference="../../model.Professor/adress"/>
+    <adress reference="../../professor/adress"/>
     <phoneNr>021/487-265</phoneNr>
     <email>misa.misic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>300300344</idNumber>
     <title>DOCENT</title>
     <internshipYears>19</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Maricic</surname>
     <name>Branko</name>
     <birthDate>1973-01-17 23:00:00.0 UTC</birthDate>
-    <adress reference="../../model.Professor[2]/adress"/>
+    <adress reference="../../professor[2]/adress"/>
     <phoneNr>021/159-478</phoneNr>
     <email>branko.maricic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>400400444</idNumber>
     <title>DOCENT</title>
     <internshipYears>22</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Lukovic</surname>
     <name>Branislav</name>
     <birthDate>1982-04-07 22:00:00.0 UTC</birthDate>
-    <adress reference="../../model.Professor[3]/adress"/>
+    <adress reference="../../professor[3]/adress"/>
     <phoneNr>021/156-326</phoneNr>
     <email>branislav.lukovic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>500500544</idNumber>
     <title>REDOVNI_PROFESOR</title>
     <internshipYears>9</internshipYears>
     <professorSubjects/>
-  </model.Professor>
-  <model.Professor>
+  </professor>
+  <professor>
     <surname>Obradovic</surname>
     <name>Branimir</name>
     <birthDate>1979-01-06 23:00:00.0 UTC</birthDate>
-    <adress reference="../../model.Professor/adress"/>
+    <adress reference="../../professor/adress"/>
     <phoneNr>021/922-333</phoneNr>
     <email>branimir.obradovic@mailinator.com</email>
-    <officeAdress reference="../../model.Professor/officeAdress"/>
+    <officeAdress reference="../../professor/officeAdress"/>
     <idNumber>600600644</idNumber>
     <title>DOCENT</title>
     <internshipYears>17</internshipYears>
     <professorSubjects/>
-  </model.Professor>
+  </professor>
 </list>

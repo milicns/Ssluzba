@@ -306,7 +306,7 @@ public class SubjectDatabase {
 		File f = new File("database/subjects.xml");
 		
 			XStream xs = new XStream();
-			xs.allowTypes(new Class[] {Student.class,Subject.class,Professor.class});
+			xs.allowTypes(new Class[] {Subject.class,Professor.class,Student.class});
 			xs.alias("subject", Subject.class);
 			this.subjects = (List<Subject>) xs.fromXML(f);
 	
