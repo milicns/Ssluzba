@@ -38,7 +38,101 @@
     <idNumber>321321321</idNumber>
     <title>REDOVNI_PROFESOR</title>
     <internshipYears>22</internshipYears>
-    <professorSubjects/>
+    <professorSubjects>
+      <model.Subject>
+        <subjectCode>p1</subjectCode>
+        <subjectName>Osnove programiranja</subjectName>
+        <semester>Z</semester>
+        <studyYear>1</studyYear>
+        <subjectProfessor>
+          <surname>Mirkovic</surname>
+          <name>Nikola</name>
+          <birthDate>1977-12-31 23:00:00.0 UTC</birthDate>
+          <adress>
+            <street>Nikole Tesle</street>
+            <nr>56</nr>
+            <city>Novi Sad</city>
+            <state>Srbija</state>
+          </adress>
+          <phoneNr>021/368-456</phoneNr>
+          <email>nikola.mirkovic@mailinator.com</email>
+          <officeAdress>
+            <street>Nikole Pasica</street>
+            <nr>6a</nr>
+            <city>Novi Sad</city>
+            <state>Srbija</state>
+          </officeAdress>
+          <idNumber>321321321</idNumber>
+          <title>REDOVNI_PROFESOR</title>
+          <internshipYears>22</internshipYears>
+          <professorSubjects>
+            <model.Subject reference="../../.."/>
+            <model.Subject>
+              <subjectCode>p2</subjectCode>
+              <subjectName>Statistika</subjectName>
+              <semester>L</semester>
+              <studyYear>3</studyYear>
+              <subjectProfessor reference="../../.."/>
+              <espb>8</espb>
+              <passedStudents/>
+              <failedStudents>
+                <model.Student>
+                  <name>Pera</name>
+                  <surname>Peric</surname>
+                  <birthDate>1995-01-06 23:06:00.0 UTC</birthDate>
+                  <adress>
+                    <street>Stražilovska</street>
+                    <nr>6a</nr>
+                    <city>Novi Sad</city>
+                    <state>Srbija</state>
+                  </adress>
+                  <phoneNr>021/903-463</phoneNr>
+                  <email>pera.peric@mailinator.com</email>
+                  <index>RA 134/2015</index>
+                  <enrollYear>2015</enrollYear>
+                  <currentYear>3</currentYear>
+                  <status>S</status>
+                  <avgGrade>0.0</avgGrade>
+                  <passedSubjects/>
+                  <failedSubjects>
+                    <model.Subject reference="../../../.."/>
+                    <model.Subject>
+                      <subjectCode>p4</subjectCode>
+                      <subjectName>LPRS</subjectName>
+                      <semester>Z</semester>
+                      <studyYear>3</studyYear>
+                      <subjectProfessor reference="../../../../../../.."/>
+                      <espb>7</espb>
+                      <passedStudents/>
+                      <failedStudents>
+                        <model.Student reference="../../../.."/>
+                      </failedStudents>
+                    </model.Subject>
+                  </failedSubjects>
+                </model.Student>
+              </failedStudents>
+            </model.Subject>
+            <model.Subject>
+              <subjectCode>p3</subjectCode>
+              <subjectName>Algoritmi i strukture podataka</subjectName>
+              <semester>L</semester>
+              <studyYear>9</studyYear>
+              <subjectProfessor reference="../../.."/>
+              <espb>5</espb>
+              <passedStudents/>
+              <failedStudents/>
+            </model.Subject>
+            <model.Subject reference="../model.Subject[2]/failedStudents/model.Student/failedSubjects/model.Subject[2]"/>
+          </professorSubjects>
+        </subjectProfessor>
+        <espb>7</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+      <model.Subject reference="../model.Subject/subjectProfessor/professorSubjects/model.Subject[2]"/>
+      <model.Subject reference="../model.Subject/subjectProfessor/professorSubjects/model.Subject[3]"/>
+      <model.Subject reference="../model.Subject/subjectProfessor/professorSubjects/model.Subject[2]/failedStudents/model.Student/failedSubjects/model.Subject[2]"/>
+    </professorSubjects>
   </professor>
   <professor>
     <surname>Petkovic</surname>
@@ -92,7 +186,60 @@
     <idNumber>100100144</idNumber>
     <title>DOCENT</title>
     <internshipYears>24</internshipYears>
-    <professorSubjects/>
+    <professorSubjects>
+      <model.Subject>
+        <subjectCode>p8</subjectCode>
+        <subjectName>Osnove elektrotehnike</subjectName>
+        <semester>L</semester>
+        <studyYear>1</studyYear>
+        <subjectProfessor>
+          <surname>Micic</surname>
+          <name>Vasa</name>
+          <birthDate>1970-02-13 23:00:00.0 UTC</birthDate>
+          <adress>
+            <street>Nikole Pasica</street>
+            <nr>2d</nr>
+            <city>Kikinda</city>
+            <state>Srbija</state>
+          </adress>
+          <phoneNr>021/212-114</phoneNr>
+          <email>vasa.micic@mailinator.com</email>
+          <officeAdress>
+            <street>Nikole Pasica</street>
+            <nr>6a</nr>
+            <city>Novi Sad</city>
+            <state>Srbija</state>
+          </officeAdress>
+          <idNumber>100100144</idNumber>
+          <title>DOCENT</title>
+          <internshipYears>24</internshipYears>
+          <professorSubjects/>
+        </subjectProfessor>
+        <espb>11</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>p9</subjectCode>
+        <subjectName>Sociologija</subjectName>
+        <semester>Z</semester>
+        <studyYear>1</studyYear>
+        <subjectProfessor reference="../../model.Subject/subjectProfessor"/>
+        <espb>10</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>p10</subjectCode>
+        <subjectName>Filozofija</subjectName>
+        <semester>Z</semester>
+        <studyYear>1</studyYear>
+        <subjectProfessor reference="../../model.Subject/subjectProfessor"/>
+        <espb>4</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+    </professorSubjects>
   </professor>
   <professor>
     <surname>Miletic</surname>
@@ -110,7 +257,55 @@
     <idNumber>200020244</idNumber>
     <title>DOCENT</title>
     <internshipYears>31</internshipYears>
-    <professorSubjects/>
+    <professorSubjects>
+      <model.Subject>
+        <subjectCode>p12</subjectCode>
+        <subjectName>NANS</subjectName>
+        <semester>L</semester>
+        <studyYear>2</studyYear>
+        <subjectProfessor>
+          <surname>Miletic</surname>
+          <name>Srdjan</name>
+          <birthDate>1966-04-19 23:00:00.0 UTC</birthDate>
+          <adress>
+            <street>Bulevar Kralja Petra</street>
+            <nr>22</nr>
+            <city>Nis</city>
+            <state>Srbija</state>
+          </adress>
+          <phoneNr>021/978-224</phoneNr>
+          <email>srdjan.miletic@mailinator.com</email>
+          <officeAdress reference="../../../../../professor[5]/professorSubjects/model.Subject/subjectProfessor/officeAdress"/>
+          <idNumber>200020244</idNumber>
+          <title>DOCENT</title>
+          <internshipYears>31</internshipYears>
+          <professorSubjects/>
+        </subjectProfessor>
+        <espb>5</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>p13</subjectCode>
+        <subjectName>Organizacije podataka</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <subjectProfessor reference="../../model.Subject/subjectProfessor"/>
+        <espb>7</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>p14</subjectCode>
+        <subjectName>Baze podataka</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <subjectProfessor reference="../../model.Subject/subjectProfessor"/>
+        <espb>6</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+    </professorSubjects>
   </professor>
   <professor>
     <surname>Mihajlovic</surname>
@@ -128,7 +323,90 @@
     <idNumber>559585632</idNumber>
     <title>REDOVNI_PROFESOR</title>
     <internshipYears>13</internshipYears>
-    <professorSubjects/>
+    <professorSubjects>
+      <model.Subject>
+        <subjectCode>p15</subjectCode>
+        <subjectName>Paralelno programiranje</subjectName>
+        <semester>Z</semester>
+        <studyYear>2</studyYear>
+        <subjectProfessor>
+          <surname>Mihajlovic</surname>
+          <name>Branislav</name>
+          <birthDate>1980-06-27 22:00:00.0 UTC</birthDate>
+          <adress>
+            <street>Tolstojeva</street>
+            <nr>31</nr>
+            <city>Novi Sad</city>
+            <state>Srbija</state>
+          </adress>
+          <phoneNr>021/778-323</phoneNr>
+          <email>branislav.mihajlovic@mailinator.com</email>
+          <officeAdress reference="../../../../../professor[5]/professorSubjects/model.Subject/subjectProfessor/officeAdress"/>
+          <idNumber>559585632</idNumber>
+          <title>REDOVNI_PROFESOR</title>
+          <internshipYears>13</internshipYears>
+          <professorSubjects/>
+        </subjectProfessor>
+        <espb>8</espb>
+        <passedStudents/>
+        <failedStudents>
+          <model.Student>
+            <name>Martin</name>
+            <surname>Stojanovic</surname>
+            <birthDate>1997-12-31 23:05:00.0 UTC</birthDate>
+            <adress>
+              <street></street>
+              <nr></nr>
+              <city></city>
+              <state></state>
+            </adress>
+            <phoneNr>024/321-775</phoneNr>
+            <email>martin.stojanovic@mailinator.com</email>
+            <index>RA 13/2018</index>
+            <enrollYear>2018</enrollYear>
+            <currentYear>4</currentYear>
+            <status>S</status>
+            <avgGrade>0.0</avgGrade>
+            <passedSubjects/>
+            <failedSubjects>
+              <model.Subject reference="../../../.."/>
+            </failedSubjects>
+          </model.Student>
+          <model.Student>
+            <name>Tomislav</name>
+            <surname>Novakovic</surname>
+            <birthDate>1996-01-24 23:02:00.0 UTC</birthDate>
+            <adress>
+              <street>Bulevar Kralja Petra</street>
+              <nr>22</nr>
+              <city>Niš</city>
+              <state>Srbija</state>
+            </adress>
+            <phoneNr>011/1188-379</phoneNr>
+            <email>tomislav.novakovic@mailinator.com</email>
+            <index>RA 14/2018</index>
+            <enrollYear>2018</enrollYear>
+            <currentYear>4</currentYear>
+            <status>B</status>
+            <avgGrade>0.0</avgGrade>
+            <passedSubjects/>
+            <failedSubjects>
+              <model.Subject reference="../../../.."/>
+            </failedSubjects>
+          </model.Student>
+        </failedStudents>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>p16</subjectCode>
+        <subjectName>Konkurentno programiranje</subjectName>
+        <semester>L</semester>
+        <studyYear>2</studyYear>
+        <subjectProfessor reference="../../model.Subject/subjectProfessor"/>
+        <espb>9</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+    </professorSubjects>
   </professor>
   <professor>
     <surname>Markovic</surname>
@@ -278,7 +556,45 @@
     <idNumber>400400444</idNumber>
     <title>DOCENT</title>
     <internshipYears>22</internshipYears>
-    <professorSubjects/>
+    <professorSubjects>
+      <model.Subject>
+        <subjectCode>it25</subjectCode>
+        <subjectName>Informaciona bezbednost</subjectName>
+        <semester>L</semester>
+        <studyYear>4</studyYear>
+        <subjectProfessor>
+          <surname>Maricic</surname>
+          <name>Branko</name>
+          <birthDate>1973-01-17 23:00:00.0 UTC</birthDate>
+          <adress>
+            <street>Nikole Tesle</street>
+            <nr>56</nr>
+            <city>Novi Sad</city>
+            <state>Srbija</state>
+          </adress>
+          <phoneNr>021/159-478</phoneNr>
+          <email>branko.maricic@mailinator.com</email>
+          <officeAdress reference="../../../../../professor[5]/professorSubjects/model.Subject/subjectProfessor/officeAdress"/>
+          <idNumber>400400444</idNumber>
+          <title>DOCENT</title>
+          <internshipYears>22</internshipYears>
+          <professorSubjects/>
+        </subjectProfessor>
+        <espb>9</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>p29</subjectCode>
+        <subjectName>Informacioni sistemi</subjectName>
+        <semester>Z</semester>
+        <studyYear>4</studyYear>
+        <subjectProfessor reference="../../model.Subject/subjectProfessor"/>
+        <espb>6</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+    </professorSubjects>
   </professor>
   <professor>
     <surname>Lukovic</surname>
@@ -291,7 +607,45 @@
     <idNumber>500500544</idNumber>
     <title>REDOVNI_PROFESOR</title>
     <internshipYears>9</internshipYears>
-    <professorSubjects/>
+    <professorSubjects>
+      <model.Subject>
+        <subjectCode>it26</subjectCode>
+        <subjectName>Elektronsko placanje</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <subjectProfessor>
+          <surname>Lukovic</surname>
+          <name>Branislav</name>
+          <birthDate>1982-04-07 22:00:00.0 UTC</birthDate>
+          <adress>
+            <street>Bulevar Patrijarha Pavla</street>
+            <nr>3</nr>
+            <city>Beograd</city>
+            <state>Srbija</state>
+          </adress>
+          <phoneNr>021/156-326</phoneNr>
+          <email>branislav.lukovic@mailinator.com</email>
+          <officeAdress reference="../../../../../professor[5]/professorSubjects/model.Subject/subjectProfessor/officeAdress"/>
+          <idNumber>500500544</idNumber>
+          <title>REDOVNI_PROFESOR</title>
+          <internshipYears>9</internshipYears>
+          <professorSubjects/>
+        </subjectProfessor>
+        <espb>8</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+      <model.Subject>
+        <subjectCode>p28</subjectCode>
+        <subjectName>Projektovanje softvera</subjectName>
+        <semester>Z</semester>
+        <studyYear>3</studyYear>
+        <subjectProfessor reference="../../model.Subject/subjectProfessor"/>
+        <espb>5</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+    </professorSubjects>
   </professor>
   <professor>
     <surname>Obradovic</surname>
@@ -304,6 +658,34 @@
     <idNumber>600600644</idNumber>
     <title>DOCENT</title>
     <internshipYears>17</internshipYears>
-    <professorSubjects/>
+    <professorSubjects>
+      <model.Subject>
+        <subjectCode>it27</subjectCode>
+        <subjectName>Distribuirani sistemi</subjectName>
+        <semester>L</semester>
+        <studyYear>4</studyYear>
+        <subjectProfessor>
+          <surname>Obradovic</surname>
+          <name>Branimir</name>
+          <birthDate>1979-01-06 23:00:00.0 UTC</birthDate>
+          <adress>
+            <street>Safarikova</street>
+            <nr>2</nr>
+            <city>Novi Sad</city>
+            <state>Srbija</state>
+          </adress>
+          <phoneNr>021/922-333</phoneNr>
+          <email>branimir.obradovic@mailinator.com</email>
+          <officeAdress reference="../../../../../professor[5]/professorSubjects/model.Subject/subjectProfessor/officeAdress"/>
+          <idNumber>600600644</idNumber>
+          <title>DOCENT</title>
+          <internshipYears>17</internshipYears>
+          <professorSubjects/>
+        </subjectProfessor>
+        <espb>6</espb>
+        <passedStudents/>
+        <failedStudents/>
+      </model.Subject>
+    </professorSubjects>
   </professor>
 </list>

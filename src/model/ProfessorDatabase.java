@@ -60,7 +60,7 @@ public class ProfessorDatabase {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-	/*	
+	/*
 		Professor p1;
 		Professor p2;
 		 Professor p3;
@@ -81,26 +81,66 @@ public class ProfessorDatabase {
 		 Professor p18;
 		 Professor p19;
 		 
+		 ArrayList<Subject> l1 = new ArrayList<Subject>();
+		 ArrayList<Subject> l2 = new ArrayList<Subject>();
+		 ArrayList<Subject> l3 = new ArrayList<Subject>();
+		 ArrayList<Subject> l4 = new ArrayList<Subject>();
+		 ArrayList<Subject> l5 = new ArrayList<Subject>();
+		 ArrayList<Subject> l6 = new ArrayList<Subject>();
+		 ArrayList<Subject> l7 = new ArrayList<Subject>();
+		 ArrayList<Subject> l8 = new ArrayList<Subject>();
+		 ArrayList<Subject> l9 = new ArrayList<Subject>();
+		 ArrayList<Subject> l10 = new ArrayList<Subject>();
+		 ArrayList<Subject> l11 = new ArrayList<Subject>();
+		 ArrayList<Subject> l12 = new ArrayList<Subject>();
+		 ArrayList<Subject> l13 = new ArrayList<Subject>();
+		 ArrayList<Subject> l14 = new ArrayList<Subject>();
+		 ArrayList<Subject> l15 = new ArrayList<Subject>();
+		 ArrayList<Subject> l16 = new ArrayList<Subject>();
+		 ArrayList<Subject> l17 = new ArrayList<Subject>();
+		 ArrayList<Subject> l18 = new ArrayList<Subject>();
+		 ArrayList<Subject> l19 = new ArrayList<Subject>();
+		 
+		 l2.add(SubjectDatabase.getInstance().getSubjects().get(0));
+		 l2.add(SubjectDatabase.getInstance().getSubjects().get(1));
+		 l2.add(SubjectDatabase.getInstance().getSubjects().get(2));
+		 l2.add(SubjectDatabase.getInstance().getSubjects().get(3));
+		 
+		 l5.add(SubjectDatabase.getInstance().getSubjects().get(7));
+		 l5.add(SubjectDatabase.getInstance().getSubjects().get(8));
+		 l5.add(SubjectDatabase.getInstance().getSubjects().get(9));
+		 l6.add(SubjectDatabase.getInstance().getSubjects().get(11));
+		 l6.add(SubjectDatabase.getInstance().getSubjects().get(12));
+		 l6.add(SubjectDatabase.getInstance().getSubjects().get(13));
+		 l7.add(SubjectDatabase.getInstance().getSubjects().get(14));
+		 l7.add(SubjectDatabase.getInstance().getSubjects().get(15));
+		 l17.add(SubjectDatabase.getInstance().getSubjects().get(24));
+		 l17.add(SubjectDatabase.getInstance().getSubjects().get(28));
+		 l18.add(SubjectDatabase.getInstance().getSubjects().get(25));
+		 l18.add(SubjectDatabase.getInstance().getSubjects().get(27));
+		 l19.add(SubjectDatabase.getInstance().getSubjects().get(26));
+		 
+		 
 		try {
-			p1 = new Professor("Milos","Nikolic",new SimpleDateFormat("dd.MM.yyyy").parse("12.12.1965."),AdressBase.getInstance().getAdrese().get(0),"021/356-785","milos.nikolic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 123123123, Title.REDOVNI_PROFESOR, 30, new ArrayList<Subject>());
-			p2 = new Professor("Nikola","Mirkovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.01.1978."),AdressBase.getInstance().getAdrese().get(1),"021/368-456","nikola.mirkovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 321321321, Title.REDOVNI_PROFESOR, 22, new ArrayList<Subject>());
-			p3 = new Professor("Ilija","Petkovic",new SimpleDateFormat("dd.MM.yyyy").parse("03.09.1988."),AdressBase.getInstance().getAdrese().get(2),"021/215-314","ilija.petkovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 456456456, Title.VANREDNI_PROFESOR, 22, new ArrayList<Subject>());
-			p4 = new Professor("Mitar","Petrovic",new SimpleDateFormat("dd.MM.yyyy").parse("25.07.1976."),AdressBase.getInstance().getAdrese().get(3),"021/884-640","mitar.petrovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 789789789, Title.VANREDNI_PROFESOR, 27, new ArrayList<Subject>());
-			p5 = new Professor("Vasa","Micic",new SimpleDateFormat("dd.MM.yyyy").parse("14.02.1970."),AdressBase.getInstance().getAdrese().get(4),"021/212-114","vasa.micic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 100100144, Title.DOCENT, 24, new ArrayList<Subject>());
-			p6 = new Professor("Srdjan","Miletic",new SimpleDateFormat("dd.MM.yyyy").parse("20.04.1966."),AdressBase.getInstance().getAdrese().get(5),"021/978-224","srdjan.miletic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 200020244, Title.DOCENT, 31, new ArrayList<Subject>());
-			p7 = new Professor("Branislav","Mihajlovic",new SimpleDateFormat("dd.MM.yyyy").parse("28.06.1980."),AdressBase.getInstance().getAdrese().get(6),"021/778-323","branislav.mihajlovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 559585632, Title.REDOVNI_PROFESOR, 13, new ArrayList<Subject>());
-			p8 = new Professor("Marko","Markovic",new SimpleDateFormat("dd.MM.yyyy").parse("31.01.1985."),AdressBase.getInstance().getAdrese().get(7),"021/899-659","marko.markovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 334968855, Title.REDOVNI_PROFESOR, 17, new ArrayList<Subject>());
-			p9 = new Professor("Milos","Milakovic",new SimpleDateFormat("dd.MM.yyyy").parse("21.09.1975."),AdressBase.getInstance().getAdrese().get(8),"021/122-326","milos.milakovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 730703654, Title.VANREDNI_PROFESOR, 12, new ArrayList<Subject>());
-			p10 = new Professor("Lazar","Bratic",new SimpleDateFormat("dd.MM.yyyy").parse("13.11.1973."),AdressBase.getInstance().getAdrese().get(9),"021/888-156","lazar.bratic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 600378644, Title.VANREDNI_PROFESOR, 3, new ArrayList<Subject>());
-			p11 = new Professor("Ljeposava","Drazic",new SimpleDateFormat("dd.MM.yyyy").parse("11.08.1964."),AdressBase.getInstance().getAdrese().get(10),"021/456-125","ljeposava.drazic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 158496152, Title.DOCENT, 31, new ArrayList<Subject>());
-			p12 = new Professor("Miroljub","Dragic",new SimpleDateFormat("dd.MM.yyyy").parse("02.03.1959."),AdressBase.getInstance().getAdrese().get(11),"021/886-455","miroljub.dragic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 777348595, Title.DOCENT, 42, new ArrayList<Subject>());
-			p13 = new Professor("Bogdan","Rekavic",new SimpleDateFormat("dd.MM.yyyy").parse("23.06.1977."),AdressBase.getInstance().getAdrese().get(5),"021/945-155","bogdan.rekavic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 721254363, Title.VANREDNI_PROFESOR, 18, new ArrayList<Subject>());
-			p14 = new Professor("Stanka","Milic",new SimpleDateFormat("dd.MM.yyyy").parse("03.03.1991."),AdressBase.getInstance().getAdrese().get(2),"021/746-659","stanka.milic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 225533448, Title.DOCENT, 7, new ArrayList<Subject>());
-			p15 = new Professor("Milica","Vukovic",new SimpleDateFormat("dd.MM.yyyy").parse("18.10.1967."),AdressBase.getInstance().getAdrese().get(7),"021/489-326","milica.vukovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 111555888, Title.VANREDNI_PROFESOR, 14, new ArrayList<Subject>());
-			p16 = new Professor("Misa","Misic",new SimpleDateFormat("dd.MM.yyyy").parse("20.10.1969."),AdressBase.getInstance().getAdrese().get(0),"021/487-265","misa.misic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 300300344, Title.DOCENT, 19, new ArrayList<Subject>());
-			p17 = new Professor("Branko","Maricic",new SimpleDateFormat("dd.MM.yyyy").parse("18.01.1973."),AdressBase.getInstance().getAdrese().get(1),"021/159-478","branko.maricic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 400400444, Title.DOCENT, 22, new ArrayList<Subject>());
-			p18 = new Professor("Branislav","Lukovic",new SimpleDateFormat("dd.MM.yyyy").parse("08.04.1982."),AdressBase.getInstance().getAdrese().get(2),"021/156-326","branislav.lukovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 500500544, Title.REDOVNI_PROFESOR, 9, new ArrayList<Subject>());
-			p19 = new Professor("Branimir","Obradovic",new SimpleDateFormat("dd.MM.yyyy").parse("07.01.1979."),AdressBase.getInstance().getAdrese().get(0),"021/922-333","branimir.obradovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 600600644, Title.DOCENT, 17, new ArrayList<Subject>());
+			p1 = new Professor("Milos","Nikolic",new SimpleDateFormat("dd.MM.yyyy").parse("12.12.1965."),AdressBase.getInstance().getAdrese().get(0),"021/356-785","milos.nikolic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 123123123, Title.REDOVNI_PROFESOR, 30, l1);
+			p2 = new Professor("Nikola","Mirkovic",new SimpleDateFormat("dd.MM.yyyy").parse("01.01.1978."),AdressBase.getInstance().getAdrese().get(1),"021/368-456","nikola.mirkovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 321321321, Title.REDOVNI_PROFESOR, 22, l2);
+			p3 = new Professor("Ilija","Petkovic",new SimpleDateFormat("dd.MM.yyyy").parse("03.09.1988."),AdressBase.getInstance().getAdrese().get(2),"021/215-314","ilija.petkovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 456456456, Title.VANREDNI_PROFESOR, 22,  l3);
+			p4 = new Professor("Mitar","Petrovic",new SimpleDateFormat("dd.MM.yyyy").parse("25.07.1976."),AdressBase.getInstance().getAdrese().get(3),"021/884-640","mitar.petrovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 789789789, Title.VANREDNI_PROFESOR, 27, l4);
+			p5 = new Professor("Vasa","Micic",new SimpleDateFormat("dd.MM.yyyy").parse("14.02.1970."),AdressBase.getInstance().getAdrese().get(4),"021/212-114","vasa.micic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 100100144, Title.DOCENT, 24, l5);
+			p6 = new Professor("Srdjan","Miletic",new SimpleDateFormat("dd.MM.yyyy").parse("20.04.1966."),AdressBase.getInstance().getAdrese().get(5),"021/978-224","srdjan.miletic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 200020244, Title.DOCENT, 31, l6);
+			p7 = new Professor("Branislav","Mihajlovic",new SimpleDateFormat("dd.MM.yyyy").parse("28.06.1980."),AdressBase.getInstance().getAdrese().get(6),"021/778-323","branislav.mihajlovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 559585632, Title.REDOVNI_PROFESOR, 13, l7);
+			p8 = new Professor("Marko","Markovic",new SimpleDateFormat("dd.MM.yyyy").parse("31.01.1985."),AdressBase.getInstance().getAdrese().get(7),"021/899-659","marko.markovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 334968855, Title.REDOVNI_PROFESOR, 17, l8);
+			p9 = new Professor("Milos","Milakovic",new SimpleDateFormat("dd.MM.yyyy").parse("21.09.1975."),AdressBase.getInstance().getAdrese().get(8),"021/122-326","milos.milakovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 730703654, Title.VANREDNI_PROFESOR, 12, l9);
+			p10 = new Professor("Lazar","Bratic",new SimpleDateFormat("dd.MM.yyyy").parse("13.11.1973."),AdressBase.getInstance().getAdrese().get(9),"021/888-156","lazar.bratic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 600378644, Title.VANREDNI_PROFESOR, 3, l10);
+			p11 = new Professor("Ljeposava","Drazic",new SimpleDateFormat("dd.MM.yyyy").parse("11.08.1964."),AdressBase.getInstance().getAdrese().get(10),"021/456-125","ljeposava.drazic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 158496152, Title.DOCENT, 31, l11);
+			p12 = new Professor("Miroljub","Dragic",new SimpleDateFormat("dd.MM.yyyy").parse("02.03.1959."),AdressBase.getInstance().getAdrese().get(11),"021/886-455","miroljub.dragic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 777348595, Title.DOCENT, 42, l12);
+			p13 = new Professor("Bogdan","Rekavic",new SimpleDateFormat("dd.MM.yyyy").parse("23.06.1977."),AdressBase.getInstance().getAdrese().get(5),"021/945-155","bogdan.rekavic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 721254363, Title.VANREDNI_PROFESOR, 18, l13);
+			p14 = new Professor("Stanka","Milic",new SimpleDateFormat("dd.MM.yyyy").parse("03.03.1991."),AdressBase.getInstance().getAdrese().get(2),"021/746-659","stanka.milic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 225533448, Title.DOCENT, 7, l14);
+			p15 = new Professor("Milica","Vukovic",new SimpleDateFormat("dd.MM.yyyy").parse("18.10.1967."),AdressBase.getInstance().getAdrese().get(7),"021/489-326","milica.vukovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 111555888, Title.VANREDNI_PROFESOR, 14, l15);
+			p16 = new Professor("Misa","Misic",new SimpleDateFormat("dd.MM.yyyy").parse("20.10.1969."),AdressBase.getInstance().getAdrese().get(0),"021/487-265","misa.misic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 300300344, Title.DOCENT, 19, l16);
+			p17 = new Professor("Branko","Maricic",new SimpleDateFormat("dd.MM.yyyy").parse("18.01.1973."),AdressBase.getInstance().getAdrese().get(1),"021/159-478","branko.maricic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 400400444, Title.DOCENT, 22, l17);
+			p18 = new Professor("Branislav","Lukovic",new SimpleDateFormat("dd.MM.yyyy").parse("08.04.1982."),AdressBase.getInstance().getAdrese().get(2),"021/156-326","branislav.lukovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 500500544, Title.REDOVNI_PROFESOR, 9, l18);
+			p19 = new Professor("Branimir","Obradovic",new SimpleDateFormat("dd.MM.yyyy").parse("07.01.1979."),AdressBase.getInstance().getAdrese().get(0),"021/922-333","branimir.obradovic@mailinator.com",AdressBase.getInstance().getAdrese().get(9), 600600644, Title.DOCENT, 17, l19);
 			professors.add(p1);
 			professors.add(p2);
 			professors.add(p3);
@@ -267,7 +307,7 @@ public class ProfessorDatabase {
 		File f = new File("database/professors.xml");
 		
 			XStream xs = new XStream();
-			xs.allowTypes(new Class[] {Professor.class,Subject.class});
+			xs.allowTypes(new Class[] {Professor.class,Subject.class,Student.class});
 			xs.alias("professor", Professor.class);
 			this.professors = (List<Professor>) xs.fromXML(f);
 	

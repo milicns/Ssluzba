@@ -193,7 +193,7 @@ public class StudentsDatabase {
 		File f = new File("database/students.xml");
 		
 			XStream xs = new XStream();
-			xs.allowTypes(new Class[] {Student.class,Subject.class});
+			xs.allowTypes(new Class[] {Student.class,Subject.class,Professor.class});
 			xs.alias("student", Student.class);
 			this.students = (List<Student>) xs.fromXML(f);
 	

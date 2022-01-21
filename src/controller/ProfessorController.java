@@ -11,6 +11,7 @@ import model.Subject;
 import model.Adress;
 
 import model.Professor;
+import model.Professor.Title;
 import gui.MainFrame;
 
 import view.ProfessorView;

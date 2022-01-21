@@ -55,12 +55,12 @@ public class MainFrame extends JFrame {
 		ToolBar toolbar = new ToolBar(this);
 		add(toolbar, BorderLayout.NORTH);
 		
+		subjectsTable = new TableSubject();
+		JScrollPane sbp = new JScrollPane(subjectsTable);
 		studentsTable = new StudentsJTable();
 		JScrollPane stp = new JScrollPane(studentsTable);
 		professorsTable = new TableProfessor();
 		JScrollPane pp = new JScrollPane(professorsTable);
-		subjectsTable = new TableSubject();
-		JScrollPane sbp = new JScrollPane(subjectsTable);
 		
 		tabs = new TabbedPane();
 		tabs.addTab(ResourceBundleController.getInstance().getResourceBundle().getString("studentsTable"), stp);

@@ -22,6 +22,7 @@ import javax.swing.event.ChangeListener;
 
 import controller.ResourceBundleController;
 import controller.StudentController;
+import controller.SubjectController;
 import view.ProfessorEditDialog;
 import view.ProfessorView;
 import view.StudentDialog;
@@ -152,7 +153,7 @@ public class MenuBar extends JMenuBar {
 		miDelete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0)
+				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
 					if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
 					String[] options = {"Da", "Ne"};
 					int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da želite da obrišete studenta?", "Brisanje studenta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
@@ -163,6 +164,19 @@ public class MenuBar extends JMenuBar {
 				}else {
 					JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da obrišete.");
 				}	
+			} else if (MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
+				if(MainFrame.getInstance().getSubjectTable().getSelectedRow() != -1){
+				String[] options = {"Da", "Ne"};
+				int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da želite da obrišete predmet?", "Brisanje predmeta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
+				if(d == JOptionPane.YES_OPTION) {
+					String index = (MainFrame.getInstance().getSubjectTable().getValueAt(MainFrame.getInstance().getSubjectTable().getSelectedRow(),0)).toString();
+						SubjectController.getInstance().deleteSubject(index);
+					
+				}
+			}else {
+				JOptionPane.showMessageDialog(null, "Izaberite predmet koji želite da obrišete.");
+			}
+			}
 			}
 		});
 		

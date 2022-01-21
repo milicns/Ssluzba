@@ -12,7 +12,7 @@ import model.StudentsDatabase;
 import model.Subject.Semester;
 import model.SubjectDatabase;
 import model.Subject;
-
+import view.FailedTab;
 import view.SubjectDialog;
 
 public class SubjectController {

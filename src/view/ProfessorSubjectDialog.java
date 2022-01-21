@@ -41,7 +41,7 @@ public class ProfessorSubjectDialog extends JDialog{
 	public ProfessorSubjectDialog(ProfessorSubjectsTab parent, boolean modal,int row) {
 		
 		setTitle("Dodaj predmet");
-		setSize(300,300);
+		setSize(350,350);
 		setLocationRelativeTo(parent);
 		p = ProfessorDatabase.getInstance().getRow(row);
 		conditions();
