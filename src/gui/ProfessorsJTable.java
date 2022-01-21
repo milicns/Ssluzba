@@ -1,11 +1,13 @@
 package gui;
 
+
+import javax.swing.ListSelectionModel;
+import javax.swing.table.TableCellRenderer;
 import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.table.TableCellRenderer;
+
 
 public class ProfessorsJTable extends JTable{
 
@@ -19,7 +21,7 @@ public class ProfessorsJTable extends JTable{
 	public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
 		Component c = super.prepareRenderer(renderer, row, column);
 		if (isRowSelected(row)) {
-			c.setBackground(Color.LIGHT_GRAY);
+			c.setBackground(Color.WHITE);
 		} else {
 			c.setBackground(Color.WHITE);
 		}

@@ -47,8 +47,7 @@ public class SearchStudent {
 			   
 			   if(splits.length==1) {
 				   
-			   if(!stud.getSurname().toUpperCase().contains(splits[0].toUpperCase()))   //// samo sam razbio ceo naziv na ime i prezime preko splita
-				   																		///prosledis mu arg splits[0] koji je max br podstringova
+			   if(!stud.getSurname().toUpperCase().contains(splits[0].toUpperCase()))   
 				
 				   remove.add(stud);
 			   
