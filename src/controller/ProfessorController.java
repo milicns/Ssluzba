@@ -47,10 +47,7 @@ public class ProfessorController<Title> {
 			MainFrame.getInstance().refreshProfessors();
 		}
 		
-		
-		public String addProfessor(String name, String surname, String birthDate, String adress, String phoneNr, String email,
-				String officeAdress, String idNumber, Title title, int internshipYears) throws ParseException {
-		
+			
 		public String addProfessor(String name, String surname, String birthDate, String adress, String phoneNr, String email, String officeAdress, String idNumber, Title title, int internshipYears) throws ParseException {
 		
 		
@@ -144,10 +141,7 @@ public class ProfessorController<Title> {
 		private ProfessorController() {}
 		
 	
-		public void removeSubjectFromProfessor(Professor p, String id) {
-			ProfessorDatabase.getInstance().removeSubjectFromProfessor(p, id);
-		}
-
+	
 		
 
 		private void setProfessorView(ProfessorView ProfessorView) {

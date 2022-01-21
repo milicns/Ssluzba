@@ -22,8 +22,8 @@ import javax.swing.event.ChangeListener;
 
 import controller.ResourceBundleController;
 import controller.StudentController;
-import dialog.ProfessorDialog;
 import view.ProfessorEditDialog;
+import view.ProfessorView;
 import view.StudentDialog;
 import view.StudentEditDialog;
 import view.SubjectDialog;
@@ -98,8 +98,8 @@ public class MenuBar extends JMenuBar {
 					StudentDialog sd = new StudentDialog(parent,sdTitle,true);
 					sd.setVisible(true);
 				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 1) {
-					ProfessorDialog pd = new ProfessorDialog(parent);
-					pd.setVisible(true);
+					//ProfessorDialog pd = new ProfessorView(parent);
+					//pd.setVisible(true);
 				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
 					String sbdTitle = "Dodavanje predmeta";
 					SubjectDialog sbd = new SubjectDialog(parent,sbdTitle,true);
