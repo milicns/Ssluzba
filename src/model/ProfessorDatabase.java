@@ -81,13 +81,7 @@ public class ProfessorDatabase {
 		this.professors = professors;
 	}
 
-	public int getColumnCount() {
-		return 4;
-	}
-
-	public String getColumnName(int index) {
-		return this.columns.get(index);
-	}
+	
 
 	public Professor getRow(int rowIndex) {
 		return this.professors.get(rowIndex);
@@ -111,18 +105,20 @@ public class ProfessorDatabase {
 	
 	
 	}
-	
-	public Professor findByName(String name) {
-		for(Professor p: this.professors) {
-			if(p.getName().equals(name)) {
-				return p;
-			}
-		}
-		return null;
+		
+	public int getColumnCount() {
+		return 4;
 	}
+		
+	
 
 	public void addSubjectToProfessor(Professor p, Subject sb) {
 		p.getProfessorSubjects().add(sb);
+	}
+	
+	
+	public String getColumnName(int index) {
+		return this.columns.get(index);
 	}
 	
 	public void removeSubjectFromProfessor(Professor p, String id) {
@@ -159,6 +155,16 @@ public class ProfessorDatabase {
 		p.setTitle(title);
 		p.setInternshipYears(internshipYears);
 	
+	}
+	
+	
+	public Professor findByName(String name) {
+		for(Professor p: this.professors) {
+			if(p.getName().equals(name)) {
+				return p;
+			}
+		}
+		return null;
 	}
 
 

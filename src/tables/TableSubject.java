@@ -3,12 +3,11 @@ package tables;
 import java.awt.Color;
 import java.awt.Component;
 import java.text.ParseException;
-
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableCellRenderer;
 
 import model.SubjectDatabase;
 

@@ -23,8 +23,8 @@ public class GradeDatabase {
 
 	private GradeDatabase() {
 		
-		initOcene();
-
+		//initGrades();
+		initGrades();
 		this.columns = new ArrayList<String>();
 		this.columns.add("Subject Code");
 		this.columns.add("Subject Name");
@@ -33,17 +33,19 @@ public class GradeDatabase {
 		this.columns.add(" Date ");
 	}
 
-	private void initOcene() {
+	
+	
+	
+	private void initGrades() {
 		this.grade = new ArrayList<Grade>();
-		
 	}
 
-	public List<Grade> getOcene() {
+	public List<Grade> getOcene(){
 		return grade;
 	}
 
-	public void setGrades(List<Grade> ocene) {
-		this.grade = ocene;
+	public void setGrades(List<Grade> grades) {
+		this.grade = grades;
 	}
 
 	public int getColumnCount() {
@@ -69,28 +71,27 @@ public class GradeDatabase {
 	//	this.grade.add(new Grade(student,subject,ocena,date));
 	//  }
 
-	public void removeGrade(String s) {
-		for (Grade g : grade) {
-			if (g.getSubject().getSubjectCode().compareTo(s) == 0) {
-				grade.remove(g);
-				break;
-			}
-		}
-	}
-	
+		
 	
 	
 	
 
 		public String getESPB() {
 				int sum=0;
-					for(Grade o:grade)
-							sum+=o.getSubject().getEspb();
-	
-						return Integer.toString(sum);
+				for(Grade o:grade)
+				sum=sum + o.getSubject().getEspb();
+				return Integer.toString(sum);
+					
 }
-		
-		
+	
+		public void removeGrade(String s) {
+			for (Grade g : grade) {
+				if (g.getSubject().getSubjectCode().compareTo(s)==0) {
+					grade.remove(g);
+					break;
+				}
+			}
+		}
 		
 		
 		
