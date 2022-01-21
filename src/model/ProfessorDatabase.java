@@ -184,15 +184,6 @@ public class ProfessorDatabase {
 		return this.columns.get(index);
 	}
 	
-	public void removeSubjectFromProfessor(Professor p, String id) {
-		List<Subject> subjects = p.getProfessorSubjects();
-		for(Subject sb: subjects) {
-			if(sb.getSubjectCode().equals(id)) {
-				subjects.remove(sb);
-				break;
-			}
-		}
-	}
 
 	
 

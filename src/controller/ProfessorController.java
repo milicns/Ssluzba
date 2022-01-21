@@ -19,7 +19,7 @@ import view.ProfessorView;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class ProfessorController<Title> {
+public class ProfessorController{
 	
 	 private static ProfessorController instance = null;
 		private ProfessorView ProfessorView;
@@ -38,7 +38,7 @@ public class ProfessorController<Title> {
 			ProfessorDatabase.getInstance().addSubjectToProfessor(p, sb);
 		}
 		
-		public void removeSubjectFromProfessor1(Professor p, String i) {
+		public void removeSubjectFromProfessor(Professor p, String i) {
 			ProfessorDatabase.getInstance().removeSubjectFromProfessor(p,i);
 		}
 		
@@ -47,10 +47,21 @@ public class ProfessorController<Title> {
 			MainFrame.getInstance().refreshProfessors();
 		}
 		
+
 		
 		public String addProfessor(String name, String surname, String birthDate, String adress, String phoneNr, String email,
 				String officeAdress, String idNumber, Title title, int internshipYears) throws ParseException {
+			
 		
+		
+		
+		
+		if (surname == null) 
+			return " Unesite prezime* ";
+			surname = surname.trim();
+		
+		if (surname.isEmpty()) 
+			return " Unesite prezime* ";
 			
 			return "Uspesno Dodat";
 			
@@ -61,10 +72,7 @@ public class ProfessorController<Title> {
 		private ProfessorController() {}
 		
 	
-		public void removeSubjectFromProfessor(Professor p, String id) {
-			ProfessorDatabase.getInstance().removeSubjectFromProfessor(p, id);
-		}
-
+	
 		
 
 		private void setProfessorView(ProfessorView ProfessorView) {

@@ -25,7 +25,6 @@ import javax.swing.table.TableRowSorter;
 import controller.ProfessorController;
 import controller.StudentController;
 import controller.SubjectController;
-import dialog.ProfessorDialog;
 import view.ProfessorEditDialog;
 import view.StudentDialog;
 import view.StudentEditDialog;
@@ -51,8 +50,8 @@ public class ToolBar extends JToolBar {
 					StudentDialog sd = new StudentDialog(parent,sdTitle,true);
 					sd.setVisible(true);
 				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 1) {
-					ProfessorDialog pd = new ProfessorDialog(parent);
-					pd.setVisible(true);
+					//ProfessorDialog pd = new ProfessorDialog(parent);
+					//pd.setVisible(true);
 				} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
 					String sbdTitle = "Dodavanje studenta";
 					SubjectDialog sbd = new SubjectDialog(parent,sbdTitle,true);

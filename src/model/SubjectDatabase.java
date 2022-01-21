@@ -48,10 +48,6 @@ public class SubjectDatabase {
 	}
 	
 	
-
-	public List<Subject> getSubjects1() {
-		return subjects;
-	}
 	
 	
 	private void initSubjects() {
@@ -312,14 +308,6 @@ public class SubjectDatabase {
 	
 	}
 	
-	public void deleteSubject(String subjectCode) {
-		for (Subject sb : subjects) {
-			if (sb.getSubjectCode().equals(subjectCode)) {
-				subjects.remove(sb);
-				break;
-			}
-		}
-	}
 	
 	
 	
