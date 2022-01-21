@@ -21,6 +21,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
 import controller.StudentController;
+import controller.SubjectController;
 import gui.AbstractTableModelFailed;
 import gui.FailedJTable;
 import gui.MainFrame;

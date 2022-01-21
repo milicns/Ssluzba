@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -16,10 +18,14 @@ import javax.swing.JTable;
 import controller.ProfessorController;
 import gui.FailedJTable;
 import gui.MainFrame;
+import gui.ProfessorSubjectsATM;
 import gui.ProfessorSubjectsJTable;
 import model.Professor;
 import model.ProfessorDatabase;
+import model.ProfessorSubjectsDatabase;
 import model.StudentsDatabase;
+import model.Subject;
+import model.SubjectDatabase;
 
 public class ProfessorSubjectsTab extends JPanel{
 	
@@ -29,11 +35,12 @@ public class ProfessorSubjectsTab extends JPanel{
 	private JPanel btnPnl;
 	private JPanel table;
 	private Professor prof;
+	private ProfessorSubjectsDatabase psd;
 	
 	public ProfessorSubjectsTab(JDialog parent, int row) {
 		initGui();
 		constructGui();
-		buttonActions(parent,row);
+		buttonActions(this,row);
 		
 	}
 
@@ -62,7 +69,7 @@ public class ProfessorSubjectsTab extends JPanel{
 		
 	}
 	
-	private void buttonActions(JDialog parent, int row) {
+	private void buttonActions(ProfessorSubjectsTab parent, int row) {
 		
 		add.addActionListener(new ActionListener() {
 
@@ -79,29 +86,47 @@ public class ProfessorSubjectsTab extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(subJTable.getSelectedRow()==-1) {
+					JOptionPane.showMessageDialog(parent, "Izaberite predmet ili više za brisanje");
+				}else {
 				String[] options = {"Da", "Ne"};
 				int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da želite da obrišete predmet?", "Brisanje predmeta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
 				if(d == JOptionPane.YES_OPTION) {
-					int[] rows = subJTable.getSelectedRows();
+					
 					prof = ProfessorDatabase.getInstance().getRow(row);
-					if(rows.length == 0) {
-						JOptionPane.showMessageDialog(parent, "Izaberite predmet ili više za brisanje");
+					psd = new ProfessorSubjectsDatabase(prof);
+					
+					if(subJTable.getSelectedRowCount() == 1) {
+					
+					String id = prof.getProfessorSubjects().get(subJTable.getSelectedRow()).getSubjectCode();
+					ProfessorController.getInstance().removeSubjectFromProfessor(prof, id);
+					
 						
-					} else if(rows.length == 1) {
-						String id = prof.getProfessorSubjects().get(rows[0]).getSubjectCode();
-						ProfessorController.getInstance().removeSubjectFromProfessor(prof, id);
-					} else {
+					} else if(subJTable.getSelectedRowCount() > 1){
+						
+						int[] rows = subJTable.getSelectedRows();
+						ArrayList<String> ids = new ArrayList<String>();
 						for(int i = 0; i < rows.length; i++) {
-							String id = prof.getProfessorSubjects().get(rows[i]).getSubjectCode();
-							ProfessorController.getInstance().removeSubjectFromProfessor(prof, id);
+							String temp = subJTable.getValueAt(rows[i], 0).toString();
+							ids.add(temp);
+						}
+						
+						for(String id: ids) {
+						    ProfessorController.getInstance().removeSubjectFromProfessor(prof, id);
 						}
 					}
+					refresh();
+				}			
+				
 				}
-				validate();
-			
 		}});
 		
 	}
 	
+	public void refresh() {
+		ProfessorSubjectsATM model = (ProfessorSubjectsATM) subJTable.getModel();
+		model.fireTableDataChanged();
+		validate();
+	}
 	
 }

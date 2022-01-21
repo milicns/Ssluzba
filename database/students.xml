@@ -17,22 +17,7 @@
     <status>B</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Marija</name>
@@ -52,22 +37,7 @@
     <status>S</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Nikola</name>
@@ -87,15 +57,7 @@
     <status>B</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E01</subjectCode>
-        <subjectName>Analiza 1</subjectName>
-        <semester>L</semester>
-        <studyYear>1</studyYear>
-        <espb>4</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Pera</name>
@@ -117,25 +79,46 @@
     <passedSubjects/>
     <failedSubjects>
       <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
+        <subjectCode>p2</subjectCode>
+        <subjectName>Statistika</subjectName>
+        <semester>L</semester>
+        <studyYear>3</studyYear>
+        <subjectProfessor>
+          <surname>Mirkovic</surname>
+          <name>Nikola</name>
+          <birthDate>1977-12-31 23:00:00.0 UTC</birthDate>
+          <adress>
+            <street>Nikole Tesle</street>
+            <nr>56</nr>
+            <city>Novi Sad</city>
+            <state>Srbija</state>
+          </adress>
+          <phoneNr>021/368-456</phoneNr>
+          <email>nikola.mirkovic@mailinator.com</email>
+          <officeAdress>
+            <street>Nikole Pasica</street>
+            <nr>6a</nr>
+            <city>Novi Sad</city>
+            <state>Srbija</state>
+          </officeAdress>
+          <idNumber>321321321</idNumber>
+          <title>REDOVNI_PROFESOR</title>
+          <internshipYears>22</internshipYears>
+          <professorSubjects/>
+        </subjectProfessor>
+        <espb>8</espb>
+        <passedStudents/>
+        <failedStudents/>
       </model.Subject>
       <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
+        <subjectCode>p4</subjectCode>
+        <subjectName>LPRS</subjectName>
         <semester>Z</semester>
         <studyYear>3</studyYear>
+        <subjectProfessor reference="../../model.Subject/subjectProfessor"/>
         <espb>7</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E01</subjectCode>
-        <subjectName>Analiza 1</subjectName>
-        <semester>L</semester>
-        <studyYear>1</studyYear>
-        <espb>4</espb>
+        <passedStudents/>
+        <failedStudents/>
       </model.Subject>
     </failedSubjects>
   </student>
@@ -157,22 +140,7 @@
     <status>B</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Martina</name>
@@ -192,15 +160,7 @@
     <status>S</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Stojan</name>
@@ -240,15 +200,7 @@
     <status>S</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E01</subjectCode>
-        <subjectName>Analiza 1</subjectName>
-        <semester>L</semester>
-        <studyYear>1</studyYear>
-        <espb>4</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Miroslav</name>
@@ -268,29 +220,7 @@
     <status>B</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Stefan</name>
@@ -310,15 +240,7 @@
     <status>S</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Anastasija</name>
@@ -338,16 +260,7 @@
     <status>B</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject reference="../../../student[3]/failedSubjects/model.Subject"/>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Bogdan</name>
@@ -367,15 +280,7 @@
     <status>S</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Ana</name>
@@ -395,22 +300,7 @@
     <status>B</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Mika</name>
@@ -450,15 +340,7 @@
     <status>B</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E01</subjectCode>
-        <subjectName>Analiza 1</subjectName>
-        <semester>L</semester>
-        <studyYear>1</studyYear>
-        <espb>4</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Nikola</name>
@@ -478,22 +360,7 @@
     <status>S</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Martin</name>
@@ -515,11 +382,31 @@
     <passedSubjects/>
     <failedSubjects>
       <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
+        <subjectCode>p15</subjectCode>
+        <subjectName>Paralelno programiranje</subjectName>
         <semester>Z</semester>
         <studyYear>2</studyYear>
-        <espb>3</espb>
+        <subjectProfessor>
+          <surname>Mihajlovic</surname>
+          <name>Branislav</name>
+          <birthDate>1980-06-27 22:00:00.0 UTC</birthDate>
+          <adress>
+            <street>Tolstojeva</street>
+            <nr>31</nr>
+            <city>Novi Sad</city>
+            <state>Srbija</state>
+          </adress>
+          <phoneNr>021/778-323</phoneNr>
+          <email>branislav.mihajlovic@mailinator.com</email>
+          <officeAdress reference="../../../../../student[4]/failedSubjects/model.Subject/subjectProfessor/officeAdress"/>
+          <idNumber>559585632</idNumber>
+          <title>REDOVNI_PROFESOR</title>
+          <internshipYears>13</internshipYears>
+          <professorSubjects/>
+        </subjectProfessor>
+        <espb>8</espb>
+        <passedStudents/>
+        <failedStudents/>
       </model.Subject>
     </failedSubjects>
   </student>
@@ -542,20 +429,7 @@
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
     <failedSubjects>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E23</subjectCode>
-        <subjectName>Fizika</subjectName>
-        <semester>Z</semester>
-        <studyYear>3</studyYear>
-        <espb>7</espb>
-      </model.Subject>
+      <model.Subject reference="../../../student[17]/failedSubjects/model.Subject"/>
     </failedSubjects>
   </student>
   <student>
@@ -576,22 +450,7 @@
     <status>B</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E01</subjectCode>
-        <subjectName>Analiza 1</subjectName>
-        <semester>L</semester>
-        <studyYear>1</studyYear>
-        <espb>4</espb>
-      </model.Subject>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Jovan</name>
@@ -611,15 +470,7 @@
     <status>B</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects>
-      <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
-        <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
-      </model.Subject>
-    </failedSubjects>
+    <failedSubjects/>
   </student>
   <student>
     <name>Isidora</name>
@@ -660,20 +511,31 @@
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
     <failedSubjects>
-      <model.Subject reference="../../../student[9]/failedSubjects/model.Subject"/>
       <model.Subject>
-        <subjectCode>E22</subjectCode>
-        <subjectName>Analiza 2</subjectName>
+        <subjectCode>p18</subjectCode>
+        <subjectName>Algebra</subjectName>
         <semester>Z</semester>
-        <studyYear>2</studyYear>
-        <espb>3</espb>
+        <studyYear>1</studyYear>
+        <subjectProfessor>
+          <idNumber>0</idNumber>
+          <internshipYears>0</internshipYears>
+        </subjectProfessor>
+        <espb>15</espb>
+        <passedStudents/>
+        <failedStudents/>
       </model.Subject>
       <model.Subject>
-        <subjectCode>E01</subjectCode>
-        <subjectName>Analiza 1</subjectName>
+        <subjectCode>p19</subjectCode>
+        <subjectName>Diskretna matematika</subjectName>
         <semester>L</semester>
-        <studyYear>1</studyYear>
-        <espb>4</espb>
+        <studyYear>3</studyYear>
+        <subjectProfessor>
+          <idNumber>0</idNumber>
+          <internshipYears>0</internshipYears>
+        </subjectProfessor>
+        <espb>14</espb>
+        <passedStudents/>
+        <failedStudents/>
       </model.Subject>
     </failedSubjects>
   </student>
@@ -695,7 +557,10 @@
     <status>S</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects/>
+    <failedSubjects>
+      <model.Subject reference="../../../student[22]/failedSubjects/model.Subject"/>
+      <model.Subject reference="../../../student[22]/failedSubjects/model.Subject[2]"/>
+    </failedSubjects>
   </student>
   <student>
     <name>Milisav</name>
@@ -715,7 +580,10 @@
     <status>S</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects/>
+    <failedSubjects>
+      <model.Subject reference="../../../student[22]/failedSubjects/model.Subject"/>
+      <model.Subject reference="../../../student[22]/failedSubjects/model.Subject[2]"/>
+    </failedSubjects>
   </student>
   <student>
     <name>Purisa</name>
@@ -755,7 +623,10 @@
     <status>S</status>
     <avgGrade>0.0</avgGrade>
     <passedSubjects/>
-    <failedSubjects/>
+    <failedSubjects>
+      <model.Subject reference="../../../student[22]/failedSubjects/model.Subject"/>
+      <model.Subject reference="../../../student[22]/failedSubjects/model.Subject[2]"/>
+    </failedSubjects>
   </student>
   <student>
     <name>Miloš</name>

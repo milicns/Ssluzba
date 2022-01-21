@@ -22,6 +22,7 @@ import model.FailedSubjects;
 import model.PassedSubjects;
 import model.Professor;
 import model.ProfessorDatabase;
+import model.ProfessorSubjectsDatabase;
 import model.Subject;
 import model.SubjectDatabase;
 
@@ -34,9 +35,10 @@ public class ProfessorSubjectDialog extends JDialog{
 	private JPanel pnl;
 	private JPanel btnPnl;
 	private Professor p;
+	private ProfessorSubjectsDatabase subData;
 	DefaultListModel<String> subName;
 	
-	public ProfessorSubjectDialog(JDialog parent, boolean modal,int row) {
+	public ProfessorSubjectDialog(ProfessorSubjectsTab parent, boolean modal,int row) {
 		
 		setTitle("Dodaj predmet");
 		setSize(300,300);
@@ -50,6 +52,7 @@ public class ProfessorSubjectDialog extends JDialog{
 	
 	private void constructGui(){
 		
+		conditions();
 		subList = new JList<>();
 		subList.setModel(subName);
 		subList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -73,7 +76,7 @@ public class ProfessorSubjectDialog extends JDialog{
 	}
 	
 	
-	private void buttonActions(JDialog parent) {
+	private void buttonActions(ProfessorSubjectsTab parent) {
 		
 		quit.addActionListener(new ActionListener() {
 
@@ -89,37 +92,42 @@ public class ProfessorSubjectDialog extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			 List<String> temp= subList.getSelectedValuesList();
-			 if(temp.size() == 0) {
+			 if(subList.getSelectedIndex()==-1) {
 				 JOptionPane.showMessageDialog(parent, "Izaberite predmet ili više za dodavanje");
+			 }
+			 else {
 				 
-			 } else if(temp.size() == 1) {
+			     if(temp.size() == 1) {
 				 String[] name = subList.getSelectedValue().split(" ");
 				 String code = name[0];
 				 Subject sb = SubjectDatabase.getInstance().findByCode(code);
 			
 				 ProfessorController.getInstance().addSubjectToProfessor(p, sb);
+				 sb.setSubjectProfessor(p);
 
-			 } else {
+			 } else if(temp.size()>1) {
 				for(int i = 0; i<temp.size(); i++) {
 					String[] name = temp.get(i).split(" ");
 					String id = name[0];
 					Subject sb = SubjectDatabase.getInstance().findByCode(id);	
 					ProfessorController.getInstance().addSubjectToProfessor(p, sb);
+					sb.setSubjectProfessor(p);
 				}
 			}
-			 
+			 parent.refresh();
 			 dispose();
 			}
 			
-		});
+		}});
 		
 	}
 	
 	
 	private void conditions() {
+		subData = new ProfessorSubjectsDatabase(p);
 		subName = new DefaultListModel<>();
 		for(Subject sb: SubjectDatabase.getInstance().getSubjects()) {
-			if(!p.findSubj(sb)) {
+			if(!subData.findByCode2(sb.getSubjectCode())) {
 				String name = sb.getSubjectCode()+" - "+sb.getSubjectName()+"                         ";
 				subName.addElement(name);
 				

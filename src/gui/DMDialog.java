@@ -38,7 +38,7 @@ public class DMDialog extends JDialog {
 	private Department d;
 	DefaultListModel<String> profName;
 	
-	public DMDialog(JDialog parent, String title, boolean modal, int row) {
+	public DMDialog(DepartmentDialog parent, String title, boolean modal, int row) {
 		setSize(400,400);
 		setTitle(title);
 		setLocationRelativeTo(parent);
@@ -72,7 +72,7 @@ public class DMDialog extends JDialog {
 		
 	}
 	
-	private void buttonActions(JDialog parent) {
+	private void buttonActions(DepartmentDialog parent) {
 		
 		quit.addActionListener(new ActionListener() {
 
@@ -89,13 +89,15 @@ public class DMDialog extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 			
 			 if(profList.getSelectedIndex() == -1) {
-				 JOptionPane.showMessageDialog(parent, "Izaberite predmet za dodavanje");
+				 JOptionPane.showMessageDialog(parent, "Izaberite profesora");
 			 } else {
 			 String[] name = profList.getSelectedValue().split(" ");
 			 String n = name[0];
 			 Professor pr = ProfessorDatabase.getInstance().findByName(n);
 			
+			 
 			 DepartmentController.getInstance().addManager(d, pr);
+			 parent.refresh();
 
 			 dispose();
 			}
@@ -107,7 +109,7 @@ public class DMDialog extends JDialog {
 	private void conditions(){
 		profName = new DefaultListModel<>();
 		for(Professor p: ProfessorDatabase.getInstance().getProfessors()) {
-			if((p.getTitle().equals(Title.REDOVNI_PROFESOR)||p.getTitle().equals(Title.VANREDNI_PROFESOR))&&(p.getInternshipYears()>=5)) {
+			if((p.getTitle().equals(Title.REDOVNI_PROFESOR)||p.getTitle().equals(Title.VANREDNI_PROFESOR))&&(p.getInternshipYears()>=5)&&(DepartmentController.getInstance().check(d,p))&&!(DepartmentController.getInstance().checkManagers(p))) {
 				String name = p.getName()+" "+p.getSurname()+"                         ";
 				profName.addElement(name);
 				

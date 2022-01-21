@@ -2,16 +2,20 @@ package model;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.security.AnyTypePermission;
 
+import controller.ResourceBundleController;
 import model.Student.Status;
 
 /**
@@ -36,21 +40,23 @@ public class StudentsDatabase {
 	private StudentsDatabase() {
 		initStudents();
 		
+		
 		this.columns = new ArrayList<String>();
 		
-		this.columns.add("Indeks");
-		this.columns.add("Ime");
-		this.columns.add("Prezime");
-		this.columns.add("Godina studija");
-		this.columns.add("Status");
-		this.columns.add("Prosek");		
+		this.columns.add(ResourceBundleController.getInstance().getResourceBundle().getString("index"));
+		this.columns.add(ResourceBundleController.getInstance().getResourceBundle().getString("name"));
+		this.columns.add(ResourceBundleController.getInstance().getResourceBundle().getString("surname"));
+		this.columns.add(ResourceBundleController.getInstance().getResourceBundle().getString("year"));
+		this.columns.add(ResourceBundleController.getInstance().getResourceBundle().getString("status"));
+		this.columns.add(ResourceBundleController.getInstance().getResourceBundle().getString("avg"));		
 	}
 	
 	private void initStudents() {
 		this.students = new ArrayList<Student>();
 		
 		try {
-			deserialize();
+			deserializeStudents();
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -120,6 +126,7 @@ public class StudentsDatabase {
 	
 	public void addSubjectToStudent(Student s, Subject sb) {
 		s.getFailedSubjects().add(sb);
+		sb.getFailedStudents().add(s);
 		
 	}
 	
@@ -128,6 +135,7 @@ public class StudentsDatabase {
 		for(Subject sb: subjects) {
 			if(sb.getSubjectCode().equals(id)) {
 				subjects.remove(sb);
+				sb.getFailedStudents().remove(s);
 				break;
 			}
 			
@@ -164,7 +172,7 @@ public class StudentsDatabase {
 				s.setStatus(status);
 			}
 	
-	public void serialize() throws IOException{
+	public void serializeStudents() throws IOException{
 		
 		
 		File f = new File("database/students.xml");
@@ -181,7 +189,7 @@ public class StudentsDatabase {
 	}
 		
 	@SuppressWarnings("unchecked")
-	public void deserialize() throws IOException {
+	public void deserializeStudents() throws IOException {
 		File f = new File("database/students.xml");
 		
 			XStream xs = new XStream();
@@ -192,5 +200,5 @@ public class StudentsDatabase {
 	}
 	
 	
-	
+
 }

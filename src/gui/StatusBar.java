@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import controller.ResourceBundleController;
+
 public class StatusBar extends JPanel implements ActionListener{
 
 	private JLabel fName;
@@ -35,7 +37,7 @@ public class StatusBar extends JPanel implements ActionListener{
 		super();
 		setBorder(BorderFactory.createEtchedBorder());
 		setLayout(new FlowLayout(FlowLayout.LEFT));
-		fName = new JLabel("Studentska Služba");
+		fName = new JLabel(ResourceBundleController.getInstance().getResourceBundle().getString("title"));
 		this.add(fName);
 		this.add(Box.createHorizontalStrut(10));
 		tName = new JLabel(tableName);
@@ -55,5 +57,14 @@ public class StatusBar extends JPanel implements ActionListener{
 		time.setText(sdf.format(new GregorianCalendar().getTime()));
 	}
 	
-	
+	public void changeLanguage() {
+		if(MainFrame.getInstance().getTabs().getSelectedIndex()==0) {
+			tName.setName(ResourceBundleController.getInstance().getResourceBundle().getString("studentsTable"));
+		} else if(MainFrame.getInstance().getTabs().getSelectedIndex()==1) {
+			tName.setName(ResourceBundleController.getInstance().getResourceBundle().getString("professorsTable"));
+		} else if(MainFrame.getInstance().getTabs().getSelectedIndex()==2) {
+			tName.setName(ResourceBundleController.getInstance().getResourceBundle().getString("subjectsTable"));
+		}
+		fName.setName((ResourceBundleController.getInstance().getResourceBundle().getString("title")));
+	}
 }

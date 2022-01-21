@@ -41,7 +41,7 @@ public class StudentSubjectDialog extends JDialog{
 	
 	public StudentSubjectDialog(FailedTab parent, boolean modal,String id) {
 		setTitle("Dodaj predmet studentu");
-		setSize(300,300);
+		setSize(350,350);
 		setLocationRelativeTo(parent);
 		s = StudentsDatabase.getInstance().findById2(id);
 		conditions();
