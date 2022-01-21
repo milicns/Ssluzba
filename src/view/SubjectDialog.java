@@ -8,9 +8,12 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import javax.security.auth.Subject;
  /// import model.Subject; Javlja greskU !! ! 
@@ -26,6 +29,7 @@ import controller.StudentController;
 import controller.SubjectController;
 import model.Professor;
 import model.Student;
+import model.StudentsDatabase;
 import model.Subject.Semester;
 import model.SubjectDatabase;
 
@@ -48,8 +52,6 @@ private static final long serialVersionUID = 1L;
 	private JComboBox<String> cbStudyYear;
 	private JLabel lblEspb;
 	private JTextField tfEspb;
-	private JLabel lblProfessor;   
-	private JTextField tfProfessor;
 	private JButton confirm;
 	private JButton quit;
 	private JPanel pnlButton;
@@ -75,10 +77,40 @@ private static final long serialVersionUID = 1L;
 		
 		lblSubjectCode = new JLabel("Sifra predmeta*");
 		tfSubjectCode = new JTextField(20);
+		tfSubjectCode.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				inputCheck();
+				
+			}
+			
+		});
 		
 		
 		lblSubjectName = new JLabel("Naziv predmeta*");
 		tfSubjectName = new JTextField(20);
+		tfSubjectName.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				inputCheck();
+				
+			}
+			
+		});
 		
 		
 		
@@ -94,9 +126,25 @@ private static final long serialVersionUID = 1L;
 		
 		lblEspb = new JLabel("Espb*");
 		tfEspb = new JTextField(20);
+		tfEspb.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				inputCheck();
+				
+			}
+			
+		});
 		
 		quit = new JButton("Odustani");
 		confirm = new JButton("Potvrdi");
+		confirm.setEnabled(false);
 		
 		pnlButton = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		
@@ -174,13 +222,28 @@ private static final long serialVersionUID = 1L;
 				} else {
 					year = 4;
 				}
-
+				
 				SubjectController.getInstance().addSubject(tfSubjectCode.getText(), tfSubjectName.getText() ,sem, year,new Professor(), Integer.parseInt(tfEspb.getText()), new ArrayList<Student>(), new ArrayList<Student>());
 				dispose();
 			}
 
 		});
 
+	}
+	
+	private void inputCheck() {
+		
+		if((Pattern.matches("[A-Za-z0-9]+",tfSubjectCode.getText())) &&
+		   (Pattern.matches("[A-Za-z\\s]+",tfSubjectName.getText())) &&
+		   (Pattern.matches("[1-9]{1,2}",tfEspb.getText())))
+		 
+		   //(!StudentsDatabase.getInstance().findById(tfIndex.getText()))
+		   {
+			confirm.setEnabled(true);
+		} else {
+			confirm.setEnabled(false);
+		}
+		   
 	}
 	
 

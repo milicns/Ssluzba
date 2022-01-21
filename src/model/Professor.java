@@ -24,7 +24,7 @@ public class Professor {
 	
 	public Professor() {}
 	
-	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
+	public Professor(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email,
 			Adress officeAdress, int idNumber, Title title, int internshipYears, ArrayList<Subject> professorSubjects) {
 		super();
 		this.surname = surname;
@@ -40,7 +40,7 @@ public class Professor {
 		this.professorSubjects = professorSubjects;
 	}
 	
-	public Professor(String surname, String name, Date birthDate, Adress adress, String phoneNr, String email,
+	public Professor(String name, String surname, Date birthDate, Adress adress, String phoneNr, String email,
 			Adress officeAdress, int idNumber, Title title, int internshipYears) {
 		super();
 		this.surname = surname;

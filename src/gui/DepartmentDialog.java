@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -18,7 +19,7 @@ public class DepartmentDialog extends JDialog {
 	private JTable dpTable;
 	private JButton set;
 	private JPanel btnPnl;
-	private JDialog dial = this;
+	private DepartmentDialog dial = this;
 	
 	public DepartmentDialog(JFrame parent, String title, boolean modal) {
 		setSize(500,550);
@@ -51,12 +52,20 @@ public class DepartmentDialog extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int row = dpTable.getSelectedRow();
+				if(row == -1) {
+					JOptionPane.showMessageDialog(dial, "Izaberite na koju katedru želite da postavite šefa");
+				} else {
 				DMDialog dmd = new DMDialog(dial,"Postavljanje šefa",true,row);
 				dmd.setVisible(true);
-				
+				}
 			}
 			
 		});
 	}
 
+	public void refresh() {
+		DepartmentATM model = (DepartmentATM) dpTable.getModel();
+		model.fireTableDataChanged();
+		validate();
+	}
 }

@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.Action;
@@ -19,8 +20,11 @@ import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 import javax.swing.RowFilter;
 import javax.swing.SwingConstants;
+import javax.swing.table.TableRowSorter;
 
+import controller.ProfessorController;
 import controller.StudentController;
+import controller.SubjectController;
 import dialog.ProfessorDialog;
 import view.ProfessorEditDialog;
 import view.StudentDialog;
@@ -76,7 +80,7 @@ public class ToolBar extends JToolBar {
 		}else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
 		   int row = MainFrame.getInstance().getSubjectTable().getSelectedRow();
 		   if(row != -1) {
-			String sbedTitle = "Izmena studenta";
+			String sbedTitle = "Izmena predmeta";
 		   SubjectEditDialog sbe = new SubjectEditDialog(parent, sbedTitle,true,row);
 		   sbe.setVisible(true);
 		   } else {
@@ -103,7 +107,7 @@ public class ToolBar extends JToolBar {
 		delete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0)
+				if(MainFrame.getInstance().getTabs().getSelectedIndex() == 0) {
 					if(MainFrame.getInstance().getStudentTable().getSelectedRow() != -1){
 					String[] options = {"Da", "Ne"};
 					int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da želite da obrišete studenta?", "Brisanje studenta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
@@ -114,8 +118,31 @@ public class ToolBar extends JToolBar {
 				}else {
 					JOptionPane.showMessageDialog(null, "Izaberite studenta kog želite da obrišete.");
 				}	
+			} else if(MainFrame.getInstance().getTabs().getSelectedIndex() == 1) {
+				if(MainFrame.getInstance().getProfessorTable().getSelectedRow() != -1){
+				String[] options = {"Da", "Ne"};
+				int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da želite da obrišete profesora?", "Brisanje profesora", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
+				if(d == JOptionPane.YES_OPTION) {
+					int i = MainFrame.getInstance().getProfessorTable().getSelectedRow();
+					ProfessorController.getInstance().deleteProfessor(i);
+				}
+			}else {
+				JOptionPane.showMessageDialog(null, "Izaberite profesora kog želite da obrišete.");
+			}	
+			}else if (MainFrame.getInstance().getTabs().getSelectedIndex() == 2) {
+				if(MainFrame.getInstance().getSubjectTable().getSelectedRow() != -1){
+				String[] options = {"Da", "Ne"};
+				int d = JOptionPane.showOptionDialog(parent,"Da li ste sigurni da želite da obrišete predmet?", "Brisanje predmeta", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, "default");
+				if(d == JOptionPane.YES_OPTION) {
+					String index = (MainFrame.getInstance().getSubjectTable().getValueAt(MainFrame.getInstance().getSubjectTable().getSelectedRow(),0)).toString();
+						SubjectController.getInstance().deleteSubject(index);
+					
+				}
+			}else {
+				JOptionPane.showMessageDialog(null, "Izaberite predmet koji želite da obrišete.");
 			}
-		});
+			}
+		}});
 		delete.setMnemonic(KeyEvent.VK_D);
 		add(delete);
 		
@@ -129,35 +156,6 @@ public class ToolBar extends JToolBar {
 		search.setIcon(new ImageIcon("images/search.png"));
 		add(search);
 		
-		search.addActionListener(new ActionListener() {
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					String input = tf.getText();
-					String[] parts=input.split(",");
-				
-					
-					if(MainFrame.getInstance().getTabs().getSelectedIndex()==0) {
-						RowFilter<AbstractTableModelStudents,Object> rowFilter = null;
-						ArrayList<RowFilter<AbstractTableModelStudents,Object>> filter = new ArrayList<RowFilter<AbstractTableModelStudents,Object>>();
-						
-						if(parts.length > 3) {
-							JOptionPane.showMessageDialog(parent, "Ne unosite vise od 3 reci");
-							return;
-						}
-						
-						if(parts.length > 1) {
-							filter.add(rowFilter.regexFilter("(?i)"+parts[1], 1));
-							rowFilter.andFilter(filter);
-							StudentsJTable.getInstance().getRowSorter().setRowFilter(rowFilter);
-						}
-						
-						
-					}
-				}
-		 
-	});
 
 	}
 }

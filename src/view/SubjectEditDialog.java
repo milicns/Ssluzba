@@ -8,6 +8,11 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -21,6 +26,7 @@ import javax.swing.JTextPane;
 
 import controller.SubjectController;
 import gui.MainFrame;
+import model.StudentsDatabase;
 import model.Subject;
 import model.SubjectDatabase;
 import model.Subject.Semester;
@@ -69,10 +75,41 @@ public class SubjectEditDialog extends JDialog{
 		lblSubjectCode = new JLabel("Sifra predmeta*");
 		tfSubjectCode = new JTextField(20);
 		tfSubjectCode.setText(subject.getSubjectCode());
+		tfSubjectCode.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				inputCheck();
+				
+			}
+			
+		});
 		
 		lblSubjectName = new JLabel("Naziv predmeta*");
 		tfSubjectName = new JTextField(20);
 		tfSubjectName.setText(subject.getSubjectName());
+		tfSubjectName.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				inputCheck();
+				
+			}
+			
+		});
+		
 		
 		lblSemester = new JLabel("Semestar*");
 		String[] semesterStrings = {"Zimski","Letnji"};
@@ -85,9 +122,32 @@ public class SubjectEditDialog extends JDialog{
 		lblEspb = new JLabel("Espb*");
 		tfEspb = new JTextField(20);
 		tfEspb.setText(Integer.toString(subject.getEspb()));
+		tfEspb.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				inputCheck();
+				
+			}
+			
+		});
+		
 		
 		lblProfessor = new JLabel("Profesor*");
 		tfProfessor = new JTextField(20);
+		if(subject.getSubjectProfessor()==null) {
+			tfProfessor.setText(" ");
+		}else if(subject.getSubjectProfessor().getName()==null || subject.getSubjectProfessor().getSurname()==null){
+			tfProfessor.setText(" ");
+		} else {
+			tfProfessor.setText(subject.getSubjectProfessor().getName()+" "+subject.getSubjectProfessor().getSurname());
+		}
 		tfProfessor.setEnabled(false);
 		
 		quit = new JButton("Odustani");
@@ -184,6 +244,23 @@ public class SubjectEditDialog extends JDialog{
 
 		});
 
+	}
+    
+    private void inputCheck() {
+		
+		if((Pattern.matches("[A-Za-z0-9]+",tfSubjectCode.getText())) &&
+		   (Pattern.matches("[A-Za-z\\s*0-9]+",tfSubjectName.getText())) &&
+		   (Pattern.matches("[1-9]{1,2}",tfEspb.getText())))
+		   {
+			confirm.setEnabled(true);
+		} else {
+			confirm.setEnabled(false);
+		}
+		
+		if((SubjectDatabase.getInstance().findByCode2(tfSubjectCode.getText())) && !(tfSubjectCode.getText().equals(subject.getSubjectCode()))) {
+			confirm.setEnabled(false);
+		}
+		   
 	}
 
 }

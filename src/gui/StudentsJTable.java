@@ -2,10 +2,13 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
-
+import javax.swing.RowSorter.SortKey;
+import javax.swing.SortOrder;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableRowSorter;
 
@@ -32,9 +35,63 @@ public class StudentsJTable extends JTable{
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		AbstractTableModelStudents model = new AbstractTableModelStudents();
 		this.setModel(new AbstractTableModelStudents());
-		//this.setAutoCreateRowSorter(true);
 		sorter = new TableRowSorter<AbstractTableModelStudents>(model);
 		this.setRowSorter(sorter);
+		
+		//https://www.codejava.net/java-se/swing/6-techniques-for-sorting-jtable-you-should-know
+		Comparator c1 = new java.util.Comparator() {
+
+		@Override
+		public int compare(Object o1, Object o2) {
+			
+			String[] temp1 = o1.toString().split(" ");
+			String[] temp2 = o2.toString().split(" ");
+			String[] temp3 = temp1[1].split("/");
+			String[] temp4 = temp2[1].split("/");
+			int n1 = Integer.parseInt(temp3[1]);
+			int n2 = Integer.parseInt(temp4[1]);
+			
+			return ((Comparable)n1).compareTo(n2);
+		}
+		
+	};
+	
+	Comparator c2 = new java.util.Comparator() {
+
+		@Override
+		public int compare(Object o1, Object o2) {
+			
+			String[] temp1 = o1.toString().split(" ");
+			String[] temp2 = o2.toString().split(" ");
+			String[] temp3 = temp1[1].split("/");
+			String[] temp4 = temp2[1].split("/");
+			int n1 = Integer.parseInt(temp3[1]);
+			int n2 = Integer.parseInt(temp4[1]);
+			
+			return ((Comparable)temp1[0]).compareTo(temp2[0]);
+		}
+		
+	};
+	
+	Comparator c3 = new java.util.Comparator() {
+
+		@Override
+		public int compare(Object o1, Object o2) {
+			
+			String[] temp1 = o1.toString().split(" ");
+			String[] temp2 = o2.toString().split(" ");
+			String[] temp3 = temp1[1].split("/");
+			String[] temp4 = temp2[1].split("/");
+			int n1 = Integer.parseInt(temp3[0]);
+			int n2 = Integer.parseInt(temp4[0]);
+			
+			return ((Comparable)n1).compareTo(n2);
+		}
+		
+	};
+	
+	sorter.setComparator(0,c2.thenComparing(c1).thenComparing(c3));
+
 		
 	}
 	

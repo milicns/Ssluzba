@@ -4,7 +4,10 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
 
+import model.DepartmentDatabase;
+import model.ProfessorDatabase;
 import model.StudentsDatabase;
+import model.SubjectDatabase;
 
 public class  WindowList implements WindowListener {
 
@@ -18,7 +21,11 @@ public class  WindowList implements WindowListener {
 	public void windowClosing(WindowEvent e) {
 		// TODO Auto-generated method stub
 		try {
-			StudentsDatabase.getInstance().serialize();
+		
+			ProfessorDatabase.getInstance().serializeProfessors();
+			DepartmentDatabase.getInstance().serializeDepartments();
+			SubjectDatabase.getInstance().serializeSubjects();
+			StudentsDatabase.getInstance().serializeStudents();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

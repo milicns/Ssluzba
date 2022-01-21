@@ -26,6 +26,7 @@ import javax.swing.JTextField;
 
 import gui.AbstractTableModelFailed;
 import gui.MainFrame;
+import gui.StudentsJTable;
 import model.Adress;
 import model.Grade;
 import model.Student;
@@ -74,7 +75,6 @@ public class InformationsTab extends JPanel {
 	
 		student = StudentsDatabase.getInstance().getRow(row);
 		
-		
 		initGui();
 		constructGui();
 		buttonActions(parent);
@@ -85,6 +85,8 @@ public class InformationsTab extends JPanel {
 		setLayout(new BorderLayout());
 
 		pnl = new JPanel(new GridBagLayout());
+		confirm = new JButton("Potvrdi");
+		
 		
 		lblName = new JLabel("Ime*");
 		tfName = new JTextField(20);
@@ -99,9 +101,16 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				inputCheck();
+				if((Pattern.matches("[A-Za-zČčĆćŽžĐđŠš\\s]+",tfName.getText()))) {
+					confirm.setEnabled(true);
+				} else {
+					confirm.setEnabled(false);
+				}
+						  
+			}
 			
-		}});
+		});
+		
 		
 		lblSurname = new JLabel("Prezime*");
 		tfSurname = new JTextField(20);
@@ -116,9 +125,17 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-					inputCheck();	
+				if((Pattern.matches("[A-Za-zČčĆćŽžĐđŠš]+",tfSurname.getText()))) {
+					confirm.setEnabled(true);
+					
+				}else {
+					confirm.setEnabled(false);
+				}
+				
 			}
+			
 		});
+		
 		
 		lblBirthDate = new JLabel("Datum rođenja*");
 		tfBirthDate = new JTextField(20);
@@ -133,7 +150,11 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				inputCheck();
+				if((Pattern.matches("(3[01]|1[0-9]|0[1-9]|2[0-9]).(1[0-2]|0[1-9]).[0-9]{4}.$", tfBirthDate.getText()))) {
+							confirm.setEnabled(true);
+						} else {
+							confirm.setEnabled(false);
+						}
 				
 			}
 			
@@ -152,7 +173,13 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				inputCheck();
+				if((Pattern.matches("[A-Za-zČčĆćŽžĐđŠš\\s]+", tfStreet.getText())))
+						   {
+							confirm.setEnabled(true);
+						} else {
+							confirm.setEnabled(false);
+						}
+				
 			}
 			
 		});
@@ -170,7 +197,13 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				inputCheck();
+				if((Pattern.matches("[0-9]+[a-z]{0,1}", tfNr.getText())))
+						   {
+							confirm.setEnabled(true);
+						} else {
+							confirm.setEnabled(false);
+						}
+				
 			}
 			
 		});
@@ -188,7 +221,13 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				inputCheck();
+				if((Pattern.matches("[A-Za-zĐđŠšŽžĆćČč\\s]+", tfCity.getText())))
+						    {
+							confirm.setEnabled(true);
+						} else {
+							confirm.setEnabled(false);
+						}
+				
 			}
 			
 		});
@@ -206,7 +245,13 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				inputCheck();
+				if((Pattern.matches("[A-Za-zĆćČčŠšĐđŽž\\s]+", tfState.getText())))
+						    {
+							confirm.setEnabled(true);
+						} else {
+							confirm.setEnabled(false);
+						}
+				
 			}
 			
 		});
@@ -224,7 +269,11 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				inputCheck();
+				if((Pattern.matches("0{1}[1-9]{2}/[0-9]{3,4}-[0-9]{3,4}",tfPhone.getText()))) {
+							confirm.setEnabled(true);
+						} else {
+							confirm.setEnabled(false);
+						}
 				
 			}
 			
@@ -243,7 +292,12 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				inputCheck();
+				if((Pattern.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$", tfEmail.getText()))) {
+							confirm.setEnabled(true);
+						} else {
+							confirm.setEnabled(false);
+						}
+				
 			}
 			
 		});
@@ -261,10 +315,16 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				inputCheck();
+				if((Pattern.matches("[A-za-z]{1,3}\\s[0-9]{1,4}/[0-9]{4}", tfIndex.getText()))) {
+							confirm.setEnabled(true);
+						} else {
+							confirm.setEnabled(false);
+						}
+				
 				if((StudentsDatabase.getInstance().findById(tfIndex.getText())) && !(tfIndex.getText().equals(student.getIndex()))) {
-					JOptionPane.showMessageDialog(null, "Postoji student sa unetim indeksom.");
+					confirm.setEnabled(false);
 				}
+				
 			}
 			
 		});
@@ -282,7 +342,11 @@ public class InformationsTab extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				inputCheck();
+				if((Pattern.matches("20[0-9]{2}", tfEnroll.getText()))) {
+							confirm.setEnabled(true);
+						} else {
+							confirm.setEnabled(false);
+						}
 				
 			}
 			
@@ -313,7 +377,7 @@ public class InformationsTab extends JPanel {
 		cbStatus = new JComboBox(status);
 		cbStatus.setSelectedItem(stat);
 		
-		confirm = new JButton("Potvrdi");
+	
 		quit = new JButton("Odustani");
 		
 		bPnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -456,17 +520,16 @@ public class InformationsTab extends JPanel {
 	
 	private void inputCheck() {
 		
-		if((Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfName.getText())) &&
-				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+",tfSurname.getText())) &&
+		if((Pattern.matches("[A-Z][a-z]*",tfName.getText())) &&
+				   (Pattern.matches("[A-Za-z\\s*]+",tfSurname.getText())) &&
 				   (Pattern.matches("(3[01]|[12][0-9]|0[1-9]).^(1[0-2]|0[1-9]).[0-9]{4}.$", tfBirthDate.getText())) &&
-				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+", tfStreet.getText())) &&
+				   (Pattern.matches("[A-Za-z\\s*]+", tfStreet.getText())) &&
 				   (Pattern.matches("[0-9]+[a-z]{0,1}", tfNr.getText())) &&
-				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+", tfCity.getText())) &&
-				   (Pattern.matches("[A-Za-zĐđŠšČčĆćŽž\\s]+", tfState.getText())) && 
+				   (Pattern.matches("[A-Za-z\\s*]+", tfCity.getText())) &&
+				   (Pattern.matches("[A-Za-z\\s*]+", tfState.getText())) && 
 				   (Pattern.matches("0{1}[1-9]{2}/[0-9]{3,4}-[0-9]{3,4}",tfPhone.getText())) &&
 				   (Pattern.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$", tfEmail.getText())) &&
-				   (Pattern.matches("[A-za-z]{1,3}-[0-9]{1,4}-[0-9]{4}", tfIndex.getText())) &&
-				   (!StudentsDatabase.getInstance().findById(tfIndex.getText())) &&
+				   (Pattern.matches("[A-za-z]{1,3}\\s*[0-9]{1,4}/[0-9]{4}", tfIndex.getText())) &&
 				   (Pattern.matches("20[0-9]{2}", tfEnroll.getText()))) {
 					confirm.setEnabled(true);
 				} else {

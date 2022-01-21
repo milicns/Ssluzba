@@ -6,6 +6,7 @@ import java.util.List;
 
 import gui.TabbedPane;
 import model.ProfessorDatabase;
+import model.ProfessorSubjectsDatabase;
 import model.Subject;
 import model.Adress;
 
@@ -44,9 +45,15 @@ public class ProfessorController<Title> {
 			ProfessorDatabase.getInstance().addSubjectToProfessor(p, sb);
 		}
 		
-		public void removeSubjectFromProfessor(Professor p, String id) {
-			ProfessorDatabase.getInstance().removeSubjectFromProfessor(p, id);
+		public void removeSubjectFromProfessor(Professor p, String i) {
+			ProfessorDatabase.getInstance().removeSubjectFromProfessor(p,i);
 		}
+		
+		public void deleteProfessor(int id) {
+			ProfessorDatabase.getInstance().deleteProfessor(id);
+			MainFrame.getInstance().refreshProfessors();
+		}
+		
 		
 		public String addProfessor(String name, String surname, String birthDate, String adress, String phoneNr, String email,
 				String officeAdress, String idNumber, Title title, int internshipYears) throws ParseException {

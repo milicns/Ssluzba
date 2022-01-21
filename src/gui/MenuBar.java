@@ -31,26 +31,64 @@ import view.SubjectEditDialog;
 
 public class MenuBar extends JMenuBar {
 	
-	DepartmentDialog dd;
+	private DepartmentDialog dd;
+	private JMenu mFile;
+	private JMenu mEdit;
+	private JMenu mHelp;
+	private JMenu mLang;
+	private JMenu miOpen;
+	private JMenuItem miNew;
+	private JMenuItem miSave;
+	private JMenuItem miClose;
+	private JMenuItem miEdit;
+	private JMenuItem miDelete;
+	private JMenuItem miHelp;
+	private JMenuItem miAbout;
+	private JMenuItem miStudent;
+	private JMenuItem miProfessor;
+	private JMenuItem miSubject;
+	private JMenuItem miDepartment;
 	
 	public MenuBar(JFrame parent) {
 		
-		JMenu mFile = new JMenu("File");
-		JMenu mEdit = new JMenu("Edit");
-		JMenu mHelp = new JMenu("Help");
-		JMenu mLang = new JMenu("Language");
+		mFile = new JMenu(ResourceBundleController.getInstance().getResourceBundle().getString("mFile"));
+		mEdit = new JMenu(ResourceBundleController.getInstance().getResourceBundle().getString("mEdit"));
+		mHelp = new JMenu(ResourceBundleController.getInstance().getResourceBundle().getString("mHelp"));
+		mLang = new JMenu(ResourceBundleController.getInstance().getResourceBundle().getString("mLang"));
 		
 		ButtonGroup btnGroup = new ButtonGroup();
 		JCheckBox mSrb = new JCheckBox("Serbian");
 		JCheckBox mEng = new JCheckBox("English");
+		
+		mSrb.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ResourceBundleController.getInstance().changeLanguage("sr", "RS");
+				
+				
+			}
+			
+		});
+		
+		mEng.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ResourceBundleController.getInstance().changeLanguage("en", "US");
+				
+				
+			}
+			
+		});
 		btnGroup.add(mSrb);
 		btnGroup.add(mEng);
 		mLang.add(mSrb);
 		mLang.add(mEng);
 		
-		JMenu miOpen = new JMenu ("Open");
+		miOpen = new JMenu ("Open");
 		
-		JMenuItem miNew = new JMenuItem("New");
+		miNew = new JMenuItem("New");
 		miNew.addActionListener(new ActionListener() {
 
 			@Override
@@ -72,12 +110,12 @@ public class MenuBar extends JMenuBar {
 			
 		}});
 		
-		JMenuItem miSave = new JMenuItem ("Save");
-		JMenuItem miClose = new JMenuItem("Close");
+		miSave = new JMenuItem ("Save");
+		miClose = new JMenuItem("Close");
 		//https://zetcode.com/javaswing/menusandtoolbars/
 		miClose.addActionListener((event) -> System.exit(0));
 
-		JMenuItem miEdit = new JMenuItem("Edit");
+		miEdit = new JMenuItem("Edit");
 		miEdit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -110,7 +148,7 @@ public class MenuBar extends JMenuBar {
 			}
 		}});
 		
-		JMenuItem miDelete = new JMenuItem("Delete");
+		miDelete = new JMenuItem("Delete");
 		miDelete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -128,13 +166,13 @@ public class MenuBar extends JMenuBar {
 			}
 		});
 		
-		JMenuItem miHelp = new JMenuItem("Help");
-		JMenuItem miAbout = new JMenuItem("About");
+		miHelp = new JMenuItem("Help");
+		miAbout = new JMenuItem("About");
 		
-		JMenuItem miStudent = new JMenuItem("Student");
-		JMenuItem miProfessor = new JMenuItem("Professor");
-		JMenuItem miSubject = new JMenuItem("Subject");
-		JMenuItem miDepartment = new JMenuItem("Department");
+		miStudent = new JMenuItem("Student");
+		miProfessor = new JMenuItem("Professor");
+		miSubject = new JMenuItem("Subject");
+		miDepartment = new JMenuItem("Department");
 		
 		miDepartment.addActionListener(new ActionListener() {
 
@@ -254,6 +292,74 @@ public class MenuBar extends JMenuBar {
 		LineBorder lb = new LineBorder(Color.LIGHT_GRAY);
 		setBorder(lb);
 		
+	}
+
+	public DepartmentDialog getDd() {
+		return dd;
+	}
+
+	public JMenu getMiOpen() {
+		return miOpen;
+	}
+
+	public JMenuItem getMiNew() {
+		return miNew;
+	}
+
+	public JMenuItem getMiSave() {
+		return miSave;
+	}
+
+	public JMenuItem getMiClose() {
+		return miClose;
+	}
+
+	public JMenuItem getMiEdit() {
+		return miEdit;
+	}
+
+	public JMenuItem getMiDelete() {
+		return miDelete;
+	}
+
+	public JMenuItem getMiHelp() {
+		return miHelp;
+	}
+
+	public JMenuItem getMiAbout() {
+		return miAbout;
+	}
+
+	public JMenuItem getMiStudent() {
+		return miStudent;
+	}
+
+	public JMenuItem getMiProfessor() {
+		return miProfessor;
+	}
+
+	public JMenuItem getMiSubject() {
+		return miSubject;
+	}
+
+	public JMenuItem getMiDepartment() {
+		return miDepartment;
+	}
+
+	public JMenu getmFile() {
+		return mFile;
+	}
+
+	public JMenu getmEdit() {
+		return mEdit;
+	}
+
+	public JMenu getmHelp() {
+		return mHelp;
+	}
+
+	public JMenu getmLang() {
+		return mLang;
 	}
 	
 }

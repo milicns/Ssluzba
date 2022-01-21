@@ -12,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import controller.ResourceBundleController;
 import listeners.WindowList;
 import tables.AbstractTableProfessor;
 import tables.AbstractTableSubject;
@@ -25,6 +26,7 @@ public class MainFrame extends JFrame {
 	private JTable subjectsTable;
 	private TabbedPane tabs;
 	private StatusBar sb;
+	private MenuBar menu;
 	
 	private static MainFrame instance = null;
 	
@@ -42,12 +44,12 @@ public class MainFrame extends JFrame {
 	    int screenHeight = screenSize.height;
 	    int screenWidth = screenSize.width;
 	    setSize(3*screenWidth / 4, 3*screenHeight/ 4);
-	    setTitle("Studentska služba");
+	    setTitle(ResourceBundleController.getInstance().getResourceBundle().getString("title"));
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setLocationRelativeTo(null);
 	    
 	     
-        MenuBar menu = new MenuBar(this);
+        menu = new MenuBar(this);
 		this.setJMenuBar(menu);
 		
 		ToolBar toolbar = new ToolBar(this);
@@ -61,9 +63,9 @@ public class MainFrame extends JFrame {
 		JScrollPane sbp = new JScrollPane(subjectsTable);
 		
 		tabs = new TabbedPane();
-		tabs.addTab("Studenti", stp);
-		tabs.addTab("Profesori", pp);
-		tabs.addTab("Predmeti", sbp);
+		tabs.addTab(ResourceBundleController.getInstance().getResourceBundle().getString("studentsTable"), stp);
+		tabs.addTab(ResourceBundleController.getInstance().getResourceBundle().getString("professorsTable"), pp);
+		tabs.addTab(ResourceBundleController.getInstance().getResourceBundle().getString("subjectsTable"), sbp);
 		this.add(tabs, BorderLayout.CENTER);
 		
 		this.add(getSb(), BorderLayout.SOUTH);
@@ -72,16 +74,43 @@ public class MainFrame extends JFrame {
 			@Override
 			public void stateChanged(ChangeEvent e) {
 				if(tabs.getSelectedIndex()==0) {
-					refreshSb("Studenti");
+					refreshSb(ResourceBundleController.getInstance().getResourceBundle().getString("studentsTable"));
 				} else if(tabs.getSelectedIndex()==1) {
-					refreshSb("Profesori");
+					refreshSb(ResourceBundleController.getInstance().getResourceBundle().getString("professorsTable"));
 				}else if(tabs.getSelectedIndex()==2) {
-					refreshSb("Predmeti");
+					refreshSb(ResourceBundleController.getInstance().getResourceBundle().getString("subjectsTable"));
 				}
 			}
 		});
 		addWindowListener(new WindowList());
 		
+	}
+	
+	public void changeLanguage() {
+		menu.getmFile().setText(ResourceBundleController.getInstance().getResourceBundle().getString("mFile"));
+		menu.getmEdit().setText(ResourceBundleController.getInstance().getResourceBundle().getString("mEdit"));
+		menu.getmHelp().setText(ResourceBundleController.getInstance().getResourceBundle().getString("mHelp"));
+		menu.getMiAbout().setText(ResourceBundleController.getInstance().getResourceBundle().getString("miAbout"));
+		menu.getMiHelp().setText(ResourceBundleController.getInstance().getResourceBundle().getString("miHelp"));
+		menu.getMiClose().setText(ResourceBundleController.getInstance().getResourceBundle().getString("miClose"));
+		menu.getMiSave().setText(ResourceBundleController.getInstance().getResourceBundle().getString("miSave"));
+		menu.getMiDelete().setText(ResourceBundleController.getInstance().getResourceBundle().getString("miDelete"));
+		menu.getMiEdit().setText(ResourceBundleController.getInstance().getResourceBundle().getString("miEdit"));
+		menu.getMiStudent().setText(ResourceBundleController.getInstance().getResourceBundle().getString("miStudent"));
+		menu.getMiProfessor().setText(ResourceBundleController.getInstance().getResourceBundle().getString("miProfessor"));
+		menu.getMiSubject().setText(ResourceBundleController.getInstance().getResourceBundle().getString("miSubject"));
+		menu.getMiDepartment().setText(ResourceBundleController.getInstance().getResourceBundle().getString("miDepartment"));
+		menu.getmLang().setText(ResourceBundleController.getInstance().getResourceBundle().getString("mLang"));
+		tabs.setTitleAt(0, ResourceBundleController.getInstance().getResourceBundle().getString("studentsTable"));
+		tabs.setTitleAt(1, ResourceBundleController.getInstance().getResourceBundle().getString("professorsTable"));
+		tabs.setTitleAt(2, ResourceBundleController.getInstance().getResourceBundle().getString("subjectsTable"));
+		sb.changeLanguage();
+		studentsTable.getColumnModel().getColumn(0).setHeaderValue(ResourceBundleController.getInstance().getResourceBundle().getString("index"));
+		studentsTable.getColumnModel().getColumn(1).setHeaderValue(ResourceBundleController.getInstance().getResourceBundle().getString("name"));
+		studentsTable.getColumnModel().getColumn(2).setHeaderValue(ResourceBundleController.getInstance().getResourceBundle().getString("surname"));
+		studentsTable.getColumnModel().getColumn(3).setHeaderValue(ResourceBundleController.getInstance().getResourceBundle().getString("year"));
+		studentsTable.getColumnModel().getColumn(4).setHeaderValue(ResourceBundleController.getInstance().getResourceBundle().getString("status"));
+		studentsTable.getColumnModel().getColumn(5).setHeaderValue(ResourceBundleController.getInstance().getResourceBundle().getString("avg"));
 	}
 		
 	public void refreshTables(String a, int v) throws ParseException {
@@ -98,11 +127,11 @@ public class MainFrame extends JFrame {
 	
 	public StatusBar getSb() {
 		if(tabs.getSelectedIndex()==0) {
-			sb = new StatusBar("Studenti");
+			sb = new StatusBar(ResourceBundleController.getInstance().getResourceBundle().getString("studentsTable"));
 		} else if (tabs.getSelectedIndex()==1) {
-			sb = new StatusBar("Profesori");
+			sb = new StatusBar(ResourceBundleController.getInstance().getResourceBundle().getString("professorsTable"));
 		} else if (tabs.getSelectedIndex()==2) {
-			sb = new StatusBar("Predmeti");
+			sb = new StatusBar(ResourceBundleController.getInstance().getResourceBundle().getString("subjectsTable"));
 		}
 			return sb;
 	}
@@ -110,6 +139,13 @@ public class MainFrame extends JFrame {
 	
 	public void refreshStudents() {
 		AbstractTableModelStudents model = (AbstractTableModelStudents) studentsTable.getModel();
+		
+		model.fireTableDataChanged();
+		validate();
+	}
+	
+	public void refreshProfessors() {
+		AbstractTableProfessor model = (AbstractTableProfessor) professorsTable.getModel();
 		
 		model.fireTableDataChanged();
 		validate();
@@ -128,6 +164,7 @@ public class MainFrame extends JFrame {
 		validate();
 		
 	}
+	
 	
 	
 	public TabbedPane getTabs() {

@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.UIManager;
 
+import gui.MainFrame;
+
 public class ResourceBundleController {
 
 	private static ResourceBundleController instance = null;
@@ -19,7 +21,7 @@ public class ResourceBundleController {
 	private ResourceBundle resourceBundle;
 	
 	private ResourceBundleController() {
-		Locale.setDefault(new Locale("sr","RS"));
+		
 		resourceBundle = ResourceBundle.getBundle("gui.MessageResources.MessageResources", Locale.getDefault());
 	}
 
@@ -31,6 +33,7 @@ public class ResourceBundleController {
 		
 		Locale.setDefault(new Locale(lang,country));
 		resourceBundle = ResourceBundle.getBundle("gui.MessageResources.MessageResources", Locale.getDefault());
+		MainFrame.getInstance().changeLanguage();
 		
 	}
 	

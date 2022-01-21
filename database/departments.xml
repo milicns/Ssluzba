@@ -1,0 +1,351 @@
+<list>
+  <department>
+    <departmentCode>e42</departmentCode>
+    <departmentName>Katedra za matematiku</departmentName>
+    <departmentManager>
+      <surname>Mirkovic</surname>
+      <name>Nikola</name>
+      <birthDate>1977-12-31 23:00:00.0 UTC</birthDate>
+      <adress>
+        <street>Nikole Tesle</street>
+        <nr>56</nr>
+        <city>Novi Sad</city>
+        <state>Srbija</state>
+      </adress>
+      <phoneNr>021/368-456</phoneNr>
+      <email>nikola.mirkovic@mailinator.com</email>
+      <officeAdress>
+        <street>Nikole Pasica</street>
+        <nr>6a</nr>
+        <city>Novi Sad</city>
+        <state>Srbija</state>
+      </officeAdress>
+      <idNumber>321321321</idNumber>
+      <title>REDOVNI_PROFESOR</title>
+      <internshipYears>22</internshipYears>
+      <professorSubjects/>
+    </departmentManager>
+    <departmentProfessors>
+      <model.Professor>
+        <surname>Nikolic</surname>
+        <name>Milos</name>
+        <birthDate>1965-12-11 23:00:00.0 UTC</birthDate>
+        <adress>
+          <street>Safarikova</street>
+          <nr>2</nr>
+          <city>Novi Sad</city>
+          <state>Srbija</state>
+        </adress>
+        <phoneNr>021/356-785</phoneNr>
+        <email>milos.nikolic@mailinator.com</email>
+        <officeAdress reference="../../../departmentManager/officeAdress"/>
+        <idNumber>123123123</idNumber>
+        <title>REDOVNI_PROFESOR</title>
+        <internshipYears>30</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+      <model.Professor reference="../../departmentManager"/>
+      <model.Professor>
+        <surname>Obradovic</surname>
+        <name>Branimir</name>
+        <birthDate>1979-01-06 23:00:00.0 UTC</birthDate>
+        <adress reference="../../model.Professor/adress"/>
+        <phoneNr>021/922-333</phoneNr>
+        <email>branimir.obradovic@mailinator.com</email>
+        <officeAdress reference="../../../departmentManager/officeAdress"/>
+        <idNumber>600600644</idNumber>
+        <title>DOCENT</title>
+        <internshipYears>17</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+    </departmentProfessors>
+  </department>
+  <department>
+    <departmentCode>e43</departmentCode>
+    <departmentName>Katedra za fiziku</departmentName>
+    <departmentManager>
+      <surname>Petkovic</surname>
+      <name>Ilija</name>
+      <birthDate>1988-09-02 22:00:00.0 UTC</birthDate>
+      <adress>
+        <street>Bulevar Patrijarha Pavla</street>
+        <nr>3</nr>
+        <city>Beograd</city>
+        <state>Srbija</state>
+      </adress>
+      <phoneNr>021/215-314</phoneNr>
+      <email>ilija.petkovic@mailinator.com</email>
+      <officeAdress reference="../../../department/departmentManager/officeAdress"/>
+      <idNumber>456456456</idNumber>
+      <title>VANREDNI_PROFESOR</title>
+      <internshipYears>22</internshipYears>
+      <professorSubjects/>
+    </departmentManager>
+    <departmentProfessors>
+      <model.Professor reference="../../departmentManager"/>
+      <model.Professor>
+        <surname>Markovic</surname>
+        <name>Marko</name>
+        <birthDate>1985-01-30 23:00:00.0 UTC</birthDate>
+        <adress>
+          <street>Mariceva</street>
+          <nr>11</nr>
+          <city>Kragujevac</city>
+          <state>Srbija</state>
+        </adress>
+        <phoneNr>021/899-659</phoneNr>
+        <email>marko.markovic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>334968855</idNumber>
+        <title>REDOVNI_PROFESOR</title>
+        <internshipYears>17</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+      <model.Professor>
+        <surname>Milic</surname>
+        <name>Stanka</name>
+        <birthDate>1991-03-02 23:00:00.0 UTC</birthDate>
+        <adress reference="../../../departmentManager/adress"/>
+        <phoneNr>021/746-659</phoneNr>
+        <email>stanka.milic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>225533448</idNumber>
+        <title>DOCENT</title>
+        <internshipYears>7</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+    </departmentProfessors>
+  </department>
+  <department>
+    <departmentCode>e44</departmentCode>
+    <departmentName>Katedra za elektrotehniku</departmentName>
+    <departmentManager>
+      <surname>Petrovic</surname>
+      <name>Mitar</name>
+      <birthDate>1976-07-24 23:00:00.0 UTC</birthDate>
+      <adress>
+        <street>Strazilovska</street>
+        <nr>6a</nr>
+        <city>Novi Sad</city>
+        <state>Srbija</state>
+      </adress>
+      <phoneNr>021/884-640</phoneNr>
+      <email>mitar.petrovic@mailinator.com</email>
+      <officeAdress reference="../../../department/departmentManager/officeAdress"/>
+      <idNumber>789789789</idNumber>
+      <title>VANREDNI_PROFESOR</title>
+      <internshipYears>27</internshipYears>
+      <professorSubjects/>
+    </departmentManager>
+    <departmentProfessors>
+      <model.Professor reference="../../departmentManager"/>
+      <model.Professor>
+        <surname>Milakovic</surname>
+        <name>Milos</name>
+        <birthDate>1975-09-20 23:00:00.0 UTC</birthDate>
+        <adress>
+          <street>Strazilovksa</street>
+          <nr>3</nr>
+          <city>Beograd</city>
+          <state>Srbija</state>
+        </adress>
+        <phoneNr>021/122-326</phoneNr>
+        <email>milos.milakovic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>730703654</idNumber>
+        <title>VANREDNI_PROFESOR</title>
+        <internshipYears>12</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+      <model.Professor>
+        <surname>Vukovic</surname>
+        <name>Milica</name>
+        <birthDate>1967-10-17 23:00:00.0 UTC</birthDate>
+        <adress reference="../../../../department[2]/departmentProfessors/model.Professor[2]/adress"/>
+        <phoneNr>021/489-326</phoneNr>
+        <email>milica.vukovic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>111555888</idNumber>
+        <title>VANREDNI_PROFESOR</title>
+        <internshipYears>14</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+    </departmentProfessors>
+  </department>
+  <department>
+    <departmentCode>e45</departmentCode>
+    <departmentName>Katedra za primenjene računarske nauke</departmentName>
+    <departmentManager>
+      <surname>Mihajlovic</surname>
+      <name>Branislav</name>
+      <birthDate>1980-06-27 22:00:00.0 UTC</birthDate>
+      <adress>
+        <street>Tolstojeva</street>
+        <nr>31</nr>
+        <city>Novi Sad</city>
+        <state>Srbija</state>
+      </adress>
+      <phoneNr>021/778-323</phoneNr>
+      <email>branislav.mihajlovic@mailinator.com</email>
+      <officeAdress reference="../../../department/departmentManager/officeAdress"/>
+      <idNumber>559585632</idNumber>
+      <title>REDOVNI_PROFESOR</title>
+      <internshipYears>13</internshipYears>
+      <professorSubjects/>
+    </departmentManager>
+    <departmentProfessors>
+      <model.Professor reference="../../departmentManager"/>
+      <model.Professor>
+        <surname>Bratic</surname>
+        <name>Lazar</name>
+        <birthDate>1973-11-12 23:00:00.0 UTC</birthDate>
+        <adress reference="../../../../department/departmentManager/officeAdress"/>
+        <phoneNr>021/888-156</phoneNr>
+        <email>lazar.bratic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>600378644</idNumber>
+        <title>VANREDNI_PROFESOR</title>
+        <internshipYears>3</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+      <model.Professor>
+        <surname>Misic</surname>
+        <name>Misa</name>
+        <birthDate>1969-10-19 23:00:00.0 UTC</birthDate>
+        <adress reference="../../../../department/departmentProfessors/model.Professor/adress"/>
+        <phoneNr>021/487-265</phoneNr>
+        <email>misa.misic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>300300344</idNumber>
+        <title>DOCENT</title>
+        <internshipYears>19</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+    </departmentProfessors>
+  </department>
+  <department>
+    <departmentCode>e46</departmentCode>
+    <departmentName>Katedra za informatiku</departmentName>
+    <departmentManager>
+      <surname>Rekavic</surname>
+      <name>Bogdan</name>
+      <birthDate>1977-06-22 23:00:00.0 UTC</birthDate>
+      <adress>
+        <street>Bulevar Kralja Petra</street>
+        <nr>22</nr>
+        <city>Nis</city>
+        <state>Srbija</state>
+      </adress>
+      <phoneNr>021/945-155</phoneNr>
+      <email>bogdan.rekavic@mailinator.com</email>
+      <officeAdress reference="../../../department/departmentManager/officeAdress"/>
+      <idNumber>721254363</idNumber>
+      <title>VANREDNI_PROFESOR</title>
+      <internshipYears>18</internshipYears>
+      <professorSubjects/>
+    </departmentManager>
+    <departmentProfessors>
+      <model.Professor>
+        <surname>Micic</surname>
+        <name>Vasa</name>
+        <birthDate>1970-02-13 23:00:00.0 UTC</birthDate>
+        <adress>
+          <street>Nikole Pasica</street>
+          <nr>2d</nr>
+          <city>Kikinda</city>
+          <state>Srbija</state>
+        </adress>
+        <phoneNr>021/212-114</phoneNr>
+        <email>vasa.micic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>100100144</idNumber>
+        <title>DOCENT</title>
+        <internshipYears>24</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+      <model.Professor>
+        <surname>Drazic</surname>
+        <name>Ljeposava</name>
+        <birthDate>1964-08-10 23:00:00.0 UTC</birthDate>
+        <adress>
+          <street>Bulevar Kralja Petra</street>
+          <nr>2d</nr>
+          <city>Nis</city>
+          <state>Srbija</state>
+        </adress>
+        <phoneNr>021/456-125</phoneNr>
+        <email>ljeposava.drazic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>158496152</idNumber>
+        <title>DOCENT</title>
+        <internshipYears>31</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+      <model.Professor reference="../../departmentManager"/>
+      <model.Professor>
+        <surname>Maricic</surname>
+        <name>Branko</name>
+        <birthDate>1973-01-17 23:00:00.0 UTC</birthDate>
+        <adress reference="../../../../department/departmentManager/adress"/>
+        <phoneNr>021/159-478</phoneNr>
+        <email>branko.maricic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>400400444</idNumber>
+        <title>DOCENT</title>
+        <internshipYears>22</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+    </departmentProfessors>
+  </department>
+  <department>
+    <departmentCode>e47</departmentCode>
+    <departmentName>Katedra za automatiku</departmentName>
+    <departmentManager>
+      <surname>Lukovic</surname>
+      <name>Branislav</name>
+      <birthDate>1982-04-07 22:00:00.0 UTC</birthDate>
+      <adress reference="../../../department[2]/departmentManager/adress"/>
+      <phoneNr>021/156-326</phoneNr>
+      <email>branislav.lukovic@mailinator.com</email>
+      <officeAdress reference="../../../department/departmentManager/officeAdress"/>
+      <idNumber>500500544</idNumber>
+      <title>REDOVNI_PROFESOR</title>
+      <internshipYears>9</internshipYears>
+      <professorSubjects/>
+    </departmentManager>
+    <departmentProfessors>
+      <model.Professor>
+        <surname>Miletic</surname>
+        <name>Srdjan</name>
+        <birthDate>1966-04-19 23:00:00.0 UTC</birthDate>
+        <adress reference="../../../../department[5]/departmentManager/adress"/>
+        <phoneNr>021/978-224</phoneNr>
+        <email>srdjan.miletic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>200020244</idNumber>
+        <title>DOCENT</title>
+        <internshipYears>31</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+      <model.Professor>
+        <surname>Dragic</surname>
+        <name>Miroljub</name>
+        <birthDate>1959-03-01 23:00:00.0 UTC</birthDate>
+        <adress>
+          <street>Knez Mihajlova</street>
+          <nr>22</nr>
+          <city>Beograd</city>
+          <state>Srbija</state>
+        </adress>
+        <phoneNr>021/886-455</phoneNr>
+        <email>miroljub.dragic@mailinator.com</email>
+        <officeAdress reference="../../../../department/departmentManager/officeAdress"/>
+        <idNumber>777348595</idNumber>
+        <title>DOCENT</title>
+        <internshipYears>42</internshipYears>
+        <professorSubjects/>
+      </model.Professor>
+      <model.Professor reference="../../departmentManager"/>
+    </departmentProfessors>
+  </department>
+</list>

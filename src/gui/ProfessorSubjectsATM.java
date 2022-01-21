@@ -6,21 +6,16 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 import model.Professor;
+import model.ProfessorSubjectsDatabase;
 import model.Subject;
 
 public class ProfessorSubjectsATM extends AbstractTableModel {
 
-	List<Subject> subjects;
-	List<String> columns;
+	ProfessorSubjectsDatabase subData;
 	
 	public ProfessorSubjectsATM(Professor p) {
 		
-		subjects = p.getProfessorSubjects();
-		columns = new ArrayList<String>();
-		this.columns.add("Šifra");
-		this.columns.add("Naziv");
-		this.columns.add("Godina studija");
-		this.columns.add("Semestar");
+		subData = new ProfessorSubjectsDatabase(p);
 		
 		
 	}
@@ -28,7 +23,7 @@ public class ProfessorSubjectsATM extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
-		return subjects.size();
+		return subData.getSubjects().size();
 	}
 
 	@Override
@@ -40,23 +35,12 @@ public class ProfessorSubjectsATM extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		
-		Subject subject = this.subjects.get(rowIndex);
-		switch (columnIndex) {
-		case 0:
-			return subject.getSubjectCode();
-		case 1:
-			return subject.getSubjectName();
-		case 2:
-			return subject.getStudyYear();
-		case 3:
-			return String.valueOf(subject.getSemester());
-		default:
-			return null;
-		}
+		return subData.getValueAt(rowIndex, columnIndex);
+		
 	}
 
 	@Override
 	public String getColumnName(int column) {
-		return columns.get(column);
+		return subData.getColumnName(column);
 	}
 }
