@@ -247,7 +247,7 @@ public class ProfessorDatabase {
 
 			XStream xs = new XStream();
 			xs.addPermission(AnyTypePermission.ANY);
-			xs.alias("professor", Student.class);
+			xs.alias("professor", Professor.class);
 			xs.toXML(professors, os); 
 		} finally {
 			os.close();
@@ -259,8 +259,8 @@ public class ProfessorDatabase {
 		File f = new File("database/professors.xml");
 		
 			XStream xs = new XStream();
-			xs.allowTypes(new Class[] {Professor.class});
-			xs.alias("professor", Student.class);
+			xs.allowTypes(new Class[] {Professor.class,Subject.class});
+			xs.alias("professor", Professor.class);
 			this.professors = (List<Professor>) xs.fromXML(f);
 	
 	}
